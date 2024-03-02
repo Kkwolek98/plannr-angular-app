@@ -1,9 +1,9 @@
 <app-layout-card class="flex items-center justify-center h-screen">
   <h1 class="text-2xl font-bold">Login</h1>
-  <form [formGroup]="form">
+  <form [formGroup]="form" class="flex flex-col">
     <app-input label="Email" formControlName="email" type="email" class="mb-2"></app-input>
-    <app-input label="Password" formControlName="password" type="password"></app-input>
+    <app-input label="Password" formControlName="password" type="password" class="mb-4"></app-input>
+    <app-button class="self-end">Login</app-button>
   </form>
 </app-layout-card>
-
 <input />
