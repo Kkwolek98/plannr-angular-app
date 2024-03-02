@@ -1,0 +1,25 @@
+<div
+  class="form-group flex"
+  [ngClass]="{
+    'flex-row align-middle': labelPosition() === 'left',
+    'flex-col': labelPosition() === 'top'
+  }">
+  @if (label()) {
+    <label
+      [htmlFor]="inputId"
+      [ngClass]="{
+        'me-2 flex items-center': labelPosition() === 'left',
+        'mb-1': labelPosition() === 'top'
+      }"
+      >{{ label() }}</label
+    >
+  }
+
+  <input
+    [id]="inputId"
+    [(ngModel)]="value"
+    [name]="name()"
+    [type]="type()"
+    [inputMode]="inputMode()"
+    class="border border-slate-500 outline-emerald-700 rounded-sm p-1" />
+</div>
