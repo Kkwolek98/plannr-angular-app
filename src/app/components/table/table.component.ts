@@ -1,5 +1,13 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, ContentChildren, QueryList, input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChildren,
+  EventEmitter,
+  Output,
+  QueryList,
+  input,
+} from "@angular/core";
 import { TableColumnDirective } from "./directives/table-column.directive";
 
 @Component({
@@ -12,6 +20,7 @@ import { TableColumnDirective } from "./directives/table-column.directive";
 })
 export class TableComponent<T extends []> {
   data = input.required<T>();
+  @Output() rowClick = new EventEmitter<{ event: MouseEvent; row: T }>();
 
   @ContentChildren(TableColumnDirective) columns: QueryList<TableColumnDirective> =
     new QueryList<TableColumnDirective>();

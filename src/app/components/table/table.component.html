@@ -11,6 +11,7 @@
   <tbody class="divide-y divide-slate-200">
     @for (row of data(); track $index) {
       <tr
+        (click)="rowClick.emit({ event: $event, row })"
         class="flex py-0.5"
         [ngClass]="{
           'bg-slate-100': $index % 2

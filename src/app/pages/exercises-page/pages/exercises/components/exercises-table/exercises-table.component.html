@@ -1,4 +1,4 @@
-<app-table [data]="data()">
+<app-table [data]="data()" (rowClick)="rowClicked($event.row)">
   <ng-template appTableColumn headerDef="Name" let-row>
     {{ row.name }}
   </ng-template>
