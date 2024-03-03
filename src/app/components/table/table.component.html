@@ -1,16 +1,18 @@
-<table>
+<table class="w-full">
   <thead>
-    @for (column of columns; track $index) {
-      <th>
-        {{ column.columnDef() }}
-      </th>
-    }
+    <tr class="flex bg-slate-200">
+      @for (column of columns; track $index) {
+        <th class="text-left border-b flex-1">
+          {{ column.headerDef() }}
+        </th>
+      }
+    </tr>
   </thead>
   <tbody>
     @for (row of data(); track $index) {
-      <tr>
+      <tr class="flex mb-1">
         @for (column of columns; track $index) {
-          <td>
+          <td class="flex-1">
             <ng-container *ngTemplateOutlet="column.templateRef; context: { $implicit: row }"></ng-container>
           </td>
         }

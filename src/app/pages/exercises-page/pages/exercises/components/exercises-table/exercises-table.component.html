@@ -1,0 +1,19 @@
+<app-table [data]="data()">
+  <ng-template appTableColumn headerDef="Name" let-row>
+    {{ row.name }}
+  </ng-template>
+
+  <ng-template appTableColumn headerDef="Description" let-row>
+    {{ row.description }}
+  </ng-template>
+
+  <ng-template appTableColumn headerDef="Tags" let-row>
+    @for (tag of row.tags; track $index) {
+      <span class="px-2 py-1.5 bg-slate-300 rounded-lg">{{ tag }}</span>
+    }
+  </ng-template>
+
+  <ng-template appTableColumn headerDef="Videos" let-row>
+    {{ row.videos?.length }}
+  </ng-template>
+</app-table>

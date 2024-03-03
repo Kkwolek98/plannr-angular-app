@@ -6,6 +6,5 @@ import { Directive, TemplateRef, inject, input } from "@angular/core";
 })
 export class TableColumnDirective {
   public templateRef = inject(TemplateRef);
-  public columnDef = input.required<string>();
   public headerDef = input.required<string>();
 }
