@@ -1,0 +1,11 @@
+<header class="w-screen h-16 px-6 bg-slate-300 shadow-md flex items-center">
+  <div class="flex gap-4">
+    @for (link of links; track $index) {
+      @if (link.children) {
+        <app-top-nav-dropdown-menu></app-top-nav-dropdown-menu>
+      } @else {
+        <app-top-nav-link [link]="link"></app-top-nav-link>
+      }
+    }
+  </div>
+</header>
