@@ -8,11 +8,15 @@
       }
     </tr>
   </thead>
-  <tbody>
+  <tbody class="divide-y divide-slate-200">
     @for (row of data(); track $index) {
-      <tr class="flex mb-1">
+      <tr
+        class="flex py-0.5"
+        [ngClass]="{
+          'bg-slate-100': $index % 2
+        }">
         @for (column of columns; track $index) {
-          <td class="flex-1">
+          <td [class]="'flex-1 ' + 'table-col' + column.headerDef()">
             <ng-container *ngTemplateOutlet="column.templateRef; context: { $implicit: row }"></ng-container>
           </td>
         }
