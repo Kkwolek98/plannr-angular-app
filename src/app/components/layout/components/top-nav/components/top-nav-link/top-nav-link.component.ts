@@ -1,6 +1,6 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { RouterLink } from "@angular/router";
+import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { Link } from "../../../../../../types/layout/link";
 
 @Component({
@@ -13,4 +13,11 @@ import { Link } from "../../../../../../types/layout/link";
 })
 export class TopNavLinkComponent {
   public link = input.required<Omit<Link, "children">>();
+
+  readonly router = inject(Router);
+  readonly route = inject(ActivatedRoute);
+
+  isActive(): boolean {
+    return this.link().url === this.router.url;
+  }
 }

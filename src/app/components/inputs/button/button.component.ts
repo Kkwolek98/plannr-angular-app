@@ -13,4 +13,5 @@ export class ButtonComponent {
   public color = input<"primary" | "secondary" | "clean">("primary");
   public variant = input<"filled" | "outlined">("filled");
   public type = input<"submit" | "button">("button");
+  public shape = input<"regular" | "circle">("regular");
 }

@@ -2,7 +2,9 @@
   [type]="type()"
   class="py-2 px-3 rounded-md transition ease-in duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
   [ngClass]="{
+    'rounded-full aspect-square px-4': shape() === 'circle',
     'text-white': variant() === 'filled',
+    'text-black': color() === 'clean',
     'outline outline-1 hover:outline-2': variant() === 'outlined' && color() !== 'clean',
     'bg-slate-500 hover:bg-slate-400': variant() === 'filled' && color() === 'secondary',
     'bg-emerald-600 hover:bg-emerald-500': variant() === 'filled' && color() === 'primary',

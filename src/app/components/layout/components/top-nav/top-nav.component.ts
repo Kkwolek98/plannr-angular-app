@@ -15,11 +15,11 @@ import { TopNavLinkComponent } from "./components/top-nav-link/top-nav-link.comp
 export class TopNavComponent {
   readonly links: Link[] = [
     {
-      url: "exercises",
+      url: "/exercises",
       display: "Exercises",
     },
     {
-      url: "workouts",
+      url: "/workouts",
       display: "Workouts",
     },
   ] as const;
