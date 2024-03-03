@@ -18,6 +18,7 @@
   <input
     [id]="inputId"
     [(ngModel)]="value"
+    (ngModelChange)="onModelChange()"
     [name]="name()"
     [type]="type()"
     [inputMode]="inputMode()"

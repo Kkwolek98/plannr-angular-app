@@ -27,7 +27,7 @@ export class InputComponent implements ControlValueAccessor {
   public inputMode = input<InputMode>;
 
   protected inputId: string = shortId("input");
-  protected onChange!: (value: any) => void;
+  protected onChange!: (value: string | number) => void;
   protected onTouched!: () => void;
   protected isDisabled: boolean = false;
   protected value: string | number = "";
@@ -46,6 +46,10 @@ export class InputComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  onModelChange() {
+    this.onChange(this.value);
   }
 }
 
