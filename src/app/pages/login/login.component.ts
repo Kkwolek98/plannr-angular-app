@@ -23,18 +23,15 @@ export class LoginComponent {
     password: new FormControl("", { nonNullable: true, validators: [Validators.required] }),
   });
 
-  readonly authService = inject(AuthenticationService);
+  private readonly authService = inject(AuthenticationService);
 
   login() {
-    console.log(this.form.controls);
     if (this.form.invalid) {
       throw Error("Invalid login credentials");
     }
 
     this.authService.login$(this.form.value.email!, this.form.value.password!).subscribe({
-      next: (res) => {
-        console.log({ res });
-      },
+      next: () => {},
       error: (err) => {
         console.error({ err });
       },

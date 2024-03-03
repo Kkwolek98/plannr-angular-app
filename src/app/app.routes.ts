@@ -9,4 +9,8 @@ export const routes: Routes = [
     path: "register",
     loadComponent: () => import("./pages/register/register.component").then((c) => c.RegisterComponent),
   },
+  {
+    path: "exercises",
+    loadChildren: () => import("./pages/exercises-page/exercises.routes").then((c) => c.exerciseRoutes),
+  },
 ];
