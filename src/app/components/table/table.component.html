@@ -2,7 +2,7 @@
   <thead>
     <tr class="flex bg-slate-200">
       @for (column of columns; track $index) {
-        <th class="text-left border-b flex-1">
+        <th [class]="'text-left border-b flex-1' + 'table-header' + column.headerDef()">
           {{ column.headerDef() }}
         </th>
       }
@@ -12,9 +12,10 @@
     @for (row of data(); track $index) {
       <tr
         (click)="rowClick.emit({ event: $event, row })"
-        class="flex py-0.5"
+        class="flex py-0.5 hover:bg-slate-200"
         [ngClass]="{
-          'bg-slate-100': $index % 2
+          'bg-slate-100': $index % 2,
+          'cursor-pointer': rowClick.observed
         }">
         @for (column of columns; track $index) {
           <td [class]="'flex-1 ' + 'table-col' + column.headerDef()">
