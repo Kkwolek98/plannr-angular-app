@@ -1,6 +1,8 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
-import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Signal, inject, input } from "@angular/core";
+import { toSignal } from "@angular/core/rxjs-interop";
+import { ActivatedRoute, NavigationEnd, Router, RouterLink } from "@angular/router";
+import { filter, map, startWith } from "rxjs";
 import { Link } from "../../../../../../types/layout/link";
 
 @Component({
@@ -13,11 +15,15 @@ import { Link } from "../../../../../../types/layout/link";
 })
 export class TopNavLinkComponent {
   public link = input.required<Omit<Link, "children">>();
-
   readonly router = inject(Router);
   readonly route = inject(ActivatedRoute);
+  readonly cdref = inject(ChangeDetectorRef);
 
-  isActive(): boolean {
-    return this.link().url === this.router.url;
-  }
+  public currentLink: Signal<string | undefined> = toSignal(
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      map((e: NavigationEnd) => e.url || ""),
+      startWith(this.router.url)
+    )
+  );
 }

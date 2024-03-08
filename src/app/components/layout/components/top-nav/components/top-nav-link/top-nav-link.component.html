@@ -1,9 +1,9 @@
 <a
   [routerLink]="link().url"
-  class="inline-block px-4 py-2 text-white hover:no-underline bg-emerald-600 hover:bg-emerald-500 rounded-sm"
+  class="inline-block px-4 py-2 text-white hover:no-underline rounded-sm"
   [ngClass]="{
-    'bg-emerald-600 hover:bg-emerald-500': isActive(),
-    'bg-slate-500 hover:bg-slate-400': !isActive()
+    'bg-emerald-600 hover:bg-emerald-500': link().url === currentLink(),
+    'bg-slate-500 hover:bg-slate-400': link().url !== currentLink()
   }"
   >{{ link().display }}</a
 >
