@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { LayoutComponent } from "../../components/layout/layout.component";
+import { LayoutComponent } from "../layout/layout.component";
 
 @Component({
   selector: "app-logged-in-layout",

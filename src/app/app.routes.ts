@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { LoggedInLayoutComponent } from "./core/logged-in-layout/logged-in-layout.component";
+import { LoggedInLayoutComponent } from "./components/logged-in-layout/logged-in-layout.component";
 
 export const routes: Routes = [
   {
