@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from "@angular/core";
 
 @Component({
   selector: "app-modal",
@@ -18,7 +18,20 @@ export class ModalComponent<T> {
 
   public data?: T;
 
-  public open(): void {}
+  public open(): void {
+    this._isOpen = true;
+    this.openStateChange.emit(this._isOpen);
+  }
 
-  public close(): void {}
+  public close(): void {
+    this._isOpen = false;
+    this.openStateChange.emit(this._isOpen);
+  }
+
+  public toggle(): void {
+    this._isOpen = !this._isOpen;
+    this.openStateChange.emit(this._isOpen);
+  }
+
+  @Output() openStateChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 }
