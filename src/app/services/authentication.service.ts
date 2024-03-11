@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable, tap } from "rxjs";
+import { Observable, Subscription, tap } from "rxjs";
 import { envConfig } from "../app.config";
 import { LoginResponse } from "../types/auth/login";
 import { User } from "../types/user/user";
@@ -16,17 +16,15 @@ export class AuthenticationService {
   private readonly jwtService = inject(JwtService);
   private readonly router = inject(Router);
   private readonly inactivityService = inject(InactivityService);
+  private logoutSub$?: Subscription;
 
   public login$(email: string, password: string): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(envConfig.url + "/auth/login", { email, password }).pipe(
       tap((res) => {
         this.jwtService.initToken(res.token);
         this.router.navigate(["/exercises"]);
-        this.inactivityService.startListening(res.token).subscribe((val) => {
-          if (val) {
-            this.logout();
-          }
-        });
+        this.inactivityService.startListening(res.token);
+        this.waitForLogout();
       })
     );
   }
@@ -38,5 +36,17 @@ export class AuthenticationService {
   public logout(): void {
     this.router.navigate(["/login"]);
     this.jwtService.clearToken();
+  }
+
+  public waitForLogout(): void {
+    if (this.logoutSub$) {
+      this.logoutSub$.unsubscribe();
+    }
+    this.logoutSub$ = this.inactivityService.waitForLogout().subscribe((val) => {
+      if (val) {
+        this.logout();
+        this.logoutSub$?.unsubscribe();
+      }
+    });
   }
 }
