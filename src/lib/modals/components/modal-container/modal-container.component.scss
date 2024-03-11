@@ -34,3 +34,9 @@ dialog[open]::backdrop {
     background-color: rgba(225, 225, 225, 0.4);
   }
 }
+
+.no-backdrop {
+  &::backdrop {
+    display: none !important;
+  }
+}

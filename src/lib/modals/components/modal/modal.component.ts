@@ -1,30 +1,34 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from "@angular/core";
+import { Observable, Subject } from "rxjs";
 
 @Component({
   selector: "app-modal",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: "./modal.component.html",
-  styleUrl: "./modal.component.scss",
+  template: "",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ModalComponent<T> {
-  private _isOpen: boolean = false;
-
+export class ModalComponent<DataType = any, ReturnDataType = any> {
   public get isOpen(): boolean {
     return this._isOpen;
   }
 
-  public data?: T;
+  public data?: DataType;
+
+  private _isOpen: boolean = false;
+  private _closedSubject$: Subject<ReturnDataType> = new Subject();
+
+  public closed$: Observable<ReturnDataType> = this._closedSubject$.asObservable();
 
   public open(): void {
     this._isOpen = true;
     this.openStateChange.emit(this._isOpen);
   }
 
-  public close(): void {
+  public close(returnData: ReturnDataType): void {
     this._isOpen = false;
+    this._closedSubject$.next(returnData);
     this.openStateChange.emit(this._isOpen);
   }
 
