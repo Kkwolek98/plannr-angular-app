@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { LoggedInLayoutComponent } from "./components/logged-in-layout/logged-in-layout.component";
+import { loggedInGuard } from "./core/guards/logged-in.guard";
 
 export const routes: Routes = [
   {
@@ -13,6 +14,7 @@ export const routes: Routes = [
   {
     component: LoggedInLayoutComponent,
     path: "",
+    canActivateChild: [loggedInGuard],
     children: [
       {
         path: "exercises",
