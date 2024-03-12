@@ -14,4 +14,5 @@ export class ButtonComponent {
   public variant = input<"filled" | "outlined">("filled");
   public type = input<"submit" | "button">("button");
   public shape = input<"regular" | "circle">("regular");
+  public disabled = input(false);
 }
