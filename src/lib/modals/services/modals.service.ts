@@ -9,16 +9,15 @@ import { ModalCreationService } from "./modal-creation.service";
 export class ModalsService {
   private readonly modalCreationService = inject(ModalCreationService);
 
-  public newModal(modalType: typeof ModalComponent, modalConfig?: ModalConfig): ModalComponent {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public newModal<T extends ModalComponent<any, any>>(modalType: new () => T, modalConfig: ModalConfig): T {
     const modalContainer = this.modalCreationService.createModalContainer();
-    if (modalConfig) {
-      modalContainer.instance.setConfig(modalConfig);
-    }
+    modalContainer.instance.setConfig(modalConfig);
     const modal = modalContainer.instance.setModal(modalType);
     modal.instance.open();
 
     modal.changeDetectorRef.detectChanges();
 
-    return modal.instance as ModalComponent;
+    return modal.instance as T;
   }
 }
