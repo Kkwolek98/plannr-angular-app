@@ -5,5 +5,5 @@ import { Exercise } from "../../../types/exercises/exercises";
 
 export const exercisesResolver: ResolveFn<Exercise[]> = () => {
   const exercisesService = inject(ExercisesService);
-  return exercisesService.getAllExercises();
+  return exercisesService.getAllExercises$();
 };

@@ -3,7 +3,7 @@
   class="fixed inset-0 z-10 py-4 px-6 rounded-xl border border-slate-300 outline-none drop-shadow-lg"
   [class.no-backdrop]="!config.hasBackdrop">
   <div class="flex justify-between items-center">
-    <h1 class="text-2xl">{{ config.title }}</h1>
+    <h1 class="text-2xl mr-4">{{ config.title }}</h1>
     @if (config.hasCloseButton) {
       <button class="text-xl pointer" (click)="dialog.close()">
         <i class="fa-solid fa-xmark"></i>

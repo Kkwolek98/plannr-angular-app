@@ -9,7 +9,7 @@ import { Observable, Subject } from "rxjs";
   template: "",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ModalComponent<DataType = any, ReturnDataType = any> {
+export class ModalComponent<DataType = undefined, ReturnDataType = undefined> {
   public get isOpen(): boolean {
     return this._isOpen;
   }
@@ -17,7 +17,7 @@ export class ModalComponent<DataType = any, ReturnDataType = any> {
   public data?: DataType;
 
   private _isOpen: boolean = false;
-  private _closedSubject$: Subject<ReturnDataType> = new Subject();
+  protected _closedSubject$: Subject<ReturnDataType> = new Subject();
 
   public closed$: Observable<ReturnDataType> = this._closedSubject$.asObservable();
 
@@ -26,9 +26,11 @@ export class ModalComponent<DataType = any, ReturnDataType = any> {
     this.openStateChange.emit(this._isOpen);
   }
 
-  public close(returnData: ReturnDataType): void {
+  public close(returnData?: ReturnDataType): void {
     this._isOpen = false;
-    this._closedSubject$.next(returnData);
+    if (returnData) {
+      this._closedSubject$.next(returnData);
+    }
     this.openStateChange.emit(this._isOpen);
   }
 
