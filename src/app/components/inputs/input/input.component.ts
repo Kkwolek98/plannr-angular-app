@@ -24,6 +24,7 @@ export class InputComponent implements ControlValueAccessor {
   public placeholder = input<string>();
   public type = input<InputType>();
   public name = input<string>("");
+  public autocomplete = input<boolean>(false);
   public inputMode = input<InputMode>;
 
   protected inputId: string = shortId("input");
@@ -36,11 +37,11 @@ export class InputComponent implements ControlValueAccessor {
     this.value = value;
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: () => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: any): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 

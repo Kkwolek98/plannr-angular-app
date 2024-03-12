@@ -2,8 +2,20 @@
   <main class="w-64">
     <h1 class="text-2xl font-bold mb-6">Login</h1>
     <form [formGroup]="form" (ngSubmit)="login()" class="flex flex-col w-90">
-      <app-input label="Email" formControlName="email" type="email" class="mb-2"></app-input>
-      <app-input label="Password" formControlName="password" type="password" class="mb-6"></app-input>
+      <app-input
+        label="Email"
+        name="email"
+        [autocomplete]="true"
+        formControlName="email"
+        type="email"
+        class="mb-2"></app-input>
+      <app-input
+        label="Password"
+        name="password"
+        [autocomplete]="true"
+        formControlName="password"
+        type="password"
+        class="mb-6"></app-input>
       <app-button type="submit" class="self-end">Login</app-button>
     </form>
   </main>
