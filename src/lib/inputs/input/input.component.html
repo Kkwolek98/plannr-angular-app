@@ -15,13 +15,25 @@
     >
   }
 
-  <input
-    [id]="inputId"
-    [(ngModel)]="value"
-    (ngModelChange)="onModelChange()"
-    [name]="name()"
-    [type]="type()"
-    [inputMode]="inputMode()"
-    [autocomplete]="autocomplete() ? 'on' : 'off'"
-    class="border border-slate-500 outline-emerald-700 rounded-sm p-1" />
+  @if (type() !== "textarea") {
+    <input
+      [id]="inputId"
+      [(ngModel)]="value"
+      (ngModelChange)="onModelChange()"
+      [name]="name()"
+      [type]="type()"
+      [inputMode]="inputMode()"
+      [autocomplete]="autocomplete() ? 'on' : 'off'"
+      class="border border-slate-500 outline-emerald-700 rounded-sm p-1" />
+  } @else {
+    <textarea
+      [id]="inputId"
+      [(ngModel)]="value"
+      (ngModelChange)="onModelChange()"
+      [name]="name()"
+      [inputMode]="inputMode()"
+      [autocomplete]="autocomplete() ? 'on' : 'off'"
+      class="border border-slate-500 outline-emerald-700 rounded-sm p-1">
+    </textarea>
+  }
 </div>

@@ -25,7 +25,7 @@ export class InputComponent implements ControlValueAccessor {
   public type = input<InputType>();
   public name = input<string>("");
   public autocomplete = input<boolean>(false);
-  public inputMode = input<InputMode>;
+  public inputMode = input<InputMode>();
 
   protected inputId: string = shortId("input");
   protected onChange!: (value: string | number) => void;
@@ -73,4 +73,5 @@ type InputType =
   | "datetime-local"
   | "month"
   | "week"
-  | "hidden";
+  | "hidden"
+  | "textarea";
