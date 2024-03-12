@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, forwardRef, input } from "@angular/core";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { shortId } from "../../../utils/short-id";
+import { shortId } from "../../../app/utils/short-id";
 
 @Component({
   selector: "app-input",

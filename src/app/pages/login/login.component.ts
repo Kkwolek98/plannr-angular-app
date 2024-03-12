@@ -1,7 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ButtonComponent } from "../../components/inputs/button/button.component";
-import { InputComponent } from "../../components/inputs/input/input.component";
+import { ButtonComponent } from "../../../lib/inputs/button/button.component";
+import { InputComponent } from "../../../lib/inputs/input/input.component";
 import { LayoutCardComponent } from "../../components/layout-card/layout-card.component";
 import { AuthenticationService } from "../../services/authentication.service";
 
