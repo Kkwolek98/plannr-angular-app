@@ -1,37 +1,39 @@
-<form class="w-96" [formGroup]="form">
-  <app-input class="mb-3" name="name" formControlName="name" label="Name"></app-input>
-  <app-input
-    class="mb-3"
-    type="textarea"
-    name="description"
-    formControlName="description"
-    label="Description"></app-input>
-  <div class="flex items-end gap-4 w-100 mb-3">
-    <app-input class="flex-1" [formControl]="newTagFormControl" name="tag" label="New tag"></app-input>
-    <app-button (click)="addTagToArray()" [disabled]="newTagFormControl.invalid" variant="outlined"
-      >Add</app-button
-    >
-  </div>
-  @if (form.get("tags")?.value; as tags) {
-    @if (tags.length) {
-      <div class="flex flex-wrap gap-1.5 w-100 mb-3">
-        @for (tag of tags; track $index) {
-          <app-tag>
-            <div class="flex items-center gap-1">{{ tag }} <i class="fas fa-times mt-0.5"></i></div
-          ></app-tag>
-        }
-      </div>
-    }
-  }
-  <div class="flex items-end gap-4 w-100 mb-5">
+<form class="modal-container" [formGroup]="form">
+  <div class="w-96 mx-auto">
+    <app-input class="mb-3" name="name" formControlName="name" label="Name"></app-input>
     <app-input
-      class="flex-1"
-      [formControl]="newVideoFormControl"
-      name="video"
-      label="New video URL"></app-input>
-    <app-button (click)="addVideoToArray()" [disabled]="newVideoFormControl.invalid" variant="outlined"
-      >Add</app-button
-    >
+      class="mb-3"
+      type="textarea"
+      name="description"
+      formControlName="description"
+      label="Description"></app-input>
+    <div class="flex items-end gap-4 w-100 mb-3">
+      <app-input class="flex-1" [formControl]="newTagFormControl" name="tag" label="New tag"></app-input>
+      <app-button (click)="addTagToArray()" [disabled]="newTagFormControl.invalid" variant="outlined"
+        >Add</app-button
+      >
+    </div>
+    @if (form.get("tags")?.value; as tags) {
+      @if (tags.length) {
+        <div class="flex flex-wrap gap-1.5 w-100 mb-3">
+          @for (tag of tags; track $index) {
+            <app-tag>
+              <div class="flex items-center gap-1">{{ tag }} <i class="fas fa-times mt-0.5"></i></div
+            ></app-tag>
+          }
+        </div>
+      }
+    }
+    <div class="flex items-end gap-4 w-100 mb-5">
+      <app-input
+        class="flex-1"
+        [formControl]="newVideoFormControl"
+        name="video"
+        label="New video URL"></app-input>
+      <app-button (click)="addVideoToArray()" [disabled]="newVideoFormControl.invalid" variant="outlined"
+        >Add</app-button
+      >
+    </div>
   </div>
   @if (form.get("videos")?.value; as videos) {
     @if (videos.length) {
@@ -42,7 +44,7 @@
       </div>
     }
   }
-  <div class="flex justify-end gap-4">
+  <div class="flex justify-end gap-4 w-96 mx-auto">
     <app-button color="secondary" (click)="close()">Cancel</app-button>
     <app-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</app-button>
   </div>

@@ -1,14 +1,15 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
+import { SpinnerComponent } from "../spinner/spinner.component";
 
 @Component({
   selector: "app-youtube-video",
   standalone: true,
-  imports: [CommonModule],
   templateUrl: "./youtube-video.component.html",
   styleUrl: "./youtube-video.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, SpinnerComponent],
 })
 export class YoutubeVideoComponent {
   private readonly sanitizer = inject(DomSanitizer);
