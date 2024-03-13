@@ -5,6 +5,7 @@ import { ButtonComponent } from "../../../../../lib/inputs/button/button.compone
 import { InputComponent } from "../../../../../lib/inputs/input/input.component";
 import { ModalComponent } from "../../../../../lib/modals/components/modal/modal.component";
 import { TagComponent } from "../../../../../lib/tag/tag.component";
+import { YoutubeVideoComponent } from "../../../../../lib/youtube-video/youtube-video.component";
 import { ExercisesService } from "../../../../services/exercises.service";
 import { NewExerciseForm } from "../../../../types/exercises/exercises";
 import { youtubeUrlValidator } from "../../../../validators/youtube-url.validator";
@@ -15,7 +16,14 @@ import { youtubeUrlValidator } from "../../../../validators/youtube-url.validato
   templateUrl: "./new-exercise-modal.component.html",
   styleUrl: "./new-exercise-modal.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ReactiveFormsModule, InputComponent, ButtonComponent, TagComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    InputComponent,
+    ButtonComponent,
+    TagComponent,
+    YoutubeVideoComponent,
+  ],
 })
 export class NewExerciseModalComponent extends ModalComponent<undefined, boolean> {
   private readonly exercisesService = inject(ExercisesService);

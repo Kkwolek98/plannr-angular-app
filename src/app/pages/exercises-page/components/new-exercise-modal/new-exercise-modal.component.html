@@ -32,8 +32,16 @@
     <app-button (click)="addVideoToArray()" [disabled]="newVideoFormControl.invalid" variant="outlined"
       >Add</app-button
     >
-    <!-- TODO: Display videos -->
   </div>
+  @if (form.get("videos")?.value; as videos) {
+    @if (videos.length) {
+      <div class="flex flex-wrap gap-3 w-100 mb-3">
+        @for (url of videos; track $index) {
+          <app-youtube-video [url]="url"></app-youtube-video>
+        }
+      </div>
+    }
+  }
   <div class="flex justify-end gap-4">
     <app-button color="secondary" (click)="close()">Cancel</app-button>
     <app-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</app-button>
