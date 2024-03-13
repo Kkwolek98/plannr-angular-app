@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject, signal } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ButtonComponent } from "../../../../../lib/inputs/button/button.component";
 import { InputComponent } from "../../../../../lib/inputs/input/input.component";
@@ -18,6 +18,8 @@ import { youtubeUrlValidator } from "../../../../validators/youtube-url.validato
 })
 export class NewExerciseModalComponent extends ModalComponent<undefined, boolean> {
   private readonly exercisesService = inject(ExercisesService);
+
+  public loading = signal(false);
 
   protected form: FormGroup<NewExerciseForm> = new FormGroup({
     name: new FormControl("", { nonNullable: true, validators: [Validators.required] }),
@@ -45,6 +47,7 @@ export class NewExerciseModalComponent extends ModalComponent<undefined, boolean
       throw Error("Invalid exercise form");
     }
 
+    this.loading.set(true);
     const values = this.form.value;
 
     this.exercisesService.createExercise$(values as Required<typeof values>).subscribe({
@@ -53,7 +56,9 @@ export class NewExerciseModalComponent extends ModalComponent<undefined, boolean
         this.close(true);
       },
       error: () => {},
-      complete: () => {},
+      complete: () => {
+        this.loading.set(false);
+      },
     });
   }
 }

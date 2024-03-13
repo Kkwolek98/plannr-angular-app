@@ -11,7 +11,13 @@
     'bg-emerald-600 hover:bg-emerald-500': variant() === 'filled' && color() === 'primary',
     'outline-slate-500 hover:outline-slate-300': variant() === 'outlined' && color() === 'secondary',
     'outline-emerald-600 hover:outline-emerald-400': variant() === 'outlined' && color() === 'primary',
-    grayscale: disabled()
+    'bg-slate-300 hover:bg-slate-300 cursor-default': (disabled() || loading()) && variant() === 'filled',
+    'outline-slate-300 hover:outline-slate-300 cursor-default':
+      (disabled() || loading()) && variant() === 'outlined'
   }">
-  <ng-content></ng-content>
+  @if (!loading()) {
+    <ng-content></ng-content>
+  } @else {
+    <app-spinner></app-spinner>
+  }
 </button>

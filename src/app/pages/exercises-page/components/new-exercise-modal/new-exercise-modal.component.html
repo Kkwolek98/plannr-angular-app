@@ -19,7 +19,7 @@
   </div>
   <div class="flex justify-end gap-4">
     <app-button color="secondary" (click)="close()">Cancel</app-button>
-    <app-button [disabled]="form.invalid" (click)="create()">Create</app-button>
+    <app-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</app-button>
   </div>
   <div></div>
 </form>
