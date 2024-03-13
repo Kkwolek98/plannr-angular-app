@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { ButtonComponent } from "../../../../../lib/inputs/button/button.component";
 import { InputComponent } from "../../../../../lib/inputs/input/input.component";
 import { ModalComponent } from "../../../../../lib/modals/components/modal/modal.component";
+import { TagComponent } from "../../../../../lib/tag/tag.component";
 import { ExercisesService } from "../../../../services/exercises.service";
 import { NewExerciseForm } from "../../../../types/exercises/exercises";
 import { youtubeUrlValidator } from "../../../../validators/youtube-url.validator";
@@ -11,10 +12,10 @@ import { youtubeUrlValidator } from "../../../../validators/youtube-url.validato
 @Component({
   selector: "app-new-exercise-modal",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, InputComponent, ButtonComponent],
   templateUrl: "./new-exercise-modal.component.html",
   styleUrl: "./new-exercise-modal.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, ReactiveFormsModule, InputComponent, ButtonComponent, TagComponent],
 })
 export class NewExerciseModalComponent extends ModalComponent<undefined, boolean> {
   private readonly exercisesService = inject(ExercisesService);
@@ -33,13 +34,27 @@ export class NewExerciseModalComponent extends ModalComponent<undefined, boolean
     validators: [Validators.required, youtubeUrlValidator],
   });
 
+  protected newTagFormControl: FormControl<string> = new FormControl("", {
+    nonNullable: true,
+    validators: [Validators.required],
+  });
+
   protected addVideoToArray(): void {
     if (this.newVideoFormControl.invalid) {
       throw Error("Invalid video url");
     }
 
     this.form.get("videos")?.value.push(this.newVideoFormControl.value);
-    this.newVideoFormControl.reset();
+    this.newVideoFormControl.setValue("");
+  }
+
+  protected addTagToArray(): void {
+    if (this.newTagFormControl.invalid) {
+      throw Error("Invalid video url");
+    }
+
+    this.form.get("tags")?.value.push(this.newTagFormControl.value);
+    this.newTagFormControl.setValue("");
   }
 
   protected create(): void {

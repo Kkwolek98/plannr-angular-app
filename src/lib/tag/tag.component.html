@@ -1,0 +1,9 @@
+<button
+  (click)="badgeClicked.emit()"
+  [ngClass]="{
+    'bg-slate-400': color() === 'secondary',
+    'bg-emerald-500': color() === 'primary'
+  }"
+  class="inline-block text-white text-xs px-2 py-1 rounded-full">
+  <ng-content></ng-content>
+</button>

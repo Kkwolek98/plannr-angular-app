@@ -1,5 +1,12 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, forwardRef, input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  inject,
+  input,
+} from "@angular/core";
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { shortId } from "../../../app/utils/short-id";
 
@@ -19,6 +26,8 @@ import { shortId } from "../../../app/utils/short-id";
   ],
 })
 export class InputComponent implements ControlValueAccessor {
+  private readonly cdref = inject(ChangeDetectorRef);
+
   public label = input<string>();
   public labelPosition = input<"top" | "left">("top");
   public placeholder = input<string>();
@@ -35,6 +44,7 @@ export class InputComponent implements ControlValueAccessor {
 
   writeValue(value: string | number): void {
     this.value = value;
+    this.cdref.detectChanges();
   }
 
   registerOnChange(fn: () => void): void {
