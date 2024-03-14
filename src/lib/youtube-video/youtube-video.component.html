@@ -1,5 +1,13 @@
-@if (url(); as url) {
-  <iframe width="184" height="180" [src]="url" frameborder="0" allowfullscreen></iframe>
-}
+<iframe
+  (load)="setLoadingFalse()"
+  [width]="loading() ? 0 : width"
+  [height]="loading() ? 0 : height"
+  [src]="url()"
+  frameborder="0"
+  allowfullscreen></iframe>
 
-<!-- TODO: configurable width ang height -->
+@if (loading()) {
+  <div [style.width.px]="width" [style.height.px]="height" class="flex justify-center items-center">
+    <app-spinner size="lg"></app-spinner>
+  </div>
+}

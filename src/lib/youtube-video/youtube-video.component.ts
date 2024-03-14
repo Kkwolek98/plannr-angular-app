@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject, input, signal } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { SpinnerComponent } from "../spinner/spinner.component";
 
@@ -13,6 +13,10 @@ import { SpinnerComponent } from "../spinner/spinner.component";
 })
 export class YoutubeVideoComponent {
   private readonly sanitizer = inject(DomSanitizer);
+
+  public width = input<number>(184);
+  public height = input<number>(180);
+
   public url = input(undefined, {
     transform: (val: string) => {
       if (!val) {
@@ -24,6 +28,14 @@ export class YoutubeVideoComponent {
       return this.sanitizer.bypassSecurityTrustResourceUrl(embededUrl);
     },
   });
+
+  protected loading = signal<boolean>(true);
+
+  protected setLoadingFalse(): void {
+    setTimeout(() => {
+      this.loading.set(false);
+    }, 100);
+  }
 
   private getEmbeddedLink(normalLink: string): string {
     const videoId = normalLink.match(
