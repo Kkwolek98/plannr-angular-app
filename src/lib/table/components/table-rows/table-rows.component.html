@@ -4,12 +4,40 @@
     class="flex py-0.5 hover:bg-slate-200"
     [ngClass]="{
       'bg-slate-100': $index % 2,
-      'cursor-pointer': rowClick?.observed
+      'cursor-pointer': rowClick?.observed,
+      'max-sm:hidden': cardBreakpoint() === 'sm',
+      'max-md:hidden': cardBreakpoint() === 'md',
+      'max-lg:hidden': cardBreakpoint() === 'lg',
+      'max-xl:hidden': cardBreakpoint() === 'xl',
+      'max-2xl:hidden': cardBreakpoint() === '2xl'
     }">
     @for (column of columns(); track $index) {
       <td [class]="'flex-1 ' + 'table-col' + column.headerDef()">
         <ng-container *ngTemplateOutlet="column.templateRef; context: { $implicit: row }"></ng-container>
       </td>
     }
+  </tr>
+  <tr
+    (click)="rowClick?.emit({ event: $event, row })"
+    class="hidden py-0.5 hover:bg-slate-200"
+    [ngClass]="{
+      'bg-slate-100': $index % 2,
+      'cursor-pointer': rowClick?.observed,
+      'max-sm:flex': cardBreakpoint() === 'sm',
+      'max-md:flex': cardBreakpoint() === 'md',
+      'max-lg:flex': cardBreakpoint() === 'lg',
+      'max-xl:flex': cardBreakpoint() === 'xl',
+      'max-2xl:flex': cardBreakpoint() === '2xl'
+    }">
+    <td class="grid grid-cols-2 gap-2">
+      @for (column of columns(); track $index) {
+        <div class="inline-block font-bold" [class]="'table-col' + column.headerDef()">
+          {{ column.headerDef() }}:
+        </div>
+        <div>
+          <ng-container *ngTemplateOutlet="column.templateRef; context: { $implicit: row }"></ng-container>
+        </div>
+      }
+    </td>
   </tr>
 }

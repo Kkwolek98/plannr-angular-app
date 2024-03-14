@@ -1,4 +1,12 @@
-<tr class="flex bg-slate-200">
+<tr
+  class="flex bg-slate-200"
+  [ngClass]="{
+    'max-sm:hidden': cardBreakpoint() === 'sm',
+    'max-md:hidden': cardBreakpoint() === 'md',
+    'max-lg:hidden': cardBreakpoint() === 'lg',
+    'max-xl:hidden': cardBreakpoint() === 'xl',
+    'max-2xl:hidden': cardBreakpoint() === '2xl'
+  }">
   @for (column of columns(); track $index) {
     <th [class]="'text-left border-b flex-1 ' + 'table-header' + column.headerDef()">
       {{ column.headerDef() }}

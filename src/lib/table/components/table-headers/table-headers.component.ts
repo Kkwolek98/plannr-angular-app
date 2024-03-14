@@ -14,4 +14,5 @@ export class TableHeadersComponent {
   private readonly tableService = inject(TableService);
 
   protected columns = this.tableService.columns;
+  protected cardBreakpoint = this.tableService.cardBreakpoint;
 }
