@@ -1,0 +1,7 @@
+<tr class="flex bg-slate-200">
+  @for (column of columns(); track $index) {
+    <th [class]="'text-left border-b flex-1 ' + 'table-header' + column.headerDef()">
+      {{ column.headerDef() }}
+    </th>
+  }
+</tr>

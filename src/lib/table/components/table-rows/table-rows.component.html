@@ -1,0 +1,15 @@
+@for (row of data(); track $index) {
+  <tr
+    (click)="rowClick?.emit({ event: $event, row })"
+    class="flex py-0.5 hover:bg-slate-200"
+    [ngClass]="{
+      'bg-slate-100': $index % 2,
+      'cursor-pointer': rowClick?.observed
+    }">
+    @for (column of columns(); track $index) {
+      <td [class]="'flex-1 ' + 'table-col' + column.headerDef()">
+        <ng-container *ngTemplateOutlet="column.templateRef; context: { $implicit: row }"></ng-container>
+      </td>
+    }
+  </tr>
+}
