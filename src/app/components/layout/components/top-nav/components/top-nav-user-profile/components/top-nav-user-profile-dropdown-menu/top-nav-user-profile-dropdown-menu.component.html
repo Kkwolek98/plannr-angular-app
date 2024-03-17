@@ -1,0 +1,5 @@
+@for (item of items; track $index) {
+  <app-dropdown-item (clicked)="item.action()">
+    {{ item.label }}
+  </app-dropdown-item>
+}
