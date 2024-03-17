@@ -18,12 +18,12 @@ interface LoginForm {
   imports: [LayoutCardComponent, FormsModule, InputComponent, ReactiveFormsModule, ButtonComponent],
 })
 export class LoginComponent {
-  form: FormGroup<LoginForm> = new FormGroup({
+  private readonly authService = inject(AuthenticationService);
+
+  protected form: FormGroup<LoginForm> = new FormGroup({
     email: new FormControl("", { nonNullable: true, validators: [Validators.required, Validators.email] }),
     password: new FormControl("", { nonNullable: true, validators: [Validators.required] }),
   });
-
-  private readonly authService = inject(AuthenticationService);
 
   login() {
     if (this.form.invalid) {

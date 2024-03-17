@@ -30,7 +30,13 @@ export class AuthenticationService {
   }
 
   public register$(email: string, password: string): Observable<User> {
-    return this.http.post<User>(envConfig.url + "/auth/register", { email, password });
+    return this.http.post<User>(envConfig.url + "/auth/register", { email, password }).pipe(
+      tap((res) => {
+        if (res) {
+          this.router.navigate(["/login"]);
+        }
+      })
+    );
   }
 
   public logout(): void {
