@@ -1,5 +1,6 @@
 import { Component, inject } from "@angular/core";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
+import { RouterLink } from "@angular/router";
 import { ButtonComponent } from "../../../lib/inputs/button/button.component";
 import { InputComponent } from "../../../lib/inputs/input/input.component";
 import { LayoutCardComponent } from "../../components/layout-card/layout-card.component";
@@ -15,7 +16,7 @@ interface LoginForm {
   standalone: true,
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.scss",
-  imports: [LayoutCardComponent, FormsModule, InputComponent, ReactiveFormsModule, ButtonComponent],
+  imports: [LayoutCardComponent, FormsModule, InputComponent, ReactiveFormsModule, ButtonComponent, RouterLink],
 })
 export class LoginComponent {
   private readonly authService = inject(AuthenticationService);
