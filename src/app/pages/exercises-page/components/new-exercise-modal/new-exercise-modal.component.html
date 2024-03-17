@@ -1,5 +1,5 @@
-<form class="modal-container" [formGroup]="form">
-  <div class="w-96 mx-auto">
+<form class="w-[80vw] md:w-[36rem]" [formGroup]="form">
+  <div class="w-auto md:w-96 mx-auto">
     <app-input class="mb-3" name="name" formControlName="name" label="Name"></app-input>
     <app-input
       class="mb-3"
@@ -44,7 +44,7 @@
       </div>
     }
   }
-  <div class="flex justify-end gap-4 w-96 mx-auto">
+  <div class="flex justify-end gap-4 w-100 mx-auto">
     <app-button color="secondary" (click)="close()">Cancel</app-button>
     <app-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</app-button>
   </div>
