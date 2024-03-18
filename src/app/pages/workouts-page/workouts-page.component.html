@@ -1,4 +1,4 @@
 <main class="p-2 flex flex-col gap-2">
-  <app-button shape="circle" class="self-end">+</app-button>
+  <app-button shape="circle" class="self-end" (click)="openNewWorkoutModal()">+</app-button>
   <app-workouts-table [data]="workouts()"></app-workouts-table>
 </main>
