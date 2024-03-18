@@ -57,7 +57,7 @@ export class TagInputComponent implements ControlValueAccessor {
   }
 
   removeTag(tag: string): void {
-    this.value = this.value.filter((t) => t !== tag);
+    this.value = [...this.value.filter((t) => t !== tag)];
     this.onChange(this.value);
   }
 }

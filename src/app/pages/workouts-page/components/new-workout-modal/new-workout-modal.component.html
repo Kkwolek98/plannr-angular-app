@@ -6,7 +6,7 @@
     name="description"
     formControlName="description"
     label="Description"></app-input>
-  <app-tag-input formControlName="tags" class="mb-3"></app-tag-input>
+  <app-tag-input formControlName="tags" class="mb-6"></app-tag-input>
   <div class="flex justify-end gap-4 w-100 mx-auto">
     <app-button color="secondary" (click)="close()">Cancel</app-button>
     <app-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</app-button>
