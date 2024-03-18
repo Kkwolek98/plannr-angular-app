@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from "@angular/cor
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ButtonComponent } from "../../../../../lib/inputs/button/button.component";
 import { InputComponent } from "../../../../../lib/inputs/input/input.component";
+import { TagInputComponent } from "../../../../../lib/inputs/tag-input/tag-input.component";
 import { ModalComponent } from "../../../../../lib/modals/components/modal/modal.component";
 import { TagComponent } from "../../../../../lib/tag/tag.component";
 import { YoutubeVideoComponent } from "../../../../../lib/youtube-video/youtube-video.component";
@@ -23,6 +24,7 @@ import { youtubeUrlValidator } from "../../../../validators/youtube-url.validato
     ButtonComponent,
     TagComponent,
     YoutubeVideoComponent,
+    TagInputComponent,
   ],
 })
 export class NewExerciseModalComponent extends ModalComponent<undefined, boolean> {

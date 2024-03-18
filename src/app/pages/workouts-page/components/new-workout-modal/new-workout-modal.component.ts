@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from "@angular/cor
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ButtonComponent } from "../../../../../lib/inputs/button/button.component";
 import { InputComponent } from "../../../../../lib/inputs/input/input.component";
+import { TagInputComponent } from "../../../../../lib/inputs/tag-input/tag-input.component";
 import { ModalComponent } from "../../../../../lib/modals/components/modal/modal.component";
 import { WorkoutsService } from "../../../../services/workouts.service";
 import { NewWorkout, NewWorkoutForm, Workout } from "../../../../types/workouts/workouts";
@@ -13,7 +14,7 @@ import { NewWorkout, NewWorkoutForm, Workout } from "../../../../types/workouts/
   templateUrl: "./new-workout-modal.component.html",
   styleUrl: "./new-workout-modal.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, InputComponent, ReactiveFormsModule, ButtonComponent],
+  imports: [CommonModule, InputComponent, ReactiveFormsModule, ButtonComponent, TagInputComponent],
 })
 export class NewWorkoutModalComponent extends ModalComponent<undefined, Workout | undefined> {
   private readonly workoutsService = inject(WorkoutsService);
