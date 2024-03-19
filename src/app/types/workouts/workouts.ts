@@ -1,4 +1,5 @@
 import { FormControl } from "@angular/forms";
+import { User } from "../user/user";
 
 export type Workout = {
   id: string;
@@ -6,6 +7,7 @@ export type Workout = {
   description?: string;
   sets: unknown[];
   tags: string[];
+  owner: User;
 };
 
 export type NewWorkoutForm = {

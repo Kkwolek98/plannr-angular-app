@@ -14,6 +14,10 @@ export class WorkoutsService {
     return this.http.get<Workout[]>(envConfig.url + "/workouts");
   }
 
+  public getWorkout$(id: string): Observable<Workout> {
+    return this.http.get<Workout>(envConfig.url + "/workouts/" + id);
+  }
+
   public createWorkout$(data: NewWorkout): Observable<Workout> {
     return this.http.post<Workout>(envConfig.url + "/workouts", data);
   }

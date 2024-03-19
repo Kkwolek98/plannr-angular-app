@@ -8,7 +8,7 @@ import { TableService } from "../../services/table.service";
   imports: [CommonModule],
   templateUrl: "./table-rows.component.html",
   styleUrl: "./table-rows.component.scss",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class TableRowsComponent {
   private readonly tableService = inject(TableService);

@@ -5,7 +5,6 @@ import {
   Component,
   ContentChildren,
   EventEmitter,
-  OnInit,
   Output,
   QueryList,
   inject,
@@ -26,7 +25,7 @@ import { CardBreakpoint } from "./types";
   providers: [TableService],
   imports: [CommonModule, TableHeadersComponent, TableRowsComponent],
 })
-export class TableComponent<T extends []> implements AfterViewInit, OnInit {
+export class TableComponent<T extends []> implements AfterViewInit {
   public readonly tableService = inject(TableService<T>);
   /**
    * Table data
@@ -63,7 +62,7 @@ export class TableComponent<T extends []> implements AfterViewInit, OnInit {
   @ContentChildren(TableColumnDirective) columns: QueryList<TableColumnDirective> =
     new QueryList<TableColumnDirective>();
 
-  ngOnInit(): void {
+  constructor() {
     this.tableService.rowClick = this.rowClick;
   }
 
