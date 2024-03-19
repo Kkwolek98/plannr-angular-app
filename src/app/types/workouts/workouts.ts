@@ -1,11 +1,12 @@
 import { FormControl } from "@angular/forms";
 import { User } from "../user/user";
+import { ExerciseSet } from "./sets";
 
 export type Workout = {
   id: string;
   name: string;
   description?: string;
-  sets: unknown[];
+  sets: ExerciseSet[];
   tags: string[];
   owner: User;
 };

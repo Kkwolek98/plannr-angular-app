@@ -1,0 +1,8 @@
+@for (set of sets(); track $index) {
+  <app-workout-builder-set-container class="mb-2">
+    <app-workout-builder-set-header [set]="set" />
+    <app-workout-builder-set-body />
+  </app-workout-builder-set-container>
+}
+
+<app-button (click)="addNewSet()">Add set</app-button>

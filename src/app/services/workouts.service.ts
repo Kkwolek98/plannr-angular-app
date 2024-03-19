@@ -21,4 +21,8 @@ export class WorkoutsService {
   public createWorkout$(data: NewWorkout): Observable<Workout> {
     return this.http.post<Workout>(envConfig.url + "/workouts", data);
   }
+
+  public createEmptySet(workoutId: string): Observable<Workout> {
+    return this.http.post<Workout>(envConfig.url + "/workouts/" + workoutId + "/sets", { name: "New Set" });
+  }
 }

@@ -7,19 +7,20 @@ import { ButtonComponent } from "../../../../../lib/inputs/button/button.compone
 import { WorkoutBuilderService } from "../../../../services/workout-builder.service";
 import { WorkoutTab } from "../../../../types/workouts/workout-builder";
 import { Workout } from "../../../../types/workouts/workouts";
+import { WorkoutBuilderSetsComponent } from "./components/workout-builder-sets/workout-builder-sets.component";
 
 @Component({
   selector: "app-workout-builder-page",
   standalone: true,
-  providers: [WorkoutBuilderService],
   templateUrl: "./workout-builder-page.component.html",
   styleUrl: "./workout-builder-page.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, WorkoutBuilderSetsComponent],
 })
 export class WorkoutBuilderPageComponent implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  private readonly workoutBuilderService = inject(WorkoutBuilderService);
 
   readonly workoutData = toSignal(this.activatedRoute.data.pipe(map((data) => data["workout"] as Workout)));
   readonly activeTab = toSignal(
@@ -32,5 +33,11 @@ export class WorkoutBuilderPageComponent implements OnInit {
     if (!this.activeTab()) {
       this.router.navigate([], { queryParams: { tab: WorkoutTab.Sets } });
     }
+
+    this.workoutBuilderService.setWorkout(this.workoutData()!);
+  }
+
+  changeTab(tab: WorkoutTab) {
+    this.router.navigate([], { queryParams: { tab } });
   }
 }
