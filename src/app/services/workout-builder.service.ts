@@ -12,6 +12,7 @@ export class WorkoutBuilderService {
 
   private readonly _dataSignal = signal<Workout | undefined>(undefined);
   public readonly data = toObservable(this._dataSignal);
+  public readonly openSetsIds = signal<Set<string>>(new Set());
 
   public setWorkout(workout: Workout): void {
     this._dataSignal.set(workout);
@@ -19,6 +20,18 @@ export class WorkoutBuilderService {
 
   public clearWorkout(): void {
     this._dataSignal.set(undefined);
+  }
+
+  public toggleSet(id: string): void {
+    const openSetsIds = this.openSetsIds();
+
+    if (openSetsIds.has(id)) {
+      openSetsIds.delete(id);
+    } else {
+      openSetsIds.add(id);
+    }
+
+    this.openSetsIds.set(new Set(openSetsIds));
   }
 
   public addEmptySet(): Observable<Workout> {

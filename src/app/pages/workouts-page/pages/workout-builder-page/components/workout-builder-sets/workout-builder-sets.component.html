@@ -1,7 +1,9 @@
 @for (set of sets(); track $index) {
   <app-workout-builder-set-container class="mb-2">
     <app-workout-builder-set-header [set]="set" />
-    <app-workout-builder-set-body />
+    @if (isOpen(set.id)) {
+      <app-workout-builder-set-body [set]="set" />
+    }
   </app-workout-builder-set-container>
 }
 

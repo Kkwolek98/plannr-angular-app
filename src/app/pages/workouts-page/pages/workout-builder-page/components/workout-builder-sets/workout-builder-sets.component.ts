@@ -26,7 +26,11 @@ export class WorkoutBuilderSetsComponent {
   readonly workoutBuilderService = inject(WorkoutBuilderService);
   readonly sets = toSignal(this.workoutBuilderService.data.pipe(map((workout) => workout?.sets || [])));
 
-  public addNewSet(): void {
+  addNewSet(): void {
     this.workoutBuilderService.addEmptySet().subscribe();
+  }
+
+  isOpen(setId: string): boolean {
+    return this.workoutBuilderService.openSetsIds().has(setId);
   }
 }

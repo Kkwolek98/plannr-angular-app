@@ -3,7 +3,7 @@
   <button class="flex-1 text-left">
     {{ set().name }}
   </button>
-  <button>
-    <i class="fa-solid fa-chevron-down"></i>
+  <button (click)="toggleSetOpen()">
+    <i class="fa-solid fa-chevron-down" [ngClass]="{ 'transform rotate-180': isOpen() }"></i>
   </button>
 </div>
