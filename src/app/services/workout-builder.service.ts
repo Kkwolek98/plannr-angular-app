@@ -54,16 +54,16 @@ export class WorkoutBuilderService {
   public addSetItemToSet(setId: string, setItem: Partial<ExerciseSet>): Observable<ExerciseSet> {
     return this.setsService.addSetItemToSet$(setId, setItem).pipe(
       tap((set) => {
-        const currentData = this._dataSignal();
+        const currentData = this._dataSignal()!;
         const editedSetIndex = currentData?.sets.findIndex((el) => el.id === setId);
 
-        if (!currentData || !editedSetIndex || editedSetIndex < 0) {
+        if (editedSetIndex === undefined || editedSetIndex < 0) {
           throw Error("Invalid set id");
         }
 
         currentData.sets[editedSetIndex] = set;
 
-        this._dataSignal.update(() => ({ ...currentData }));
+        this._dataSignal.set(structuredClone(currentData));
       })
     );
   }
