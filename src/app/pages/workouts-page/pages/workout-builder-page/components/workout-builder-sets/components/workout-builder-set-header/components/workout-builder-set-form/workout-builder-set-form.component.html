@@ -1,0 +1,28 @@
+<form [formGroup]="form" class="flex flex-col gap-2 max-w-96">
+  <app-select
+    [data]="exercises()!"
+    label="Exercise"
+    valueKey="id"
+    labelKey="name"
+    formControlName="details"></app-select>
+  <div class="flex flex-col gap-2">
+    <app-toggle [formControl]="isExactRepsControl" labelFalse="Reps range" labelTrue="Rep exact"></app-toggle>
+    <div class="flex justify-between">
+      @if (isExactRepsControl.value) {
+        <app-input label="Reps" formControlName="repExact" type="number"></app-input>
+      } @else {
+        <app-input label="Reps min" formControlName="repMin" type="number"></app-input>
+        <app-input label="Reps max" formControlName="repMax" type="number"></app-input>
+      }
+    </div>
+  </div>
+  <div class="flex items-end">
+    <app-input label="@" formControlName="repWeight" type="number"></app-input>
+    <app-select [data]="repTypes" valueKey="key" labelKey="value"></app-select>
+  </div>
+
+  <div class="flex justify-end gap-2 mt-2">
+    <app-button (click)="save()">Save</app-button>
+    <app-button variant="outlined" color="secondary">Cancel</app-button>
+  </div>
+</form>

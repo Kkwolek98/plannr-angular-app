@@ -1,7 +1,9 @@
 import { Injectable, inject, signal } from "@angular/core";
 import { toObservable } from "@angular/core/rxjs-interop";
 import { Observable, tap } from "rxjs";
+import { ExerciseSet } from "../types/workouts/sets";
 import { Workout } from "../types/workouts/workouts";
+import { SetsService } from "./sets.service";
 import { WorkoutsService } from "./workouts.service";
 
 @Injectable({
@@ -9,6 +11,7 @@ import { WorkoutsService } from "./workouts.service";
 })
 export class WorkoutBuilderService {
   private readonly workoutsService = inject(WorkoutsService);
+  private readonly setsService = inject(SetsService);
 
   private readonly _dataSignal = signal<Workout | undefined>(undefined);
   public readonly data = toObservable(this._dataSignal);
@@ -44,6 +47,23 @@ export class WorkoutBuilderService {
     return this.workoutsService.createEmptySet(id).pipe(
       tap((workout) => {
         this._dataSignal.set(workout);
+      })
+    );
+  }
+
+  public addSetItemToSet(setId: string, setItem: Partial<ExerciseSet>): Observable<ExerciseSet> {
+    return this.setsService.addSetItemToSet$(setId, setItem).pipe(
+      tap((set) => {
+        const currentData = this._dataSignal();
+        const editedSetIndex = currentData?.sets.findIndex((el) => el.id === setId);
+
+        if (!currentData || !editedSetIndex || editedSetIndex < 0) {
+          throw Error("Invalid set id");
+        }
+
+        currentData.sets[editedSetIndex] = set;
+
+        this._dataSignal.update(() => ({ ...currentData }));
       })
     );
   }
