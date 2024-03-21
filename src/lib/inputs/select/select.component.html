@@ -18,7 +18,8 @@
     [name]="name()"
     [id]="inputId"
     [(ngModel)]="value"
-    class="border border-slate-500 outline-emerald-700 rounded-sm p-1">
+    (ngModelChange)="onModelChange()"
+    class="h-8 border border-slate-500 outline-emerald-700 rounded-sm">
     @for (option of data(); track $index) {
       <option [value]="option[valueKey()]">{{ option[labelKey()] }}</option>
     }
