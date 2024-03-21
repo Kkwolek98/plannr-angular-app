@@ -11,6 +11,6 @@
       <app-button variant="outlined" (click)="addingNewExercise.set(true)">Add Exercise</app-button>
     </div>
   } @else {
-    <app-workout-builder-set-form [setId]="set().id" />
+    <app-workout-builder-set-form [setId]="set().id" (closed)="addingNewExercise.set(false)" />
   }
 </div>

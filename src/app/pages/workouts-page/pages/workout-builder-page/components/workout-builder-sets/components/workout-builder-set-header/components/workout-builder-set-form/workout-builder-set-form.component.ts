@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, inject, input } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ButtonComponent } from "../../../../../../../../../../../lib/inputs/button/button.component";
@@ -40,6 +40,9 @@ export class WorkoutBuilderSetFormComponent {
   public setId = input.required<string>();
   public editedSetItem = input<SetItem>();
 
+  @Output()
+  closed: EventEmitter<void> = new EventEmitter();
+
   exercises = toSignal(this.exercisesService.getAllExercises$());
 
   form: FormGroup<NewSetItemForm> = new FormGroup<NewSetItemForm>({
@@ -73,6 +76,10 @@ export class WorkoutBuilderSetFormComponent {
       return this.form.markAllAsTouched();
     }
 
-    this.workoutBuilder.addSetItemToSet(this.setId(), this.form.value as Partial<ExerciseSet>).subscribe();
+    this.workoutBuilder.addSetItemToSet(this.setId(), this.form.value as Partial<ExerciseSet>).subscribe({
+      next: () => {
+        this.closed.emit();
+      },
+    });
   }
 }

@@ -23,6 +23,6 @@
 
   <div class="flex justify-end gap-2 mt-2">
     <app-button (click)="save()">Save</app-button>
-    <app-button variant="outlined" color="secondary">Cancel</app-button>
+    <app-button (click)="closed.emit()" variant="outlined" color="secondary">Cancel</app-button>
   </div>
 </form>
