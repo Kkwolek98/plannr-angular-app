@@ -17,8 +17,9 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: 22
           script: |
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
             cd app
-            ls
             git pull ${{ secrets.GIT_REPO_MASTER }}
             npm ci
             ng build
