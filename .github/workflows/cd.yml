@@ -24,7 +24,7 @@ jobs:
             ssh-add ${{ secrets.KEY_PATH }}
             cd ~/app
             git clone ${{ secrets.GIT_REPO_MASTER }}
-            cd planner-angular-app
+            cd plannr-angular-app
             npm install
             ng build
             npm run server
