@@ -18,7 +18,7 @@ jobs:
           port: 22
           script: |
             cd app
-            git pull origin master
-            git status
-            npm install
-            pm2 restart node1
+            git pull ${{ secrets.GIT_REPO_MASTER }}
+            npm ci
+            ng build
+            npm run server

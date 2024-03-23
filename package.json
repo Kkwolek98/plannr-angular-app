@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "server": "node server.js"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,7 @@
     "@angular/router": "^17.2.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@ngxs/store": "^3.8.2",
+    "express": "^4.19.1",
     "jwt-decode": "^4.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
