@@ -15,7 +15,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
-          timeout: 180s
+          proxy_timeout: 180s
           port: 22
           debug: true
           script: |
