@@ -15,7 +15,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
-          proxy_timeout: 180s
+          proxy_timeout: 480s
           port: 22
           debug: true
           script: |
@@ -28,6 +28,7 @@ jobs:
             git clone ${{ secrets.GIT_REPO_MASTER }}
             cd plannr-angular-app
             npm install
+            echo "${{ vars.ENV_CONFIG }}" > envConfig.ts
             npm run build
             kill -9 $(lsof -t -i:4200)
             npm run server
