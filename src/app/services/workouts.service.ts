@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Observable } from "rxjs";
-import { envConfig } from "../app.config";
+import { envConfig } from "../../../envConfig";
 import { NewWorkout, Workout } from "../types/workouts/workouts";
 
 @Injectable({

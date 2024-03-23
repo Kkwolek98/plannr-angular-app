@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, Subscription, tap } from "rxjs";
-import { envConfig } from "../app.config";
+import { envConfig } from "../../../envConfig";
 import { LoginResponse } from "../types/auth/login";
 import { User } from "../types/user/user";
 import { InactivityService } from "./inactivity.service";

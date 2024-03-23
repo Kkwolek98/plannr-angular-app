@@ -18,8 +18,6 @@ jobs:
           port: 22
           debug: true
           script: |
-            echo ${{ vars.DOT_ENV }}
-            echo ${{ vars.DOT_ENV }}
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             eval "$(ssh-agent -s)"
@@ -29,6 +27,7 @@ jobs:
             git clone ${{ secrets.GIT_REPO_MASTER }}
             cd plannr-angular-app
             npm install
+            echo "${{ vars.ENV_CONFIG }} > envConfig.ts"
             npm run build
             kill -9 $(lsof -t -i:4200)
             npm run server
