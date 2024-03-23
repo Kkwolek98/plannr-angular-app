@@ -18,6 +18,7 @@ jobs:
           port: 22
           script: |
             cd app
+            ls
             git pull ${{ secrets.GIT_REPO_MASTER }}
             npm ci
             ng build
