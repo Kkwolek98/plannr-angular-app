@@ -19,7 +19,6 @@ jobs:
           port: 22
           debug: true
           script: |
-            export NODE_OPTIONS="--max-old-space-size=512"
             export NG_CLI_ANALYTICS=ci
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
