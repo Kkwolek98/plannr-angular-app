@@ -19,6 +19,7 @@ jobs:
           debug: true
           script: |
             echo ${{ vars.DOT_ENV }}
+            echo ${{ vars.DOT_ENV }}
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             eval "$(ssh-agent -s)"
