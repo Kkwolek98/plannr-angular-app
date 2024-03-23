@@ -21,6 +21,6 @@ jobs:
             source ~/.nvm/nvm.sh
             cd app
             git pull ${{ secrets.GIT_REPO_MASTER }}
-            npm ci
+            npm install
             ng build
             npm run server
