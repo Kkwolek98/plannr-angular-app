@@ -19,7 +19,7 @@ jobs:
           script: |
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
-            cd app
+            cd ~/app
             git pull ${{ secrets.GIT_REPO_MASTER }}
             npm install
             ng build
