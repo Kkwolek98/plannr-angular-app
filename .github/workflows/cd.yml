@@ -22,7 +22,7 @@ jobs:
             source ~/.nvm/nvm.sh
             cd ~/app
             git pull ${{ secrets.GIT_REPO_MASTER }}
-            cd plannr-angular-app
+            ls
             npm install
             ng build
             npm run server
