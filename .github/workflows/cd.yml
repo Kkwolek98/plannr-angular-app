@@ -19,7 +19,7 @@ jobs:
           port: 22
           debug: true
           script: |
-            export NG_CLI_ANALYTICS=ci
+            export NG_CLI_ANALYTICS="false"
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             eval "$(ssh-agent -s)"
