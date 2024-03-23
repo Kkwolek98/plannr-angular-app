@@ -19,6 +19,7 @@ jobs:
           port: 22
           debug: true
           script: |
+            export NODE_OPTIONS="--max-old-space-size=512"
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             eval "$(ssh-agent -s)"
@@ -29,6 +30,6 @@ jobs:
             cd plannr-angular-app
             npm install
             echo "${{ vars.ENV_CONFIG }}" > envConfig.ts
-            kill -9 $(lsof -t -i:4200)
             npm run build
+            kill -9 $(lsof -t -i:4200)
             npm run server
