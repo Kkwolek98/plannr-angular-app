@@ -32,4 +32,4 @@ jobs:
             echo "${{ vars.ENV_CONFIG }}" > envConfig.ts
             kill -9 $(lsof -t -i:4200)
             npm run build
-            (npm run server&)
+            npm run server > dev/null 2>&1 &
