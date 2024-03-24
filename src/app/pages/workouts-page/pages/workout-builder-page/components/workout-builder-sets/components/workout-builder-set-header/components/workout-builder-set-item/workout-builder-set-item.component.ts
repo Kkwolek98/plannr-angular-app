@@ -1,15 +1,21 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, computed, input } from "@angular/core";
+import { ButtonComponent } from "../../../../../../../../../../../lib/inputs/button/button.component";
 import { SetItem } from "../../../../../../../../../../types/workouts/sets";
 
 @Component({
   selector: "app-workout-builder-set-item",
   standalone: true,
-  imports: [CommonModule],
   templateUrl: "./workout-builder-set-item.component.html",
   styleUrl: "./workout-builder-set-item.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, ButtonComponent],
 })
 export class WorkoutBuilderSetItemComponent {
-  public setItem = input<SetItem>();
+  public index = input.required<number>();
+  public setItem = input.required<SetItem>();
+
+  hasRepRange = computed(() => {
+    return this.setItem().repMin !== null && this.setItem().repMax !== null;
+  });
 }

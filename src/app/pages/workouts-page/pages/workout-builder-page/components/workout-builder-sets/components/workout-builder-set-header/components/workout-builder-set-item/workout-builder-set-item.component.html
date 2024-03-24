@@ -1,1 +1,40 @@
-<p>workout-builder-set-item works!</p>,
+<div class="flex flex-col">
+  <div class="flex justify-between items-center">
+    <div>{{ index() + 1 }}. {{ setItem().details.name }}</div>
+    <div class="flex gap-1">
+      <app-button color="clean">
+        <i class="fa-solid fa-pen text-slate-400 hover:text-yellow-600"></i>
+      </app-button>
+      <app-button color="clean">
+        <i class="fa-solid fa-trash text-slate-400 hover:text-red-600"></i>
+      </app-button>
+    </div>
+  </div>
+
+  <div class="flex flex-col">
+    <div class="flex mb-1">
+      <div class="w-24 font-bold">{{ hasRepRange() ? "Rep range:" : "Reps:" }}</div>
+      <div>
+        @if (hasRepRange()) {
+          {{ setItem().repMin }} - {{ setItem().repMax }}
+        } @else {
+          {{ setItem().repExact }}
+        }
+      </div>
+    </div>
+    <div class="flex mb-1">
+      <div class="w-24 font-bold">Load:</div>
+      <div>{{ setItem().repWeight }}{{ setItem().repType }}</div>
+    </div>
+    <div class="flex">
+      <div class="w-24 font-bold">Rest:</div>
+      <div>{{ setItem().rest || "No" }}</div>
+    </div>
+    @if (setItem().details.description) {
+      <div class="flex mt-1">
+        <div class="w-24 font-bold">Description:</div>
+        <div>{{ setItem().details.description }}</div>
+      </div>
+    }
+  </div>
+</div>

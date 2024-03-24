@@ -1,7 +1,7 @@
 <div class="w-full bg-slate-100 p-4">
   @if (set().setItems.length) {
-    @for (item of set().setItems; track $index) {
-      <app-workout-builder-set-item [setItem]="item" />
+    @for (item of set().setItems; let index = $index; track item.id) {
+      <app-workout-builder-set-item [setItem]="item" [index]="index" class="mb-4" />
     }
   } @else if (!addingNewExercise()) {
     <div class="w-full text-slate-600 flex justify-center">No exercises found</div>
