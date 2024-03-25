@@ -24,6 +24,7 @@
       [type]="type()"
       [inputMode]="inputMode()"
       [autocomplete]="autocomplete() ? 'on' : 'off'"
+      [disabled]="isDisabled"
       class="border border-slate-500 outline-emerald-700 rounded-sm p-1 h-8" />
   } @else {
     <textarea

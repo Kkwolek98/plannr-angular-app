@@ -35,12 +35,18 @@ export class InputComponent implements ControlValueAccessor {
   public name = input<string>("");
   public autocomplete = input<boolean>(false);
   public inputMode = input<InputMode>();
+  public disabled = input<boolean, boolean>(false, {
+    transform: (val) => {
+      this.setDisabledState(val);
+      return val;
+    },
+  });
 
-  protected inputId: string = shortId("input");
-  protected onChange!: (value: string | number) => void;
-  protected onTouched!: () => void;
-  protected isDisabled: boolean = false;
-  protected value: string | number = "";
+  inputId: string = shortId("input");
+  onChange!: (value: string | number) => void;
+  onTouched!: () => void;
+  isDisabled: boolean = false;
+  value: string | number = "";
 
   writeValue(value: string | number): void {
     this.value = value;
@@ -57,6 +63,7 @@ export class InputComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+    this.cdref.detectChanges();
   }
 
   onModelChange() {

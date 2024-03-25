@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, inject, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, inject, input } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ButtonComponent } from "../../../../../../../../../../../lib/inputs/button/button.component";
@@ -14,6 +14,7 @@ import { REP_TYPES_SELECT } from "../../../../../../../../../../utils/consts/rep
 
 type FormFlow = {
   isExactReps: FormControl<boolean>;
+  hasLoad: FormControl<boolean>;
   hasRest: FormControl<boolean>;
 };
 
@@ -33,12 +34,14 @@ type FormFlow = {
     ToggleComponent,
   ],
 })
-export class WorkoutBuilderSetFormComponent {
+export class WorkoutBuilderSetFormComponent implements OnInit {
   private readonly exercisesService = inject(ExercisesService);
   private readonly workoutBuilder = inject(WorkoutBuilderService);
 
   public setId = input.required<string>();
   public editedSetItem = input<SetItem>();
+
+  private previousLoad?: number | null;
 
   @Output()
   closed: EventEmitter<void> = new EventEmitter();
@@ -58,6 +61,7 @@ export class WorkoutBuilderSetFormComponent {
 
   formFlow: FormGroup<FormFlow> = new FormGroup({
     isExactReps: new FormControl(false, { nonNullable: true }),
+    hasLoad: new FormControl(true, { nonNullable: true }),
     hasRest: new FormControl(true, { nonNullable: true }),
   });
 
@@ -69,6 +73,27 @@ export class WorkoutBuilderSetFormComponent {
 
   get hasRestControl(): FormControl<boolean> {
     return this.formFlow.get("hasRest") as FormControl<boolean>;
+  }
+
+  get hasLoadControl(): FormControl<boolean> {
+    return this.formFlow.get("hasLoad") as FormControl<boolean>;
+  }
+
+  ngOnInit(): void {
+    this.hasLoadControl.valueChanges.subscribe((hasLoad) => {
+      const repWeightControl = this.form.get("repWeight");
+      const repTypeControl = this.form.get("repType");
+      if (!hasLoad) {
+        this.previousLoad = repWeightControl?.value;
+        repWeightControl?.setValue(null);
+        repWeightControl?.disable();
+        repTypeControl?.disable();
+      } else {
+        repWeightControl?.setValue(this.previousLoad!);
+        repWeightControl?.enable();
+        repTypeControl?.enable();
+      }
+    });
   }
 
   save() {

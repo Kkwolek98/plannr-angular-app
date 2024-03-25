@@ -19,6 +19,7 @@
     [id]="inputId"
     [(ngModel)]="value"
     (ngModelChange)="onModelChange()"
+    [disabled]="isDisabled"
     class="h-8 border border-slate-500 outline-emerald-700 rounded-sm">
     @for (option of data(); track $index) {
       <option [value]="option[valueKey()]">{{ option[labelKey()] }}</option>

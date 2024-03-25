@@ -14,6 +14,9 @@ import { shortId } from "../../../app/utils/short-id";
   selector: "app-select",
   standalone: true,
   imports: [CommonModule, FormsModule],
+  templateUrl: "./select.component.html",
+  styleUrl: "./select.component.scss",
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -21,9 +24,6 @@ import { shortId } from "../../../app/utils/short-id";
       multi: true,
     },
   ],
-  templateUrl: "./select.component.html",
-  styleUrl: "./select.component.scss",
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent<SelectData extends []> implements ControlValueAccessor {
   private readonly cdref = inject(ChangeDetectorRef);
@@ -32,6 +32,12 @@ export class SelectComponent<SelectData extends []> implements ControlValueAcces
   public label = input<string>();
   public labelPosition = input<"top" | "left">("top");
   public placeholder = input<string>();
+  public disabled = input<boolean, boolean>(false, {
+    transform: (val) => {
+      this.setDisabledState(val);
+      return val;
+    },
+  });
 
   public data = input.required<SelectData>();
   public valueKey = input.required<keyof SelectData[0]>();
@@ -50,6 +56,7 @@ export class SelectComponent<SelectData extends []> implements ControlValueAcces
 
   registerOnChange(fn: () => void): void {
     this.onChange = fn;
+    console.log(this.inputId);
   }
 
   registerOnTouched(fn: () => void): void {
@@ -58,6 +65,7 @@ export class SelectComponent<SelectData extends []> implements ControlValueAcces
 
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+    this.cdref.detectChanges();
   }
 
   onModelChange() {

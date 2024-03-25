@@ -1,8 +1,14 @@
-<label for="toggle" class="flex items-center cursor-pointer">
-  <div class="relative">
+@if (labelPosition() === "top") {
+  {{ label() }}
+}
+<label [htmlFor]="inputId" class="flex items-center cursor-pointer">
+  @if (labelPosition() === "left") {
+    {{ label() }}
+  }
+  <div class="relative ms-1">
     <input
       type="checkbox"
-      id="toggle"
+      [id]="inputId"
       class="hidden"
       [disabled]="isDisabled"
       [checked]="value"

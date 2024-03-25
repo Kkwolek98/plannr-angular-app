@@ -29,6 +29,7 @@ export class ToggleComponent implements ControlValueAccessor {
   private readonly cdref = inject(ChangeDetectorRef);
 
   public name = input<string>("");
+  public label = input<string>();
   public labelTrue = input<string>("Yes");
   public labelFalse = input<string>("No");
   public labelPosition = input<"top" | "left">("top");
