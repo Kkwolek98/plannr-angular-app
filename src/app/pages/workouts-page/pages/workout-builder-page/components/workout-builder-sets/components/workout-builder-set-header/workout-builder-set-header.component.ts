@@ -15,6 +15,9 @@ export class WorkoutBuilderSetHeaderComponent {
   private readonly workoutBuilderService = inject(WorkoutBuilderService);
 
   public set = input.required<ExerciseSet>();
+  public index = input.required<number>();
+
+  readonly setLetter = computed(() => String.fromCharCode(65 + this.index()));
   readonly isOpen = computed(() => this.workoutBuilderService.openSetsIds().has(this.set().id));
 
   public toggleSetOpen(): void {

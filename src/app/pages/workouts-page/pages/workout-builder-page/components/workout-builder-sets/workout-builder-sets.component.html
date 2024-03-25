@@ -1,6 +1,6 @@
-@for (set of sets(); track $index) {
+@for (set of sets(); let index = $index; track set.id) {
   <app-workout-builder-set-container class="mb-2">
-    <app-workout-builder-set-header [set]="set" />
+    <app-workout-builder-set-header [set]="set" [index]="index" />
     @if (isOpen(set.id)) {
       <app-workout-builder-set-body [set]="set" />
     }
