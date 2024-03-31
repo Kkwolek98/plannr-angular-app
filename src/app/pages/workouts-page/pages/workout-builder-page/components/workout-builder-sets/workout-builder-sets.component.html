@@ -1,10 +1,18 @@
-@for (set of sets(); let index = $index; track set.id) {
-  <app-workout-builder-set-container class="mb-2">
-    <app-workout-builder-set-header [set]="set" [index]="index" />
-    @if (isOpen(set.id)) {
-      <app-workout-builder-set-body [set]="set" />
+<app-drawer-container #drawerContainer>
+  <div>
+    @for (set of sets(); let index = $index; track set.id) {
+      <app-workout-builder-set-container class="mb-2">
+        <app-workout-builder-set-header [set]="set" [index]="index" (click)="toggleDrawer(set)" />
+        @if (isOpen(set.id)) {
+          <app-workout-builder-set-body [set]="set" />
+        }
+      </app-workout-builder-set-container>
     }
-  </app-workout-builder-set-container>
-}
+  </div>
+
+  <ng-template appDrawer>
+    <app-workout-builder-set-details-drawer [drawerData]="drawerData()" />
+  </ng-template>
+</app-drawer-container>
 
 <app-button (click)="addNewSet()">Add set</app-button>

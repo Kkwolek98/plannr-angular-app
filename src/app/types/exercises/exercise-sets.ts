@@ -1,11 +1,9 @@
-import { Workout } from "../workouts/workouts";
-
-export type ExerciseSet = {
-  id: string;
-  workout: Workout;
-  name: string;
-  description?: string;
-  setItems: unknown[]; //TODO
-  rest?: number;
-  sort: number;
-};
+// export type ExerciseSet = {
+//   id: string;
+//   workout: Workout;
+//   name: string;
+//   description?: string;
+//   setItems: unknown[]; //TODO
+//   rest?: number;
+//   sort: number;
+// };

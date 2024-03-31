@@ -1,11 +1,15 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, ViewChild, inject, signal } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { map } from "rxjs";
+import { DrawerContainerComponent } from "../../../../../../../lib/drawer/drawer-container/drawer-container.component";
+import { DrawerDirective } from "../../../../../../../lib/drawer/drawer.directive";
 import { ButtonComponent } from "../../../../../../../lib/inputs/button/button.component";
 import { WorkoutBuilderService } from "../../../../../../services/workout-builder.service";
+import { ExerciseSet } from "../../../../../../types/workouts/sets";
 import { WorkoutBuilderSetBodyComponent } from "./components/workout-builder-set-body/workout-builder-set-body.component";
 import { WorkoutBuilderSetContainerComponent } from "./components/workout-builder-set-container/workout-builder-set-container.component";
+import { WorkoutBuilderSetDetailsDrawerComponent } from "./components/workout-builder-set-details-drawer/workout-builder-set-details-drawer.component";
 import { WorkoutBuilderSetHeaderComponent } from "./components/workout-builder-set-header/workout-builder-set-header.component";
 
 @Component({
@@ -20,11 +24,18 @@ import { WorkoutBuilderSetHeaderComponent } from "./components/workout-builder-s
     WorkoutBuilderSetHeaderComponent,
     WorkoutBuilderSetBodyComponent,
     ButtonComponent,
+    DrawerContainerComponent,
+    DrawerDirective,
+    WorkoutBuilderSetDetailsDrawerComponent,
   ],
 })
 export class WorkoutBuilderSetsComponent {
   readonly workoutBuilderService = inject(WorkoutBuilderService);
   readonly sets = toSignal(this.workoutBuilderService.data.pipe(map((workout) => workout?.sets || [])));
+
+  @ViewChild("drawerContainer") drawerContainer!: DrawerContainerComponent;
+
+  drawerData = signal<ExerciseSet | null>(null);
 
   addNewSet(): void {
     this.workoutBuilderService.addEmptySet().subscribe();
@@ -32,5 +43,15 @@ export class WorkoutBuilderSetsComponent {
 
   isOpen(setId: string): boolean {
     return this.workoutBuilderService.openSetsIds().has(setId);
+  }
+
+  toggleDrawer(set: ExerciseSet): void {
+    if (!this.drawerData() || this.drawerData()?.id !== set.id) {
+      this.drawerData.set(set);
+      this.drawerContainer.open();
+    } else if (this.drawerData()?.id === set.id) {
+      this.drawerData.set(null);
+      this.drawerContainer.close();
+    }
   }
 }
