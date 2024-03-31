@@ -19,7 +19,9 @@
         {{ setItem().repExact }}
       }
       x
-      {{ setItem().repWeight }}{{ setItem().repType }}
+      @if (hasLoad()) {
+        {{ setItem().repWeight }}{{ setItem().repType }}
+      }
     </div>
     <div>{{ setItem().rest ? setItem().rest + "s rest" : "No rest" }}</div>
     @if (setItem().details.description) {

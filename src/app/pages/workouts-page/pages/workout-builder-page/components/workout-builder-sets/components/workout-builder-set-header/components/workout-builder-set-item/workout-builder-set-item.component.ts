@@ -18,4 +18,8 @@ export class WorkoutBuilderSetItemComponent {
   hasRepRange = computed(() => {
     return this.setItem().repMin !== null && this.setItem().repMax !== null;
   });
+
+  hasLoad = computed(() => {
+    return this.setItem().repWeight !== null;
+  });
 }
