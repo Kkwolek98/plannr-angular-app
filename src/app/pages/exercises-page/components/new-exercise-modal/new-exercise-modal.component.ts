@@ -41,12 +41,7 @@ export class NewExerciseModalComponent extends ModalComponent<undefined, boolean
 
   protected newVideoFormControl: FormControl<string> = new FormControl("", {
     nonNullable: true,
-    validators: [Validators.required, youtubeUrlValidator],
-  });
-
-  protected newTagFormControl: FormControl<string> = new FormControl("", {
-    nonNullable: true,
-    validators: [Validators.required],
+    validators: [youtubeUrlValidator],
   });
 
   protected addVideoToArray(): void {
@@ -56,15 +51,6 @@ export class NewExerciseModalComponent extends ModalComponent<undefined, boolean
 
     this.form.get("videos")?.value.push(this.newVideoFormControl.value);
     this.newVideoFormControl.setValue("");
-  }
-
-  protected addTagToArray(): void {
-    if (this.newTagFormControl.invalid) {
-      throw Error("Invalid video url");
-    }
-
-    this.form.get("tags")?.value.push(this.newTagFormControl.value);
-    this.newTagFormControl.setValue("");
   }
 
   protected create(): void {

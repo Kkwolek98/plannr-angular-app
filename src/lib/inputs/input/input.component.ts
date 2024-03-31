@@ -1,13 +1,6 @@
 import { CommonModule } from "@angular/common";
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  forwardRef,
-  inject,
-  input,
-} from "@angular/core";
-import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, inject, input } from "@angular/core";
+import { ControlValueAccessor, FormsModule, NgControl, Validators } from "@angular/forms";
 import { shortId } from "../../../app/utils/short-id";
 
 @Component({
@@ -17,16 +10,17 @@ import { shortId } from "../../../app/utils/short-id";
   templateUrl: "./input.component.html",
   styleUrl: "./input.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
-      multi: true,
-    },
-  ],
+  // providers: [
+  //   {
+  //     provide: NG_VALUE_ACCESSOR,
+  //     useExisting: forwardRef(() => InputComponent),
+  //     multi: true,
+  //   },
+  // ],
 })
-export class InputComponent implements ControlValueAccessor {
+export class InputComponent implements ControlValueAccessor, OnInit {
   private readonly cdref = inject(ChangeDetectorRef);
+  public ngControl = inject(NgControl);
 
   public label = input<string>();
   public labelPosition = input<"top" | "left">("top");
@@ -47,6 +41,15 @@ export class InputComponent implements ControlValueAccessor {
   onTouched!: () => void;
   isDisabled: boolean = false;
   value: string | number = "";
+  isRequired: boolean = false;
+
+  constructor() {
+    this.ngControl.valueAccessor = this;
+  }
+
+  ngOnInit(): void {
+    this.isRequired = !!this.ngControl.control?.hasValidator(Validators.required);
+  }
 
   writeValue(value: string | number): void {
     this.value = value;
@@ -67,6 +70,7 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   onModelChange() {
+    console.log();
     this.onChange(this.value);
   }
 }

@@ -11,8 +11,11 @@
         'me-2 flex items-center': labelPosition() === 'left',
         'mb-1': labelPosition() === 'top'
       }"
-      >{{ label() }}</label
-    >
+      >{{ label() }}
+      @if (isRequired) {
+        <span class="text-red-500 -ms-0.5">*</span>
+      }
+    </label>
   }
 
   @if (type() !== "textarea") {

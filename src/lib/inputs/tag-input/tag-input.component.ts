@@ -1,12 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, forwardRef } from "@angular/core";
-import {
-  ControlValueAccessor,
-  FormControl,
-  NG_VALUE_ACCESSOR,
-  ReactiveFormsModule,
-  Validators,
-} from "@angular/forms";
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
 import { TagComponent } from "../../tag/tag.component";
 import { ButtonComponent } from "../button/button.component";
 import { InputComponent } from "../input/input.component";
@@ -28,7 +22,6 @@ import { InputComponent } from "../input/input.component";
 })
 export class TagInputComponent implements ControlValueAccessor {
   formControl: FormControl<string> = new FormControl("", {
-    validators: [Validators.required],
     nonNullable: true,
   });
   value: string[] = [];
