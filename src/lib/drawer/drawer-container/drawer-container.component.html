@@ -1,0 +1,9 @@
+<div class="flex [&>*:first-child]:flex-1">
+  <ng-content></ng-content>
+
+  <div
+    class="overflow-hidden transition-[width] ease-in-out duration-500 [&>*:first-child]:text-nowrap"
+    [style.width]="isOpen() ? width() : '0px'">
+    <ng-container [ngTemplateOutlet]="drawer.templateRef"></ng-container>
+  </div>
+</div>
