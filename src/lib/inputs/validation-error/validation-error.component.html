@@ -1,0 +1,9 @@
+<div class="text-red-500 text-xs min-h-4">
+  @if (formControl.touched && formControl.errors) {
+    <ul>
+      @for (error of formControl.errors | appValidationErrors; track $index) {
+        <li>{{ error }}</li>
+      }
+    </ul>
+  }
+</div>

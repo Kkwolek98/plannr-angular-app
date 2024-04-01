@@ -1,26 +1,34 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, inject, input } from "@angular/core";
-import { ControlValueAccessor, FormsModule, NgControl, Validators } from "@angular/forms";
+import {
+  ControlValueAccessor,
+  FormControl,
+  FormsModule,
+  NgControl,
+  ReactiveFormsModule,
+  Validators,
+} from "@angular/forms";
 import { shortId } from "../../../app/utils/short-id";
+import { ValidationErrorComponent } from "../validation-error/validation-error.component";
 
 @Component({
   selector: "app-input",
   standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: "./input.component.html",
   styleUrl: "./input.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  // providers: [
-  //   {
-  //     provide: NG_VALUE_ACCESSOR,
-  //     useExisting: forwardRef(() => InputComponent),
-  //     multi: true,
-  //   },
-  // ],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, ValidationErrorComponent],
+  providers: [
+    // {
+    //   provide: NG_VALUE_ACCESSOR,
+    //   useExisting: forwardRef(() => InputComponent),
+    //   multi: true,
+    // },
+  ],
 })
 export class InputComponent implements ControlValueAccessor, OnInit {
   private readonly cdref = inject(ChangeDetectorRef);
-  public ngControl = inject(NgControl);
+  public readonly ngControl = inject(NgControl);
 
   public label = input<string>();
   public labelPosition = input<"top" | "left">("top");
@@ -42,6 +50,10 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   isDisabled: boolean = false;
   value: string | number = "";
   isRequired: boolean = false;
+
+  get formControl(): FormControl {
+    return this.ngControl.control as FormControl;
+  }
 
   constructor() {
     this.ngControl.valueAccessor = this;
@@ -70,7 +82,6 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   }
 
   onModelChange() {
-    console.log();
     this.onChange(this.value);
   }
 }

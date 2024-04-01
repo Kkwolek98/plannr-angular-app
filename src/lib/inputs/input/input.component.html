@@ -28,6 +28,7 @@
       [inputMode]="inputMode()"
       [autocomplete]="autocomplete() ? 'on' : 'off'"
       [disabled]="isDisabled"
+      (blur)="onTouched()"
       class="border border-slate-500 outline-emerald-700 rounded-sm p-1 h-8" />
   } @else {
     <textarea
@@ -37,7 +38,12 @@
       [name]="name()"
       [inputMode]="inputMode()"
       [autocomplete]="autocomplete() ? 'on' : 'off'"
+      [disabled]="isDisabled"
+      (blur)="onTouched()"
       class="border border-slate-500 outline-emerald-700 rounded-sm p-1">
     </textarea>
+  }
+  @if (ngControl.control) {
+    <app-validation-error [formControl]="formControl"></app-validation-error>
   }
 </div>
