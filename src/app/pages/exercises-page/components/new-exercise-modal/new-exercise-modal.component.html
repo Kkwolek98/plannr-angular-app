@@ -1,12 +1,7 @@
 <form class="w-[80vw] md:w-[36rem]" [formGroup]="form">
   <div class="w-auto md:w-96 mx-auto">
-    <app-input class="mb-3" name="name" formControlName="name" label="Name"></app-input>
-    <app-input
-      class="mb-3"
-      type="textarea"
-      name="description"
-      formControlName="description"
-      label="Description"></app-input>
+    <app-input name="name" formControlName="name" label="Name"></app-input>
+    <app-input type="textarea" name="description" formControlName="description" label="Description"></app-input>
     <app-tag-input formControlName="tags" class="mb-3"></app-tag-input>
     <div class="flex items-end gap-4 w-100 mb-5">
       <app-input
@@ -14,7 +9,11 @@
         [formControl]="newVideoFormControl"
         name="video"
         label="New video URL"></app-input>
-      <app-button (click)="addVideoToArray()" [disabled]="newVideoFormControl.invalid" variant="outlined"
+      <app-button
+        (click)="addVideoToArray()"
+        [disabled]="newVideoFormControl.invalid"
+        variant="outlined"
+        class="mb-4"
         >Add</app-button
       >
     </div>
