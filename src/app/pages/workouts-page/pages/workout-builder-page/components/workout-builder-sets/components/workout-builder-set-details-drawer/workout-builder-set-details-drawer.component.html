@@ -1,5 +1,15 @@
 <div class="px-3">
-  <h2 class="text-2xl font-bold">Set details</h2>
+  <div class="flex justify-between items-c">
+    <h2 class="text-2xl font-bold">Set details</h2>
+    <div class="flex gap-1">
+      <app-button color="clean">
+        <i class="fa-solid fa-pen text-slate-400 hover:text-yellow-600"></i>
+      </app-button>
+      <app-button color="clean" [loading]="deletingSet()" (click)="removeSet()">
+        <i class="fa-solid fa-trash text-slate-400 hover:text-red-600"></i>
+      </app-button>
+    </div>
+  </div>
   <div>{{ drawerData()?.name }}</div>
   <div>{{ drawerData()?.description }}</div>
   <div>{{ drawerData()?.rest === null ? "No rest" : drawerData()?.rest + "s rest" }}</div>

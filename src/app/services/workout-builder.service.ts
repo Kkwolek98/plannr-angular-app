@@ -51,6 +51,22 @@ export class WorkoutBuilderService {
     );
   }
 
+  public removeSet(setId: string): Observable<{ removed: boolean }> {
+    return this.setsService.removeSet$(setId).pipe(
+      tap(({ removed }) => {
+        if (!removed) {
+          throw Error("Set was not removed");
+        }
+        const workout = this._dataSignal()!;
+
+        workout.sets = workout.sets.filter((set) => set.id !== setId); // remove set
+        workout.sets = workout.sets.map((set, index) => ({ ...set, sort: index })); // adjust sort
+
+        this._dataSignal.set({ ...workout });
+      })
+    );
+  }
+
   public addSetItemToSet(setId: string, setItem: Partial<ExerciseSet>): Observable<ExerciseSet> {
     return this.setsService.addSetItemToSet$(setId, setItem).pipe(
       tap((set) => {

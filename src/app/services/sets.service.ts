@@ -13,4 +13,8 @@ export class SetsService {
   public addSetItemToSet$(setId: string, setItem: Partial<SetItem>): Observable<ExerciseSet> {
     return this.http.post<ExerciseSet>(envConfig.url + "/sets/" + setId + "/items", setItem);
   }
+
+  public removeSet$(setId: string): Observable<{ removed: boolean }> {
+    return this.http.delete<{ removed: boolean }>(envConfig.url + "/sets/" + setId);
+  }
 }

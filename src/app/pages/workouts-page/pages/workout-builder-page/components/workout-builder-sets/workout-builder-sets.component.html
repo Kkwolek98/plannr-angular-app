@@ -11,7 +11,9 @@
   </div>
 
   <ng-template appDrawer>
-    <app-workout-builder-set-details-drawer [drawerData]="drawerData()" />
+    <app-workout-builder-set-details-drawer
+      [drawerData]="drawerData()"
+      (closeDrawer)="drawerContainer.close()" />
   </ng-template>
 </app-drawer-container>
 
