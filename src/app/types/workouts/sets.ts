@@ -1,3 +1,4 @@
+import { FormControl } from "@angular/forms";
 import { Exercise } from "../exercises/exercises";
 
 export type ExerciseSet = {
@@ -20,6 +21,12 @@ export type SetItem = {
   repType?: RepType;
   rest?: number;
   sort: number;
+};
+
+export type SetEditForm = {
+  name: FormControl<string>;
+  description: FormControl<string | undefined>;
+  rest: FormControl<number | undefined>;
 };
 
 export type RepType = "kg" | "lb" | "RPE" | "min" | "s";

@@ -67,6 +67,23 @@ export class WorkoutBuilderService {
     );
   }
 
+  public updateSet(setId: string, set: Partial<ExerciseSet>): Observable<ExerciseSet> {
+    return this.setsService.updateSet$(setId, set).pipe(
+      tap((updatedSet) => {
+        const workout = this._dataSignal()!;
+        const editedSetIndex = workout?.sets.findIndex((el) => el.id === setId);
+
+        if (editedSetIndex === undefined || editedSetIndex < 0) {
+          throw Error("Invalid set id");
+        }
+
+        workout.sets[editedSetIndex] = updatedSet;
+
+        this._dataSignal.set({ ...workout });
+      })
+    );
+  }
+
   public addSetItemToSet(setId: string, setItem: Partial<ExerciseSet>): Observable<ExerciseSet> {
     return this.setsService.addSetItemToSet$(setId, setItem).pipe(
       tap((set) => {
