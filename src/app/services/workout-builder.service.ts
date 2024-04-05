@@ -62,7 +62,7 @@ export class WorkoutBuilderService {
         workout.sets = workout.sets.filter((set) => set.id !== setId); // remove set
         workout.sets = workout.sets.map((set, index) => ({ ...set, sort: index })); // adjust sort
 
-        this._dataSignal.set({ ...workout });
+        this._dataSignal.set(structuredClone(workout));
       })
     );
   }
@@ -79,7 +79,7 @@ export class WorkoutBuilderService {
 
         workout.sets[editedSetIndex] = updatedSet;
 
-        this._dataSignal.set({ ...workout });
+        this._dataSignal.set(structuredClone(workout));
       })
     );
   }
@@ -97,6 +97,31 @@ export class WorkoutBuilderService {
         currentData.sets[editedSetIndex] = set;
 
         this._dataSignal.set(structuredClone(currentData));
+      })
+    );
+  }
+
+  public removeSetItem(setItemId: string): Observable<{ removed: boolean }> {
+    return this.setsService.removeSetItem$(setItemId).pipe(
+      tap(({ removed }) => {
+        if (!removed) {
+          throw Error("Set item was not removed");
+        }
+
+        const workout = this._dataSignal()!;
+        const editedSetIndex = workout?.sets.findIndex((el) =>
+          el.setItems.map((item) => item.id).includes(setItemId)
+        );
+
+        if (editedSetIndex === undefined || editedSetIndex < 0) {
+          throw Error("Invalid set id");
+        }
+
+        workout.sets[editedSetIndex].setItems = workout.sets[editedSetIndex].setItems.filter(
+          (item) => item.id !== setItemId
+        );
+
+        this._dataSignal.set(structuredClone(workout));
       })
     );
   }
