@@ -25,4 +25,8 @@
       <option [value]="option[valueKey()]">{{ option[labelKey()] }}</option>
     }
   </select>
+
+  @if (ngControl.control) {
+    <app-validation-error [formControl]="formControl"></app-validation-error>
+  }
 </div>
