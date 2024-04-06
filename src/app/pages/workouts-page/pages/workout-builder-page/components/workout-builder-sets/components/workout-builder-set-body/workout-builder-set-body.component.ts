@@ -17,9 +17,9 @@ import { WorkoutBuilderSetItemComponent } from "../workout-builder-set-header/co
 export class WorkoutBuilderSetBodyComponent {
   private readonly workoutBuilderService = inject(WorkoutBuilderService);
 
-  public set = input.required<ExerciseSet>();
+  public readonly set = input.required<ExerciseSet>();
 
-  addingNewExercise = signal(false);
-
+  readonly addingNewExercise = signal(false);
   readonly isOpen = computed(() => this.workoutBuilderService.openSetsIds().has(this.set().id));
+  readonly editedSetItemId$ = this.workoutBuilderService.editedSetItemId$;
 }

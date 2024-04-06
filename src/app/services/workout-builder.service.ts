@@ -1,7 +1,7 @@
 import { Injectable, inject, signal } from "@angular/core";
 import { toObservable } from "@angular/core/rxjs-interop";
 import { Observable, tap } from "rxjs";
-import { ExerciseSet } from "../types/workouts/sets";
+import { ExerciseSet, SetItem } from "../types/workouts/sets";
 import { Workout } from "../types/workouts/workouts";
 import { SetsService } from "./sets.service";
 import { WorkoutsService } from "./workouts.service";
@@ -14,8 +14,11 @@ export class WorkoutBuilderService {
   private readonly setsService = inject(SetsService);
 
   private readonly _dataSignal = signal<Workout | undefined>(undefined);
+  private readonly editedSetItemId = signal<string | null>(null);
+
   public readonly data = toObservable(this._dataSignal);
   public readonly openSetsIds = signal<Set<string>>(new Set());
+  public readonly editedSetItemId$ = toObservable(this.editedSetItemId);
 
   public setWorkout(workout: Workout): void {
     this._dataSignal.set(workout);
@@ -35,6 +38,10 @@ export class WorkoutBuilderService {
     }
 
     this.openSetsIds.set(new Set(openSetsIds));
+  }
+
+  public setSetTimeId(setItemId: string | null): void {
+    this.editedSetItemId.set(setItemId);
   }
 
   public addEmptySet(): Observable<Workout> {
@@ -84,7 +91,7 @@ export class WorkoutBuilderService {
     );
   }
 
-  public addSetItemToSet(setId: string, setItem: Partial<ExerciseSet>): Observable<ExerciseSet> {
+  public addSetItemToSet(setId: string, setItem: Partial<SetItem>): Observable<ExerciseSet> {
     return this.setsService.addSetItemToSet$(setId, setItem).pipe(
       tap((set) => {
         const currentData = this._dataSignal()!;
@@ -99,6 +106,10 @@ export class WorkoutBuilderService {
         this._dataSignal.set(structuredClone(currentData));
       })
     );
+  }
+
+  public updateSetItem(setItemId: string, setItem: Partial<SetItem>): Observable<ExerciseSet> {
+    return this.setsService.updateSetItem$(setItemId, setItem);
   }
 
   public removeSetItem(setItemId: string): Observable<{ removed: boolean }> {

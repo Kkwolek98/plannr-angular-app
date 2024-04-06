@@ -1,5 +1,13 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, inject, input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Output,
+  inject,
+  input,
+} from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ButtonComponent } from "../../../../../../../../../../../lib/inputs/button/button.component";
@@ -9,7 +17,7 @@ import { ToggleComponent } from "../../../../../../../../../../../lib/inputs/tog
 import { ExercisesService } from "../../../../../../../../../../services/exercises.service";
 import { WorkoutBuilderService } from "../../../../../../../../../../services/workout-builder.service";
 import { NewSetItemForm } from "../../../../../../../../../../types/workout-builder/exercise";
-import { ExerciseSet, SetItem } from "../../../../../../../../../../types/workouts/sets";
+import { SetItem } from "../../../../../../../../../../types/workouts/sets";
 import { REP_TYPES_SELECT } from "../../../../../../../../../../utils/consts/rep-types";
 
 type FormFlow = {
@@ -34,12 +42,35 @@ type FormFlow = {
     ToggleComponent,
   ],
 })
-export class WorkoutBuilderSetFormComponent implements OnInit {
+export class WorkoutBuilderSetFormComponent {
   private readonly exercisesService = inject(ExercisesService);
   private readonly workoutBuilder = inject(WorkoutBuilderService);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   public setId = input.required<string>();
-  public editedSetItem = input<SetItem>();
+  public editedSetItem = input<SetItem | null, SetItem | null>(null, {
+    transform: (val) => {
+      if (val) {
+        this.formFlow.setValue({
+          isExactReps: val.repExact !== null,
+          hasLoad: val.repWeight !== null,
+          hasRest: val.rest !== null,
+        });
+
+        this.form.setValue({
+          details: val.details.id,
+          repMin: val.repMin!,
+          repMax: val.repMax!,
+          repExact: val.repExact!,
+          repType: val.repType!,
+          repWeight: val.repWeight!,
+          sort: val.sort!,
+          rest: val.rest!,
+        });
+      }
+      return val;
+    },
+  });
 
   private previousLoad?: number | null;
 
@@ -79,7 +110,7 @@ export class WorkoutBuilderSetFormComponent implements OnInit {
     return this.formFlow.get("hasLoad") as FormControl<boolean>;
   }
 
-  ngOnInit(): void {
+  constructor() {
     this.hasLoadControl.valueChanges.subscribe((hasLoad) => {
       const repWeightControl = this.form.get("repWeight");
       const repTypeControl = this.form.get("repType");
@@ -101,10 +132,22 @@ export class WorkoutBuilderSetFormComponent implements OnInit {
       return this.form.markAllAsTouched();
     }
 
-    this.workoutBuilder.addSetItemToSet(this.setId(), this.form.value as Partial<ExerciseSet>).subscribe({
+    if (this.editedSetItem()) {
+      this.saveEdited();
+    } else {
+      this.saveNew();
+    }
+  }
+
+  private saveNew(): void {
+    this.workoutBuilder.addSetItemToSet(this.setId(), this.form.value as Partial<SetItem>).subscribe({
       next: () => {
         this.closed.emit();
       },
     });
+  }
+
+  private saveEdited(): void {
+    throw Error("Not implemented on API");
   }
 }

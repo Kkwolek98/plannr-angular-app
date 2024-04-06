@@ -36,4 +36,8 @@ export class WorkoutBuilderSetItemComponent {
       },
     });
   }
+
+  enableEdit(): void {
+    this.workoutBuilderService.setSetTimeId(this.setItem().id);
+  }
 }
