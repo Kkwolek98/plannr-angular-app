@@ -40,7 +40,7 @@ export class WorkoutBuilderService {
     this.openSetsIds.set(new Set(openSetsIds));
   }
 
-  public setSetTimeId(setItemId: string | null): void {
+  public setItemId(setItemId: string | null): void {
     this.editedSetItemId.set(setItemId);
   }
 
@@ -94,22 +94,45 @@ export class WorkoutBuilderService {
   public addSetItemToSet(setId: string, setItem: Partial<SetItem>): Observable<ExerciseSet> {
     return this.setsService.addSetItemToSet$(setId, setItem).pipe(
       tap((set) => {
-        const currentData = this._dataSignal()!;
-        const editedSetIndex = currentData?.sets.findIndex((el) => el.id === setId);
+        const workout = this._dataSignal()!;
+        const editedSetIndex = workout?.sets.findIndex((el) => el.id === setId);
 
         if (editedSetIndex === undefined || editedSetIndex < 0) {
           throw Error("Invalid set id");
         }
 
-        currentData.sets[editedSetIndex] = set;
+        workout.sets[editedSetIndex] = set;
 
-        this._dataSignal.set(structuredClone(currentData));
+        this._dataSignal.set(structuredClone(workout));
       })
     );
   }
 
-  public updateSetItem(setItemId: string, setItem: Partial<SetItem>): Observable<ExerciseSet> {
-    return this.setsService.updateSetItem$(setItemId, setItem);
+  public updateSetItem(setItemId: string, setItem: Partial<SetItem>): Observable<SetItem> {
+    return this.setsService.updateSetItem$(setItemId, setItem).pipe(
+      tap((updatedSetItem) => {
+        const workout = this._dataSignal()!;
+        const editedSetIndex = workout?.sets.findIndex((el) =>
+          el.setItems.map((item) => item.id).includes(setItemId)
+        );
+
+        if (editedSetIndex === undefined || editedSetIndex < 0) {
+          throw Error("Invalid set id");
+        }
+
+        const editedSetItemIndex = workout.sets[editedSetIndex].setItems.findIndex(
+          (item) => item.id === setItemId
+        );
+
+        if (editedSetItemIndex === undefined || editedSetItemIndex < 0) {
+          throw Error("Invalid set item id");
+        }
+
+        workout.sets[editedSetIndex].setItems[editedSetItemIndex] = updatedSetItem;
+
+        this._dataSignal.set(structuredClone(workout));
+      })
+    );
   }
 
   public removeSetItem(setItemId: string): Observable<{ removed: boolean }> {

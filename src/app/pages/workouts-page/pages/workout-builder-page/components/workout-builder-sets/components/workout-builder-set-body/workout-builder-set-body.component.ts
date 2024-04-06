@@ -22,4 +22,9 @@ export class WorkoutBuilderSetBodyComponent {
   readonly addingNewExercise = signal(false);
   readonly isOpen = computed(() => this.workoutBuilderService.openSetsIds().has(this.set().id));
   readonly editedSetItemId$ = this.workoutBuilderService.editedSetItemId$;
+
+  public addNewExercise(): void {
+    this.addingNewExercise.set(true);
+    this.workoutBuilderService.setItemId(null);
+  }
 }

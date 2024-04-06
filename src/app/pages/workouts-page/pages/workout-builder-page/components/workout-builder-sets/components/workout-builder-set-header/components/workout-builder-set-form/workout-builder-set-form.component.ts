@@ -1,13 +1,5 @@
 import { CommonModule } from "@angular/common";
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Output,
-  inject,
-  input,
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Output, inject, input } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ButtonComponent } from "../../../../../../../../../../../lib/inputs/button/button.component";
@@ -45,7 +37,6 @@ type FormFlow = {
 export class WorkoutBuilderSetFormComponent {
   private readonly exercisesService = inject(ExercisesService);
   private readonly workoutBuilder = inject(WorkoutBuilderService);
-  private readonly cdr = inject(ChangeDetectorRef);
 
   public setId = input.required<string>();
   public editedSetItem = input<SetItem | null, SetItem | null>(null, {
@@ -148,6 +139,10 @@ export class WorkoutBuilderSetFormComponent {
   }
 
   private saveEdited(): void {
-    throw Error("Not implemented on API");
+    this.workoutBuilder.updateSetItem(this.editedSetItem()!.id, this.form.value as Partial<SetItem>).subscribe({
+      next: () => {
+        this.workoutBuilder.setItemId(null);
+      },
+    });
   }
 }
