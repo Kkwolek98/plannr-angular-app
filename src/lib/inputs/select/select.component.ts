@@ -52,7 +52,6 @@ export class SelectComponent<SelectData extends []> implements ControlValueAcces
 
   registerOnChange(fn: () => void): void {
     this.onChange = fn;
-    console.log(this.inputId);
   }
 
   registerOnTouched(fn: () => void): void {
