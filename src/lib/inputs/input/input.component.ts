@@ -18,13 +18,6 @@ import { ValidationErrorComponent } from "../validation-error/validation-error.c
   styleUrl: "./input.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, ValidationErrorComponent],
-  providers: [
-    // {
-    //   provide: NG_VALUE_ACCESSOR,
-    //   useExisting: forwardRef(() => InputComponent),
-    //   multi: true,
-    // },
-  ],
 })
 export class InputComponent implements ControlValueAccessor, OnInit {
   private readonly cdref = inject(ChangeDetectorRef);
@@ -35,6 +28,7 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   public placeholder = input<string>();
   public type = input<InputType>();
   public name = input<string>("");
+  public displayRequiredAsterisk = input<boolean>(true);
   public autocomplete = input<boolean>(false);
   public inputMode = input<InputMode>();
   public disabled = input<boolean, boolean>(false, {

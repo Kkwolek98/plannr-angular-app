@@ -1,5 +1,10 @@
 <div class="flex items-end gap-4 w-100 mb-3">
-  <app-input class="flex-1" [formControl]="formControl" name="tag" label="New tag"></app-input>
+  <app-input
+    class="flex-1"
+    [formControl]="formControl"
+    [displayRequiredAsterisk]="false"
+    name="tag"
+    label="New tag"></app-input>
   <app-button (click)="addTag()" [disabled]="formControl.invalid" variant="outlined" class="mb-4"
     >Add</app-button
   >
