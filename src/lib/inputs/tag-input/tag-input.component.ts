@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
+import { uniqueArray } from "../../../app/validators/unique-array.validator";
 import { TagComponent } from "../../tag/tag.component";
 import { ButtonComponent } from "../button/button.component";
 import { InputComponent } from "../input/input.component";
@@ -27,11 +28,11 @@ import { InputComponent } from "../input/input.component";
   ],
 })
 export class TagInputComponent implements ControlValueAccessor {
+  value: string[] = [];
   formControl: FormControl<string> = new FormControl("", {
     nonNullable: true,
-    validators: [Validators.minLength(3), Validators.required],
+    validators: [Validators.minLength(3), Validators.required, uniqueArray(() => this.value)],
   });
-  value: string[] = [];
 
   writeValue(value: string[]): void {
     this.value = value;

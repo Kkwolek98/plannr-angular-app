@@ -6,6 +6,7 @@ export const VALIDATION_ERRORS_MESSAGES: Map<string, string> = new Map([
   ["pattern", "This field must match the pattern {pattern}"],
   ["min", "This field must be greater than or equal to {min}"],
   ["max", "This field must be less than or equal to {max}"],
+  ["uniqueArray", "Values must be unique"],
 ]);
 
 export function createErrorMessageString(
