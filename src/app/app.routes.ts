@@ -17,7 +17,7 @@ export const routes: Routes = [
   {
     component: LoggedInLayoutComponent,
     path: "",
-    canActivateChild: [loggedInGuard],
+    canActivate: [loggedInGuard],
     children: [
       {
         path: "exercises",
