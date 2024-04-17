@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, input } from "@angular/core";
 import { ControlValueAccessor, FormControl, FormsModule, NgControl, ReactiveFormsModule } from "@angular/forms";
-import { shortId } from "../../../app/utils/short-id";
+import { shortId } from "../../utils/short-id";
 import { ValidationErrorComponent } from "../validation-error/validation-error.component";
 
 @Component({

@@ -1,0 +1,23 @@
+<div
+  (click)="close()"
+  (keypress)="close()"
+  tabindex="0"
+  class="w-60 rounded-t-lg rounded-b-md text-white cursor-pointer shadow-lg"
+  [ngClass]="{
+    'bg-green-500': config().type === 'success',
+    'bg-red-500': config().type === 'error',
+    'bg-yellow-500': config().type === 'warning',
+    'bg-blue-500': config().type === 'info'
+  }">
+  <div
+    class="px-2 py-1 rounded-t-lg border-b-2"
+    [ngClass]="{
+      'bg-green-600 border-green-800': config().type === 'success',
+      'bg-red-600 border-red-800': config().type === 'error',
+      'bg-yellow-600 border-yellow-800': config().type === 'warning',
+      'bg-blue-600 border-blue-800': config().type === 'info'
+    }">
+    {{ config().type | uppercase }}
+  </div>
+  <div class="p-2">{{ config().message }}</div>
+</div>

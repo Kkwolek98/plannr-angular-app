@@ -8,7 +8,7 @@ import {
   input,
 } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { shortId } from "../../../app/utils/short-id";
+import { shortId } from "../../utils/short-id";
 
 @Component({
   selector: "app-toggle",
