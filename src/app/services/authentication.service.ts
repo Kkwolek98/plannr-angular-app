@@ -1,8 +1,9 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable, Subscription, tap } from "rxjs";
+import { Observable, Subscription, catchError, tap } from "rxjs";
 import { envConfig } from "../../../envConfig";
+import { NotificationsService } from "../../lib/notifications/services/notifications.service";
 import { LoginResponse } from "../types/auth/login";
 import { User } from "../types/user/user";
 import { InactivityService } from "./inactivity.service";
@@ -16,6 +17,7 @@ export class AuthenticationService {
   private readonly jwtService = inject(JwtService);
   private readonly router = inject(Router);
   private readonly inactivityService = inject(InactivityService);
+  private readonly notificationsService = inject(NotificationsService);
   private logoutSub$?: Subscription;
 
   public login$(email: string, password: string): Observable<LoginResponse> {
@@ -25,6 +27,14 @@ export class AuthenticationService {
         this.router.navigate(["/exercises"]);
         this.inactivityService.startListening(res.token);
         this.waitForLogout();
+      }),
+      catchError((err: HttpErrorResponse) => {
+        this.notificationsService.open({
+          type: "error",
+          message: err.error.message || err.message,
+        });
+
+        throw err;
       })
     );
   }
