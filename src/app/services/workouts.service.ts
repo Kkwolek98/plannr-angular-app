@@ -22,6 +22,10 @@ export class WorkoutsService {
     return this.http.post<Workout>(envConfig.url + "/workouts", data);
   }
 
+  public updateWorkout$(id: string, data: { name: string; description?: string }): Observable<Workout> {
+    return this.http.put<Workout>(envConfig.url + "/workouts/" + id, data);
+  }
+
   public createEmptySet(workoutId: string): Observable<Workout> {
     return this.http.post<Workout>(envConfig.url + "/workouts/" + workoutId + "/sets", { name: "New Set" });
   }

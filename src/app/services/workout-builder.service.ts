@@ -28,6 +28,14 @@ export class WorkoutBuilderService {
     this._dataSignal.set(undefined);
   }
 
+  public updateWorkoutDetails(workoutDetails: { name: string; description?: string }): Observable<Workout> {
+    return this.workoutsService.updateWorkout$(this._dataSignal()!.id, workoutDetails).pipe(
+      tap((workout) => {
+        this._dataSignal.set(workout);
+      })
+    );
+  }
+
   public toggleSet(id: string): void {
     const openSetsIds = this.openSetsIds();
 

@@ -1,7 +1,7 @@
 <main>
   <header class="h-18 px-4 py-3 mb-3 bg-slate-100 shadow-inner flex items-center">
     <h2 class="text-xl flex items-center">
-      {{ workoutData()?.name }}
+      {{ data()?.name }}
     </h2>
     <div class="flex-1">
       <!-- TODO: TOTAL TIME -->
@@ -28,6 +28,9 @@
     @switch (activeTab()) {
       @case (WorkoutTab.Sets) {
         <app-workout-builder-sets></app-workout-builder-sets>
+      }
+      @case (WorkoutTab.Details) {
+        <app-workout-builder-details></app-workout-builder-details>
       }
     }
   </section>
