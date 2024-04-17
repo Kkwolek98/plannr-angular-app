@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, EventEmitter, Output, inject, input } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ButtonComponent } from "../../../../../../../../../../../lib/inputs/button/button.component";
 import { InputComponent } from "../../../../../../../../../../../lib/inputs/input/input.component";
 import { SelectComponent } from "../../../../../../../../../../../lib/inputs/select/select.component";
@@ -72,13 +72,13 @@ export class WorkoutBuilderSetFormComponent {
 
   form: FormGroup<NewSetItemForm> = new FormGroup<NewSetItemForm>({
     details: new FormControl("", { nonNullable: true }),
-    repMin: new FormControl(null),
-    repMax: new FormControl(null),
-    repExact: new FormControl(null),
+    repMin: new FormControl(null, { validators: [Validators.min(0)] }),
+    repMax: new FormControl(null, { validators: [Validators.min(1)] }),
+    repExact: new FormControl(null, { validators: [Validators.min(1)] }),
     repType: new FormControl("kg", { nonNullable: true }),
-    repWeight: new FormControl(null),
+    repWeight: new FormControl(null, { validators: [Validators.min(0)] }),
     sort: new FormControl(0, { nonNullable: true }),
-    rest: new FormControl(null),
+    rest: new FormControl(null, { validators: [Validators.min(0)] }),
   });
 
   formFlow: FormGroup<FormFlow> = new FormGroup({
