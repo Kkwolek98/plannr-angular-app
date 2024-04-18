@@ -3,7 +3,7 @@ import { Injectable, inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, Subscription, catchError, tap } from "rxjs";
 import { envConfig } from "../../../../../envConfig";
-import { NotificationsService } from "../../lib/notifications/services/notifications.service";
+import { NotificationsService } from "../../../../shared/src/lib/notifications/services/notifications.service";
 import { LoginResponse } from "../types/auth/login";
 import { User } from "../types/user/user";
 import { InactivityService } from "./inactivity.service";

@@ -3,20 +3,20 @@
     <h2 class="text-2xl font-bold">Set details</h2>
     <div class="flex gap-1">
       @if (isEditMode()) {
-        <app-button color="clean" [loading]="isSavingChanges()" (click)="saveChanges()">
+        <lib-button color="clean" [loading]="isSavingChanges()" (click)="saveChanges()">
           <i class="fa-solid fa-check text-slate-400 hover:text-green-600"></i>
-        </app-button>
+        </lib-button>
       }
-      <app-button color="clean" [loading]="isSavingChanges()" (click)="toggleEditMode()">
+      <lib-button color="clean" [loading]="isSavingChanges()" (click)="toggleEditMode()">
         <i
           class="fa-solid text-slate-400 hover:text-yellow-600"
           [class.fa-pen]="!isEditMode()"
           [class.fa-close]="isEditMode()"></i>
-      </app-button>
+      </lib-button>
       @if (!isEditMode()) {
-        <app-button color="clean" [loading]="isDeletingSet()" (click)="removeSet()">
+        <lib-button color="clean" [loading]="isDeletingSet()" (click)="removeSet()">
           <i class="fa-solid fa-trash text-slate-400 hover:text-red-600"></i>
-        </app-button>
+        </lib-button>
       }
     </div>
   </div>
@@ -26,9 +26,9 @@
     <div>{{ drawerData()?.rest === null ? "No rest" : drawerData()?.rest + "s rest" }}</div>
   } @else {
     <form [formGroup]="editForm">
-      <app-input label="Name" formControlName="name" />
-      <app-input label="Description" type="textarea" formControlName="description" />
-      <app-input label="Rest (s)" type="number" formControlName="rest" />
+      <lib-input label="Name" formControlName="name" />
+      <lib-input label="Description" type="textarea" formControlName="description" />
+      <lib-input label="Rest (s)" type="number" formControlName="rest" />
     </form>
   }
 </div>

@@ -1,0 +1,20 @@
+<div class="flex items-end gap-4 w-100 mb-3">
+  <lib-input
+    class="flex-1"
+    [formControl]="formControl"
+    [displayRequiredAsterisk]="false"
+    name="tag"
+    label="New tag"></lib-input>
+  <lib-button (click)="addTag()" [disabled]="formControl.invalid" variant="outlined" class="mb-4"
+    >Add</lib-button
+  >
+</div>
+@if (value.length) {
+  <div class="flex flex-wrap gap-1.5 w-100">
+    @for (tag of value; track $index) {
+      <lib-tag (badgeClicked)="removeTag(tag)">
+        <div class="flex items-center gap-1">{{ tag }} <i class="fas fa-times mt-0.5"></i></div
+      ></lib-tag>
+    }
+  </div>
+}

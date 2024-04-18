@@ -1,8 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { ButtonComponent } from "../../../../../lib/inputs/button/button.component";
-import { TableColumnDirective } from "../../../../../lib/table/directives/table-column.directive";
-import { TableComponent } from "../../../../../lib/table/table.component";
+import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/button/button.component";
+import { TableColumnDirective } from "../../../../../../../shared/src/lib/table/directives/table-column.directive";
+import { TableComponent } from "../../../../../../../shared/src/lib/table/table.component";
 import { Exercise } from "../../../../types/exercises/exercises";
 
 @Component({

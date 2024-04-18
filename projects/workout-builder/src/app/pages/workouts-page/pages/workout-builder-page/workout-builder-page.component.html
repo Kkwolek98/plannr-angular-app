@@ -7,20 +7,20 @@
       <!-- TODO: TOTAL TIME -->
     </div>
     <div class="flex gap-3">
-      <app-button
+      <lib-button
         (click)="changeTab(WorkoutTab.Sets)"
         [variant]="activeTab() === WorkoutTab.Sets ? 'filled' : 'outlined'"
-        >Sets</app-button
+        >Sets</lib-button
       >
-      <app-button
+      <lib-button
         (click)="changeTab(WorkoutTab.Details)"
         [variant]="activeTab() === WorkoutTab.Details ? 'filled' : 'outlined'"
-        >Details</app-button
+        >Details</lib-button
       >
-      <app-button
+      <lib-button
         (click)="changeTab(WorkoutTab.Preview)"
         [variant]="activeTab() === WorkoutTab.Preview ? 'filled' : 'outlined'"
-        >Preview</app-button
+        >Preview</lib-button
       >
     </div>
   </header>

@@ -1,8 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, EventEmitter, Output, inject, input, signal } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ButtonComponent } from "../../../../../../../../../lib/inputs/button/button.component";
-import { InputComponent } from "../../../../../../../../../lib/inputs/input/input.component";
+import { ButtonComponent } from "../../../../../../../../../../../shared/src/lib/inputs/button/button.component";
+import { InputComponent } from "../../../../../../../../../../../shared/src/lib/inputs/input/input.component";
 import { WorkoutBuilderService } from "../../../../../../../../services/workout-builder.service";
 import { ExerciseSet, SetEditForm } from "../../../../../../../../types/workouts/sets";
 

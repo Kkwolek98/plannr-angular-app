@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit, Signal, inject } from "@ang
 import { toSignal } from "@angular/core/rxjs-interop";
 import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs";
-import { ButtonComponent } from "../../../../../lib/inputs/button/button.component";
+import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/button/button.component";
 import { WorkoutBuilderService } from "../../../../services/workout-builder.service";
 import { WorkoutTab } from "../../../../types/workouts/workout-builder";
 import { Workout } from "../../../../types/workouts/workouts";

@@ -38,13 +38,18 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^17.2.0",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
     "prettier-eslint": "^16.3.0",
     "tailwindcss": "^3.4.1",
     "typescript": "~5.3.2"
   },
-  "pathMappings": {},
+  "pathMappings": {
+    "plannr-client-components": [
+      "./dist/plannr-client-components"
+    ]
+  },
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {},
@@ -95,7 +100,7 @@
       },
       {
         "file": "angular.json",
-        "hash": "3182964398765941670"
+        "hash": "12740122783509289378"
       },
       {
         "file": "envConfig.ts",
@@ -107,7 +112,207 @@
       },
       {
         "file": "package.json",
-        "hash": "7440949197574981690"
+        "hash": "11429634103010783431"
+      },
+      {
+        "file": "projects/plannr-client-components/.eslintrc.json",
+        "hash": "14363505610686800042"
+      },
+      {
+        "file": "projects/plannr-client-components/README.md",
+        "hash": "18316754199989548052"
+      },
+      {
+        "file": "projects/plannr-client-components/ng-package.json",
+        "hash": "8084988655920345406"
+      },
+      {
+        "file": "projects/plannr-client-components/package.json",
+        "hash": "4235166469422188922"
+      },
+      {
+        "file": "projects/plannr-client-components/src/public-api.ts",
+        "hash": "15368966823880321203"
+      },
+      {
+        "file": "projects/plannr-client-components/tsconfig.lib.json",
+        "hash": "12369024473565967613"
+      },
+      {
+        "file": "projects/plannr-client-components/tsconfig.lib.prod.json",
+        "hash": "1939170332703490951"
+      },
+      {
+        "file": "projects/plannr-client-components/tsconfig.spec.json",
+        "hash": "11730399207539946696"
+      },
+      {
+        "file": "projects/plannr-client/.eslintrc.json",
+        "hash": "18150697129470418428"
+      },
+      {
+        "file": "projects/plannr-client/src/app/app.component.html",
+        "hash": "5625725754865452477"
+      },
+      {
+        "file": "projects/plannr-client/src/app/app.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "projects/plannr-client/src/app/app.component.spec.ts",
+        "hash": "5738889205269532062"
+      },
+      {
+        "file": "projects/plannr-client/src/app/app.component.ts",
+        "hash": "1927722732406968515"
+      },
+      {
+        "file": "projects/plannr-client/src/app/app.config.ts",
+        "hash": "5428614352870646528"
+      },
+      {
+        "file": "projects/plannr-client/src/app/app.routes.ts",
+        "hash": "12397496131277534773"
+      },
+      {
+        "file": "projects/plannr-client/src/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "projects/plannr-client/src/favicon.ico",
+        "hash": "3988961587069885523"
+      },
+      {
+        "file": "projects/plannr-client/src/index.html",
+        "hash": "7818110392714459080"
+      },
+      {
+        "file": "projects/plannr-client/src/main.ts",
+        "hash": "4927504514031276065"
+      },
+      {
+        "file": "projects/plannr-client/src/styles.scss",
+        "hash": "5195668842064076916"
+      },
+      {
+        "file": "projects/plannr-client/tsconfig.app.json",
+        "hash": "14176067227322044330"
+      },
+      {
+        "file": "projects/plannr-client/tsconfig.spec.json",
+        "hash": "8046768446203215749"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/3rdpartylicenses.txt",
+        "hash": "6462261277395677019"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-3W42FSIL.js",
+        "hash": "16747556150864169091"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-6I2UYUR3.js",
+        "hash": "12087990812836672781"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-7M27L2PM.js",
+        "hash": "15422125823707255403"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-CBDB6PPI.js",
+        "hash": "8841015565661501021"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-COKXLA5A.js",
+        "hash": "5160337745526274689"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-DIZKYR5Z.js",
+        "hash": "8013203729678170586"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-E2KADIVF.js",
+        "hash": "10396138710530523172"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-EE6GGRKG.js",
+        "hash": "2518881597403662732"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-IPIT5LE2.js",
+        "hash": "13262537387205863082"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-IUCJJRQV.js",
+        "hash": "11851637954877683466"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-IYJWUTWN.js",
+        "hash": "3585434210637002357"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-PWYNGYJK.js",
+        "hash": "1565451112428877082"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-QKX4UP7R.js",
+        "hash": "15579896085626317194"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/chunk-RTWQXV26.js",
+        "hash": "11059953565709220288"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/favicon.ico",
+        "hash": "3988961587069885523"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/index.html",
+        "hash": "17230466397118315359"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/main-QNO5AA6M.js",
+        "hash": "15114340407005313149"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/media/fa-brands-400-4RSXLDQT.woff2",
+        "hash": "1171847952181491133"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/media/fa-brands-400-RP3MZ4AX.ttf",
+        "hash": "17324683495252976877"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/media/fa-regular-400-6ODLNN6G.woff2",
+        "hash": "13824389321618307598"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/media/fa-regular-400-VE33OVPX.ttf",
+        "hash": "7064570183939593804"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/media/fa-solid-900-BALFL4QR.ttf",
+        "hash": "9299662160266777292"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/media/fa-solid-900-ZZETRIYD.woff2",
+        "hash": "10799016412378440640"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/media/fa-v4compatibility-5WGRUVBC.woff2",
+        "hash": "15130866773040776986"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/media/fa-v4compatibility-7DCIFHD7.ttf",
+        "hash": "12119666312181567749"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/polyfills-RT5I6R6G.js",
+        "hash": "13177893179262998839"
+      },
+      {
+        "file": "projects/workout-builder/dist/plannr-app/browser/styles-ECL4KY75.css",
+        "hash": "13756824999397238583"
       },
       {
         "file": "projects/workout-builder/server.js",
@@ -851,19 +1056,19 @@
       },
       {
         "file": "projects/workout-builder/tsconfig.app.json",
-        "hash": "17337579397915052279"
+        "hash": "5277818030913062960"
       },
       {
         "file": "projects/workout-builder/tsconfig.spec.json",
-        "hash": "15575553540147145788"
+        "hash": "14350575697719338770"
       },
       {
         "file": "tailwind.config.js",
-        "hash": "1953686720069507907"
+        "hash": "6132573584284476729"
       },
       {
         "file": "tsconfig.json",
-        "hash": "6830907402848794383"
+        "hash": "1843935142703749768"
       }
     ]
   }

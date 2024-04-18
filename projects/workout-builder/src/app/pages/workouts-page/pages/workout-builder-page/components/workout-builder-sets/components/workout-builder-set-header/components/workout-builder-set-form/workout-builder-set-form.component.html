@@ -1,41 +1,41 @@
 <form [formGroup]="form" class="flex flex-col gap-3 max-w-96">
-  <app-select
+  <lib-select
     [data]="exercises()!"
     label="Exercise"
     valueKey="id"
     labelKey="name"
-    formControlName="details"></app-select>
+    formControlName="details"></lib-select>
   <div class="flex">
-    <app-toggle
+    <lib-toggle
       class="w-1/3"
       [formControl]="isExactRepsControl"
       label="Reps"
       labelFalse="Range"
-      labelTrue="Exact"></app-toggle>
+      labelTrue="Exact"></lib-toggle>
     <div class="flex gap-2 items-end">
       @if (isExactRepsControl.value) {
-        <app-input class="w-20" label="number" formControlName="repExact" type="number"></app-input>
+        <lib-input class="w-20" label="number" formControlName="repExact" type="number"></lib-input>
       } @else {
-        <app-input class="w-20" label="min" formControlName="repMin" type="number"></app-input>
-        <app-input class="w-20" label="max" formControlName="repMax" type="number"></app-input>
+        <lib-input class="w-20" label="min" formControlName="repMin" type="number"></lib-input>
+        <lib-input class="w-20" label="max" formControlName="repMax" type="number"></lib-input>
       }
     </div>
   </div>
   <div class="flex items-end">
-    <app-toggle class="w-1/3" [formControl]="hasLoadControl" label="Enable weight"></app-toggle>
+    <lib-toggle class="w-1/3" [formControl]="hasLoadControl" label="Enable weight"></lib-toggle>
     <div class="flex items-end">
-      <app-input class="w-20" formControlName="repWeight" type="number"></app-input>
-      <app-select [data]="repTypes" formControlName="repType" valueKey="key" labelKey="value"></app-select>
+      <lib-input class="w-20" formControlName="repWeight" type="number"></lib-input>
+      <lib-select [data]="repTypes" formControlName="repType" valueKey="key" labelKey="value"></lib-select>
     </div>
   </div>
   <div class="flex items-end">
-    <app-toggle class="w-1/3" [formControl]="hasRestControl" label="Enable rest"></app-toggle>
-    <app-input class="w-20" formControlName="rest" type="number"></app-input>
+    <lib-toggle class="w-1/3" [formControl]="hasRestControl" label="Enable rest"></lib-toggle>
+    <lib-input class="w-20" formControlName="rest" type="number"></lib-input>
     <div class="mb-4">&nbsp;seconds</div>
   </div>
 
   <div class="flex justify-end gap-2 mt-2">
-    <app-button (click)="save()">Save</app-button>
-    <app-button (click)="closed.emit()" variant="outlined" color="secondary">Cancel</app-button>
+    <lib-button (click)="save()">Save</lib-button>
+    <lib-button (click)="closed.emit()" variant="outlined" color="secondary">Cancel</lib-button>
   </div>
 </form>

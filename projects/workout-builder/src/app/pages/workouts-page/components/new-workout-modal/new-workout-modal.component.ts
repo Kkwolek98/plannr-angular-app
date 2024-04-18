@@ -1,10 +1,10 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject, signal } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ButtonComponent } from "../../../../../lib/inputs/button/button.component";
-import { InputComponent } from "../../../../../lib/inputs/input/input.component";
-import { TagInputComponent } from "../../../../../lib/inputs/tag-input/tag-input.component";
-import { ModalComponent } from "../../../../../lib/modals/components/modal/modal.component";
+import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/button/button.component";
+import { InputComponent } from "../../../../../../../shared/src/lib/inputs/input/input.component";
+import { TagInputComponent } from "../../../../../../../shared/src/lib/inputs/tag-input/tag-input.component";
+import { ModalComponent } from "../../../../../../../shared/src/lib/modals/components/modal/modal.component";
 import { WorkoutsService } from "../../../../services/workouts.service";
 import { NewWorkout, NewWorkoutForm, Workout } from "../../../../types/workouts/workouts";
 

@@ -12,16 +12,16 @@
     </div>
   } @else {
     <form class="flex flex-col max-w-96" [formGroup]="form">
-      <app-input formControlName="name" label="Name" class="mb-2"></app-input>
-      <app-input formControlName="description" label="Description" type="textarea"></app-input>
+      <lib-input formControlName="name" label="Name" class="mb-2"></lib-input>
+      <lib-input formControlName="description" label="Description" type="textarea"></lib-input>
     </form>
   }
   <div class="flex gap-2">
     @if (isEditMode()) {
-      <app-button variant="outlined" (click)="toggleEditMode()">Cancel</app-button>
-      <app-button (click)="saveChanges()" [disabled]="form.invalid || !form.dirty">Save</app-button>
+      <lib-button variant="outlined" (click)="toggleEditMode()">Cancel</lib-button>
+      <lib-button (click)="saveChanges()" [disabled]="form.invalid || !form.dirty">Save</lib-button>
     } @else {
-      <app-button (click)="toggleEditMode()">Edit</app-button>
+      <lib-button (click)="toggleEditMode()">Edit</lib-button>
     }
   </div>
 </div>

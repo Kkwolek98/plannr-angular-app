@@ -1,14 +1,14 @@
 <form class="w-[80vw] md:w-96" [formGroup]="form">
-  <app-input class="mb-3" name="name" formControlName="name" label="Name"></app-input>
-  <app-input
+  <lib-input class="mb-3" name="name" formControlName="name" label="Name"></lib-input>
+  <lib-input
     class="mb-3"
     type="textarea"
     name="description"
     formControlName="description"
-    label="Description"></app-input>
-  <app-tag-input formControlName="tags" class="mb-6"></app-tag-input>
+    label="Description"></lib-input>
+  <lib-tag-input formControlName="tags" class="mb-6"></lib-tag-input>
   <div class="flex justify-end gap-4 w-100 mx-auto">
-    <app-button color="secondary" (click)="close()">Cancel</app-button>
-    <app-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</app-button>
+    <lib-button color="secondary" (click)="close()">Cancel</lib-button>
+    <lib-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</lib-button>
   </div>
 </form>

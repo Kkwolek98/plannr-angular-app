@@ -15,7 +15,7 @@
   }
   @if (!addingNewExercise()) {
     <div class="w-full flex justify-center mt-2">
-      <app-button variant="outlined" (click)="addNewExercise()">Add Exercise</app-button>
+      <lib-button variant="outlined" (click)="addNewExercise()">Add Exercise</lib-button>
     </div>
   } @else {
     <app-workout-builder-set-form [setId]="set().id" (closed)="addingNewExercise.set(false)" />

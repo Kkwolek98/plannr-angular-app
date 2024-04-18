@@ -1,20 +1,20 @@
 <form class="w-[80vw] md:w-[36rem]" [formGroup]="form">
   <div class="w-auto md:w-96 mx-auto">
-    <app-input name="name" formControlName="name" label="Name"></app-input>
-    <app-input type="textarea" name="description" formControlName="description" label="Description"></app-input>
-    <app-tag-input formControlName="tags" class="mb-3"></app-tag-input>
+    <lib-input name="name" formControlName="name" label="Name"></lib-input>
+    <lib-input type="textarea" name="description" formControlName="description" label="Description"></lib-input>
+    <lib-tag-input formControlName="tags" class="mb-3"></lib-tag-input>
     <div class="flex items-end gap-4 w-100 mb-5">
-      <app-input
+      <lib-input
         class="flex-1"
         [formControl]="newVideoFormControl"
         name="video"
-        label="New video URL"></app-input>
-      <app-button
+        label="New video URL"></lib-input>
+      <lib-button
         (click)="addVideoToArray()"
         [disabled]="newVideoFormControl.invalid"
         variant="outlined"
         class="mb-4"
-        >Add</app-button
+        >Add</lib-button
       >
     </div>
   </div>
@@ -22,13 +22,13 @@
     @if (videos.length) {
       <div class="flex flex-wrap gap-3 w-100 mb-3">
         @for (url of videos; track $index) {
-          <app-youtube-video [url]="url"></app-youtube-video>
+          <lib-youtube-video [url]="url"></lib-youtube-video>
         }
       </div>
     }
   }
   <div class="flex justify-end gap-4 w-100 mx-auto">
-    <app-button color="secondary" (click)="close()">Cancel</app-button>
-    <app-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</app-button>
+    <lib-button color="secondary" (click)="close()">Cancel</lib-button>
+    <lib-button [disabled]="form.invalid" [loading]="loading()" (click)="create()">Create</lib-button>
   </div>
 </form>

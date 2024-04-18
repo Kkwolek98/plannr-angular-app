@@ -2,9 +2,9 @@ import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject, signal } from "@angular/core";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ButtonComponent } from "../../../../../../../lib/inputs/button/button.component";
-import { InputComponent } from "../../../../../../../lib/inputs/input/input.component";
-import { NotificationsService } from "../../../../../../../lib/notifications/services/notifications.service";
+import { ButtonComponent } from "../../../../../../../../../shared/src/lib/inputs/button/button.component";
+import { InputComponent } from "../../../../../../../../../shared/src/lib/inputs/input/input.component";
+import { NotificationsService } from "../../../../../../../../../shared/src/lib/notifications/services/notifications.service";
 import { WorkoutBuilderService } from "../../../../../../services/workout-builder.service";
 
 @Component({

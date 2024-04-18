@@ -1,0 +1,13 @@
+<iframe
+  (load)="setLoadingFalse()"
+  [width]="loading() ? 0 : width"
+  [height]="loading() ? 0 : height"
+  [src]="url()"
+  frameborder="0"
+  allowfullscreen></iframe>
+
+@if (loading()) {
+  <div [style.width.px]="width" [style.height.px]="height" class="flex justify-center items-center">
+    <lib-spinner size="lg"></lib-spinner>
+  </div>
+}

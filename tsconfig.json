@@ -15,6 +15,14 @@
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "paths": {
+      "plannr-client-components": [
+        "./dist/plannr-client-components"
+      ],
+      "shared": [
+        "./dist/shared"
+      ]
+    },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",

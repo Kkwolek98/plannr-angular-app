@@ -1,12 +1,12 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject, signal } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ButtonComponent } from "../../../../../lib/inputs/button/button.component";
-import { InputComponent } from "../../../../../lib/inputs/input/input.component";
-import { TagInputComponent } from "../../../../../lib/inputs/tag-input/tag-input.component";
-import { ModalComponent } from "../../../../../lib/modals/components/modal/modal.component";
-import { TagComponent } from "../../../../../lib/tag/tag.component";
-import { YoutubeVideoComponent } from "../../../../../lib/youtube-video/youtube-video.component";
+import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/button/button.component";
+import { InputComponent } from "../../../../../../../shared/src/lib/inputs/input/input.component";
+import { TagInputComponent } from "../../../../../../../shared/src/lib/inputs/tag-input/tag-input.component";
+import { ModalComponent } from "../../../../../../../shared/src/lib/modals/components/modal/modal.component";
+import { TagComponent } from "../../../../../../../shared/src/lib/tag/tag.component";
+import { YoutubeVideoComponent } from "../../../../../../../shared/src/lib/youtube-video/youtube-video.component";
 import { ExercisesService } from "../../../../services/exercises.service";
 import { NewExerciseForm } from "../../../../types/exercises/exercises";
 import { youtubeUrlValidator } from "../../../../validators/youtube-url.validator";

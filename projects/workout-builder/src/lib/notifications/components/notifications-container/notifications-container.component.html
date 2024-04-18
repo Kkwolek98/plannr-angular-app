@@ -1,9 +1,0 @@
-<div class="flex items-end absolute bottom-0 right-0 z-50 p-8">
-  <div class="flex flex-col gap-4">
-    @for (notification of notifications(); track $index) {
-      <app-notification
-        [config]="notification"
-        (closed)="closeNotification(notification.id)"></app-notification>
-    }
-  </div>
-</div>

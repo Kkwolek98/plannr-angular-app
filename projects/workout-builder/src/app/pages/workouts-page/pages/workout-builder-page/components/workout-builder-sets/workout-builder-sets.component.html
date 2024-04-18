@@ -1,4 +1,4 @@
-<app-drawer-container #drawerContainer>
+<lib-drawer-container #drawerContainer>
   <div>
     @for (set of sets(); let index = $index; track set.id) {
       <app-workout-builder-set-container class="mb-2">
@@ -10,11 +10,11 @@
     }
   </div>
 
-  <ng-template appDrawer>
+  <ng-template libDrawer>
     <app-workout-builder-set-details-drawer
       [drawerData]="drawerData()"
       (closeDrawer)="drawerContainer.close()" />
   </ng-template>
-</app-drawer-container>
+</lib-drawer-container>
 
-<app-button (click)="addNewSet()">Add set</app-button>
+<lib-button (click)="addNewSet()">Add set</lib-button>
