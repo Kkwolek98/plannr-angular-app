@@ -1,0 +1,870 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.2.8",
+  "deps": {
+    "@angular/animations": "^17.2.0",
+    "@angular/common": "^17.2.0",
+    "@angular/compiler": "^17.2.0",
+    "@angular/core": "^17.2.0",
+    "@angular/forms": "^17.2.0",
+    "@angular/platform-browser": "^17.2.0",
+    "@angular/platform-browser-dynamic": "^17.2.0",
+    "@angular/router": "^17.2.0",
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@ngxs/store": "^3.8.2",
+    "express": "^4.19.1",
+    "jwt-decode": "^4.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3",
+    "@angular-devkit/build-angular": "^17.2.1",
+    "@angular-eslint/builder": "17.2.1",
+    "@angular-eslint/eslint-plugin": "17.2.1",
+    "@angular-eslint/eslint-plugin-template": "17.2.1",
+    "@angular-eslint/schematics": "17.2.1",
+    "@angular-eslint/template-parser": "17.2.1",
+    "@angular/cli": "^17.2.1",
+    "@angular/compiler-cli": "^17.2.0",
+    "@types/jasmine": "~5.1.0",
+    "@typescript-eslint/eslint-plugin": "6.19.0",
+    "@typescript-eslint/parser": "6.19.0",
+    "autoprefixer": "^10.4.18",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
+    "prettier-eslint": "^16.3.0",
+    "tailwindcss": "^3.4.1",
+    "typescript": "~5.3.2"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "6686520031028425313"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "10327198834673922462"
+      },
+      {
+        "file": ".github/workflows/cd.yml",
+        "hash": "10844863424772164626"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "5282178266932635764"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13044518069027839699"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "5171125401702903350"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "5331566439708925252"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "17038929134016848735"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "10513190055762624952"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "5336636969995539451"
+      },
+      {
+        "file": "README.md",
+        "hash": "3304243897798033723"
+      },
+      {
+        "file": "angular.json",
+        "hash": "3182964398765941670"
+      },
+      {
+        "file": "envConfig.ts",
+        "hash": "13280237782655064910"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "12756460691312173578"
+      },
+      {
+        "file": "package.json",
+        "hash": "7440949197574981690"
+      },
+      {
+        "file": "projects/workout-builder/server.js",
+        "hash": "2964221526739397083"
+      },
+      {
+        "file": "projects/workout-builder/src/app/app.component.html",
+        "hash": "17816966185630879015"
+      },
+      {
+        "file": "projects/workout-builder/src/app/app.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "projects/workout-builder/src/app/app.component.spec.ts",
+        "hash": "4198347128532555101"
+      },
+      {
+        "file": "projects/workout-builder/src/app/app.component.ts",
+        "hash": "1780852293833245830"
+      },
+      {
+        "file": "projects/workout-builder/src/app/app.config.ts",
+        "hash": "14039041053494973348"
+      },
+      {
+        "file": "projects/workout-builder/src/app/app.routes.ts",
+        "hash": "8171398591217873119"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/dropdown-item/dropdown-item.component.html",
+        "hash": "7074128545448796988"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/dropdown-item/dropdown-item.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/dropdown-item/dropdown-item.component.ts",
+        "hash": "16134703392808673595"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout-card/layout-card.component.html",
+        "hash": "13106253190729980013"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout-card/layout-card.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout-card/layout-card.component.spec.ts",
+        "hash": "6546257513781196196"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout-card/layout-card.component.ts",
+        "hash": "13867698698777937666"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-dropdown-menu/top-nav-dropdown-menu.component.html",
+        "hash": "4154685032609313020"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-dropdown-menu/top-nav-dropdown-menu.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-dropdown-menu/top-nav-dropdown-menu.component.ts",
+        "hash": "7543836374358295500"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-link/top-nav-link.component.html",
+        "hash": "9655894591063405622"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-link/top-nav-link.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-link/top-nav-link.component.ts",
+        "hash": "11762727503560756701"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-user-profile/components/top-nav-user-profile-dropdown-menu/top-nav-user-profile-dropdown-menu.component.html",
+        "hash": "16554529118029978505"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-user-profile/components/top-nav-user-profile-dropdown-menu/top-nav-user-profile-dropdown-menu.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-user-profile/components/top-nav-user-profile-dropdown-menu/top-nav-user-profile-dropdown-menu.component.ts",
+        "hash": "17667591545632333011"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-user-profile/top-nav-user-profile.component.html",
+        "hash": "7355310202696976471"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-user-profile/top-nav-user-profile.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/components/top-nav-user-profile/top-nav-user-profile.component.ts",
+        "hash": "13066775815566518494"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/top-nav.component.html",
+        "hash": "7240890179609083771"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/top-nav.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/components/top-nav/top-nav.component.ts",
+        "hash": "16613730780237813823"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/layout.component.html",
+        "hash": "2614517048603953755"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/layout.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/layout/layout.component.ts",
+        "hash": "3136328929693583428"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/logged-in-layout/logged-in-layout.component.html",
+        "hash": "18303629958279224378"
+      },
+      {
+        "file": "projects/workout-builder/src/app/components/logged-in-layout/logged-in-layout.component.ts",
+        "hash": "8803853022938666575"
+      },
+      {
+        "file": "projects/workout-builder/src/app/core/guards/logged-in.guard.ts",
+        "hash": "5174053942139265546"
+      },
+      {
+        "file": "projects/workout-builder/src/app/core/guards/logged-out.guard.ts",
+        "hash": "18306880437228499481"
+      },
+      {
+        "file": "projects/workout-builder/src/app/core/interceptors/error.interceptor.spec.ts",
+        "hash": "5197564329449903693"
+      },
+      {
+        "file": "projects/workout-builder/src/app/core/interceptors/error.interceptor.ts",
+        "hash": "5088930065236909439"
+      },
+      {
+        "file": "projects/workout-builder/src/app/core/interceptors/jwt.interceptor.spec.ts",
+        "hash": "8481343578616593873"
+      },
+      {
+        "file": "projects/workout-builder/src/app/core/interceptors/jwt.interceptor.ts",
+        "hash": "1512896991768367763"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/components/exercises-table/exercises-table.component.html",
+        "hash": "13735679499873965660"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/components/exercises-table/exercises-table.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/components/exercises-table/exercises-table.component.ts",
+        "hash": "13296847534288278951"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/components/new-exercise-modal/new-exercise-modal.component.html",
+        "hash": "3307445585695915799"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/components/new-exercise-modal/new-exercise-modal.component.scss",
+        "hash": "53031797339511362"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/components/new-exercise-modal/new-exercise-modal.component.ts",
+        "hash": "3046500095979901093"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/exercises-page.component.html",
+        "hash": "14560230793349195075"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/exercises-page.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/exercises-page.component.ts",
+        "hash": "1156144216218017181"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/exercises.routes.ts",
+        "hash": "17993669779142794559"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/exercises-page/resolvers/exercises.resolver.ts",
+        "hash": "18117238959346255914"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/login/login.component.html",
+        "hash": "4697309294760750232"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/login/login.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/login/login.component.spec.ts",
+        "hash": "13423884664040136397"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/login/login.component.ts",
+        "hash": "5448159763812227458"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/register/register.component.html",
+        "hash": "2359373257727879888"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/register/register.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/register/register.component.spec.ts",
+        "hash": "486792085751781762"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/register/register.component.ts",
+        "hash": "14207968022311090755"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/components/new-workout-modal/new-workout-modal.component.html",
+        "hash": "924491471329387135"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/components/new-workout-modal/new-workout-modal.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/components/new-workout-modal/new-workout-modal.component.ts",
+        "hash": "10517198634843060923"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/components/workouts-table/workouts-table.component.html",
+        "hash": "3280991359378189271"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/components/workouts-table/workouts-table.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/components/workouts-table/workouts-table.component.ts",
+        "hash": "5177981743910747984"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-details/workout-builder-details.component.html",
+        "hash": "9023116704609308234"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-details/workout-builder-details.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-details/workout-builder-details.component.ts",
+        "hash": "727907629788144132"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-body/workout-builder-set-body.component.html",
+        "hash": "3104226447893198057"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-body/workout-builder-set-body.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-body/workout-builder-set-body.component.ts",
+        "hash": "5526653423107346820"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-container/workout-builder-set-container.component.html",
+        "hash": "11276105877545240770"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-container/workout-builder-set-container.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-container/workout-builder-set-container.component.ts",
+        "hash": "7441507028844497055"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-details-drawer/workout-builder-set-details-drawer.component.html",
+        "hash": "12636637928717893631"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-details-drawer/workout-builder-set-details-drawer.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-details-drawer/workout-builder-set-details-drawer.component.ts",
+        "hash": "12739022237466223484"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/components/workout-builder-set-form/workout-builder-set-form.component.html",
+        "hash": "3858660751925362792"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/components/workout-builder-set-form/workout-builder-set-form.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/components/workout-builder-set-form/workout-builder-set-form.component.ts",
+        "hash": "10870230606355279197"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/components/workout-builder-set-item/workout-builder-set-item.component.html",
+        "hash": "8077097678394995505"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/components/workout-builder-set-item/workout-builder-set-item.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/components/workout-builder-set-item/workout-builder-set-item.component.ts",
+        "hash": "3775441658261160655"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/workout-builder-set-header.component.html",
+        "hash": "5439463481870380464"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/workout-builder-set-header.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/components/workout-builder-set-header/workout-builder-set-header.component.ts",
+        "hash": "6217500511320745642"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/workout-builder-sets.component.html",
+        "hash": "13325405498792565181"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/workout-builder-sets.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/components/workout-builder-sets/workout-builder-sets.component.ts",
+        "hash": "16719159041745967134"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/workout-builder-page.component.html",
+        "hash": "2289041427467078778"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/workout-builder-page.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/pages/workout-builder-page/workout-builder-page.component.ts",
+        "hash": "2491108259290067361"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/resolvers/workout.resolver.ts",
+        "hash": "3070591918476210233"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/resolvers/workouts.resolver.ts",
+        "hash": "5321391630081454967"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/workouts-page.component.html",
+        "hash": "13869452848829532211"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/workouts-page.component.ts",
+        "hash": "11765063148422556794"
+      },
+      {
+        "file": "projects/workout-builder/src/app/pages/workouts-page/workouts.routes.ts",
+        "hash": "18008560610902582798"
+      },
+      {
+        "file": "projects/workout-builder/src/app/services/authentication.service.ts",
+        "hash": "16841886892978942995"
+      },
+      {
+        "file": "projects/workout-builder/src/app/services/exercises.service.ts",
+        "hash": "15353792781945451272"
+      },
+      {
+        "file": "projects/workout-builder/src/app/services/inactivity.service.ts",
+        "hash": "7680944658352373884"
+      },
+      {
+        "file": "projects/workout-builder/src/app/services/jwt.service.ts",
+        "hash": "5148874334109673411"
+      },
+      {
+        "file": "projects/workout-builder/src/app/services/sets.service.ts",
+        "hash": "525671852495970808"
+      },
+      {
+        "file": "projects/workout-builder/src/app/services/workout-builder.service.ts",
+        "hash": "9888342344060940787"
+      },
+      {
+        "file": "projects/workout-builder/src/app/services/workouts.service.ts",
+        "hash": "13490774046050617639"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/auth/login.ts",
+        "hash": "2125677554391375268"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/exercises/exercise-sets.ts",
+        "hash": "9349707342598286981"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/exercises/exercises.ts",
+        "hash": "5572723432106095180"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/layout/link.ts",
+        "hash": "2026247029025518143"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/user/user.ts",
+        "hash": "4124294255193638819"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/utility/form.ts",
+        "hash": "7681266724918537165"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/workout-builder/exercise.ts",
+        "hash": "9997144077320797466"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/workouts/sets.ts",
+        "hash": "338833316848167952"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/workouts/workout-builder.ts",
+        "hash": "16803669808964830172"
+      },
+      {
+        "file": "projects/workout-builder/src/app/types/workouts/workouts.ts",
+        "hash": "14827372757840592936"
+      },
+      {
+        "file": "projects/workout-builder/src/app/utils/consts/rep-types.ts",
+        "hash": "17683903469862133084"
+      },
+      {
+        "file": "projects/workout-builder/src/app/validators/fields-equal.validator.ts",
+        "hash": "18396361687350269586"
+      },
+      {
+        "file": "projects/workout-builder/src/app/validators/unique-array.validator.ts",
+        "hash": "11816745992031998794"
+      },
+      {
+        "file": "projects/workout-builder/src/app/validators/youtube-url.validator.ts",
+        "hash": "1575699479278153381"
+      },
+      {
+        "file": "projects/workout-builder/src/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "projects/workout-builder/src/favicon.ico",
+        "hash": "3988961587069885523"
+      },
+      {
+        "file": "projects/workout-builder/src/index.html",
+        "hash": "14327638070236421544"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/drawer/drawer-container/drawer-container.component.html",
+        "hash": "1564008712639672803"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/drawer/drawer-container/drawer-container.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/drawer/drawer-container/drawer-container.component.ts",
+        "hash": "40205433051211780"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/drawer/drawer.directive.ts",
+        "hash": "6933935648620861486"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/button/button.component.html",
+        "hash": "18220151409911776770"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/button/button.component.scss",
+        "hash": "15093507713820452981"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/button/button.component.ts",
+        "hash": "15322994135197936151"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/input/input.component.html",
+        "hash": "1070752523151295796"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/input/input.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/input/input.component.ts",
+        "hash": "15034916816751461077"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/select/select.component.html",
+        "hash": "7100736678607028743"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/select/select.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/select/select.component.ts",
+        "hash": "11132158419911919606"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/tag-input/tag-input.component.html",
+        "hash": "4153122586471820055"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/tag-input/tag-input.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/tag-input/tag-input.component.ts",
+        "hash": "16962656624003831687"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/toggle/toggle.component.html",
+        "hash": "18229460238860340178"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/toggle/toggle.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/toggle/toggle.component.ts",
+        "hash": "101591947644560710"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/validation-error/validation-error.component.html",
+        "hash": "5899560401619199993"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/validation-error/validation-error.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/validation-error/validation-error.component.ts",
+        "hash": "11701749186570853968"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/validation-error/validation-errors.messages.ts",
+        "hash": "9085292942677433651"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/inputs/validation-error/validation-errors.pipe.ts",
+        "hash": "13165186154132512804"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/modals/components/modal-container/modal-container.component.html",
+        "hash": "4859065215166730583"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/modals/components/modal-container/modal-container.component.scss",
+        "hash": "12700021194316152998"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/modals/components/modal-container/modal-container.component.ts",
+        "hash": "15460306312102594260"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/modals/components/modal/modal.component.ts",
+        "hash": "4745407070296709398"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/modals/components/types/types.ts",
+        "hash": "3535757806976470705"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/modals/services/modal-creation.service.ts",
+        "hash": "12728084045828014834"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/modals/services/modals.service.ts",
+        "hash": "17441616610856404560"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/components/notification/notification.component.html",
+        "hash": "5344070378124507875"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/components/notification/notification.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/components/notification/notification.component.ts",
+        "hash": "11317978340049714402"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/components/notifications-container/notifications-container.component.html",
+        "hash": "11722994593298228457"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/components/notifications-container/notifications-container.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/components/notifications-container/notifications-container.component.ts",
+        "hash": "15260632247469122052"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/services/notification-creation.service.ts",
+        "hash": "1647275026149872143"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/services/notifications.service.ts",
+        "hash": "6998680593108125296"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/notifications/types/types.ts",
+        "hash": "11605946391736631060"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/spinner/spinner.component.html",
+        "hash": "3012261419902357525"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/spinner/spinner.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/spinner/spinner.component.ts",
+        "hash": "9435786063083730468"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/components/table-headers/table-headers.component.html",
+        "hash": "12067895570440539216"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/components/table-headers/table-headers.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/components/table-headers/table-headers.component.ts",
+        "hash": "9700547365112160254"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/components/table-rows/table-rows.component.html",
+        "hash": "6924575357592098240"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/components/table-rows/table-rows.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/components/table-rows/table-rows.component.ts",
+        "hash": "7996751720323624359"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/directives/table-column.directive.ts",
+        "hash": "6220887259130823863"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/services/table.service.ts",
+        "hash": "5090954431004606234"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/table.component.html",
+        "hash": "8321761549156529825"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/table.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/table.component.ts",
+        "hash": "8441171892076706566"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/table/types.ts",
+        "hash": "11763124443233011617"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/tag/tag.component.html",
+        "hash": "8839520610072449449"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/tag/tag.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/tag/tag.component.ts",
+        "hash": "11064697387085606766"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/utils/short-id.ts",
+        "hash": "2497532482240948943"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/youtube-video/youtube-video.component.html",
+        "hash": "3030466650924163710"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/youtube-video/youtube-video.component.scss",
+        "hash": "13027103444035360129"
+      },
+      {
+        "file": "projects/workout-builder/src/lib/youtube-video/youtube-video.component.ts",
+        "hash": "3540525455156648942"
+      },
+      {
+        "file": "projects/workout-builder/src/main.ts",
+        "hash": "4927504514031276065"
+      },
+      {
+        "file": "projects/workout-builder/src/styles.scss",
+        "hash": "12207518978815026702"
+      },
+      {
+        "file": "projects/workout-builder/tsconfig.app.json",
+        "hash": "17337579397915052279"
+      },
+      {
+        "file": "projects/workout-builder/tsconfig.spec.json",
+        "hash": "15575553540147145788"
+      },
+      {
+        "file": "tailwind.config.js",
+        "hash": "1953686720069507907"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "6830907402848794383"
+      }
+    ]
+  }
+}

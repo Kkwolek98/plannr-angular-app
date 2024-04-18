@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "server": "node server.js"
+    "server": "node ./projects/workout-builder/server.js"
   },
   "private": true,
   "dependencies": {

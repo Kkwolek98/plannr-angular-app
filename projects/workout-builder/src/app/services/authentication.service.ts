@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable, Subscription, catchError, tap } from "rxjs";
-import { envConfig } from "../../../envConfig";
+import { envConfig } from "../../../../../envConfig";
 import { NotificationsService } from "../../lib/notifications/services/notifications.service";
 import { LoginResponse } from "../types/auth/login";
 import { User } from "../types/user/user";
