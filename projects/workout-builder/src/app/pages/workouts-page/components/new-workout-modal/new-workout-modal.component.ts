@@ -5,8 +5,12 @@ import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/butt
 import { InputComponent } from "../../../../../../../shared/src/lib/inputs/input/input.component";
 import { TagInputComponent } from "../../../../../../../shared/src/lib/inputs/tag-input/tag-input.component";
 import { ModalComponent } from "../../../../../../../shared/src/lib/modals/components/modal/modal.component";
-import { WorkoutsService } from "../../../../services/workouts.service";
-import { NewWorkout, NewWorkoutForm, Workout } from "../../../../types/workouts/workouts";
+import { WorkoutsService } from "../../../../../../../shared/src/lib/services/workouts.service";
+import {
+  NewWorkout,
+  NewWorkoutForm,
+  Workout,
+} from "../../../../../../../shared/src/lib/types/workouts/workouts";
 
 @Component({
   selector: "app-new-workout-modal",

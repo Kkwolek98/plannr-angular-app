@@ -1,4 +1,4 @@
-import { RepType } from "../../types/workouts/sets";
+import { RepType } from "../../../../../shared/src/lib/types/workouts/sets";
 
 export const REP_TYPES: RepType[] = ["kg", "lb", "RPE", "min", "s"] as const;
 export const REP_TYPES_SELECT: { key: RepType; value: string }[] = [

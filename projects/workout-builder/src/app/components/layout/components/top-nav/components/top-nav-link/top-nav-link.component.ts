@@ -11,7 +11,7 @@ import {
 import { toSignal } from "@angular/core/rxjs-interop";
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from "@angular/router";
 import { filter, map, startWith } from "rxjs";
-import { Link } from "../../../../../../types/layout/link";
+import { Link } from "../../../../../../../../../shared/src/lib/types/layout/link";
 
 @Component({
   selector: "app-top-nav-link",

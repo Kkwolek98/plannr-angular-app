@@ -15,22 +15,19 @@
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "baseUrl": ".",
     "paths": {
-      "plannr-client-components": [
-        "./dist/plannr-client-components"
-      ],
-      "shared": [
-        "./dist/shared"
-      ]
+      "plannr-client-components": ["./dist/plannr-client-components"],
+      "shared": ["./dist/shared"],
+      "@client-components/*": ["./projects/plannr-client-components/src/lib/*"],
+      "@shared/*": ["./projects/shared/src/lib/*"],
+      "@workout-builder/*": ["./projects/workout-builder/src/*"]
     },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

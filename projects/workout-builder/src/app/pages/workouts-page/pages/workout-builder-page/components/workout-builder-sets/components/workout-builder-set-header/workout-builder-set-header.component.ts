@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, computed, inject, input } from "@angular/core";
+import { ExerciseSet } from "../../../../../../../../../../../shared/src/lib/types/workouts/sets";
 import { WorkoutBuilderService } from "../../../../../../../../services/workout-builder.service";
-import { ExerciseSet } from "../../../../../../../../types/workouts/sets";
 
 @Component({
   selector: "app-workout-builder-set-header",

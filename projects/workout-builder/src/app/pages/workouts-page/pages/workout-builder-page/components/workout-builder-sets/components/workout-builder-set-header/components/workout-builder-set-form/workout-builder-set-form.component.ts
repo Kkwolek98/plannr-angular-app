@@ -6,10 +6,10 @@ import { ButtonComponent } from "../../../../../../../../../../../../../shared/s
 import { InputComponent } from "../../../../../../../../../../../../../shared/src/lib/inputs/input/input.component";
 import { SelectComponent } from "../../../../../../../../../../../../../shared/src/lib/inputs/select/select.component";
 import { ToggleComponent } from "../../../../../../../../../../../../../shared/src/lib/inputs/toggle/toggle.component";
+import { SetItem } from "../../../../../../../../../../../../../shared/src/lib/types/workouts/sets";
 import { ExercisesService } from "../../../../../../../../../../services/exercises.service";
 import { WorkoutBuilderService } from "../../../../../../../../../../services/workout-builder.service";
 import { NewSetItemForm } from "../../../../../../../../../../types/workout-builder/exercise";
-import { SetItem } from "../../../../../../../../../../types/workouts/sets";
 import { REP_TYPES_SELECT } from "../../../../../../../../../../utils/consts/rep-types";
 
 type FormFlow = {

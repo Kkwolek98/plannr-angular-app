@@ -27,3 +27,5 @@ export * from "./lib/tag/tag.component";
 export * from "./lib/utils/short-id";
 
 export * from "./lib/youtube-video/youtube-video.component";
+
+export * from "./lib/services/workouts.service";

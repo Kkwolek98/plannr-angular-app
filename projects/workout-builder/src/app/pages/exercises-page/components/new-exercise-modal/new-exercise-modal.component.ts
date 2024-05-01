@@ -6,9 +6,9 @@ import { InputComponent } from "../../../../../../../shared/src/lib/inputs/input
 import { TagInputComponent } from "../../../../../../../shared/src/lib/inputs/tag-input/tag-input.component";
 import { ModalComponent } from "../../../../../../../shared/src/lib/modals/components/modal/modal.component";
 import { TagComponent } from "../../../../../../../shared/src/lib/tag/tag.component";
+import { NewExerciseForm } from "../../../../../../../shared/src/lib/types/exercises/exercises";
 import { YoutubeVideoComponent } from "../../../../../../../shared/src/lib/youtube-video/youtube-video.component";
 import { ExercisesService } from "../../../../services/exercises.service";
-import { NewExerciseForm } from "../../../../types/exercises/exercises";
 import { youtubeUrlValidator } from "../../../../validators/youtube-url.validator";
 
 @Component({

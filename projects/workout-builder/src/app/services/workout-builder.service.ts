@@ -1,10 +1,10 @@
 import { Injectable, inject, signal } from "@angular/core";
 import { toObservable } from "@angular/core/rxjs-interop";
 import { Observable, tap } from "rxjs";
-import { ExerciseSet, SetItem } from "../types/workouts/sets";
-import { Workout } from "../types/workouts/workouts";
+import { WorkoutsService } from "../../../../shared/src/lib/services/workouts.service";
+import { ExerciseSet, SetItem } from "../../../../shared/src/lib/types/workouts/sets";
+import { Workout } from "../../../../shared/src/lib/types/workouts/workouts";
 import { SetsService } from "./sets.service";
-import { WorkoutsService } from "./workouts.service";
 
 @Injectable({
   providedIn: "root",

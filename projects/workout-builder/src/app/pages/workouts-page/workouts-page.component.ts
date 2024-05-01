@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs";
 import { ButtonComponent } from "../../../../../shared/src/lib/inputs/button/button.component";
 import { ModalsService } from "../../../../../shared/src/lib/modals/services/modals.service";
-import { Workout } from "../../types/workouts/workouts";
+import { Workout } from "../../../../../shared/src/lib/types/workouts/workouts";
 import { NewWorkoutModalComponent } from "./components/new-workout-modal/new-workout-modal.component";
 import { WorkoutsTableComponent } from "./components/workouts-table/workouts-table.component";
 

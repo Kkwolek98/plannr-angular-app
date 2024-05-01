@@ -2,8 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Observable } from "rxjs";
 import { envConfig } from "../../../../../envConfig";
-import { Exercise, NewExerciseForm } from "../types/exercises/exercises";
-import { ExtractFormControl } from "../types/utility/form";
+import { Exercise, NewExerciseForm } from "../../../../shared/src/lib/types/exercises/exercises";
+import { ExtractFormControl } from "../../../../shared/src/lib/types/utility/form";
 
 @Injectable({
   providedIn: "root",

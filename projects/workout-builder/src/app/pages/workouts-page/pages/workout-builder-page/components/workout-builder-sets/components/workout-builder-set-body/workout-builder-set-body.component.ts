@@ -1,8 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from "@angular/core";
 import { ButtonComponent } from "../../../../../../../../../../../shared/src/lib/inputs/button/button.component";
+import { ExerciseSet } from "../../../../../../../../../../../shared/src/lib/types/workouts/sets";
 import { WorkoutBuilderService } from "../../../../../../../../services/workout-builder.service";
-import { ExerciseSet } from "../../../../../../../../types/workouts/sets";
 import { WorkoutBuilderSetFormComponent } from "../workout-builder-set-header/components/workout-builder-set-form/workout-builder-set-form.component";
 import { WorkoutBuilderSetItemComponent } from "../workout-builder-set-header/components/workout-builder-set-item/workout-builder-set-item.component";
 

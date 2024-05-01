@@ -1,5 +1,5 @@
 import { FormControl } from "@angular/forms";
-import { RepType } from "../workouts/sets";
+import { RepType } from "../../../../../shared/src/lib/types/workouts/sets";
 
 export type NewSetItemForm = {
   details: FormControl<string>;

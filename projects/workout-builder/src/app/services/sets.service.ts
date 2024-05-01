@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
 import { Observable } from "rxjs";
 import { envConfig } from "../../../../../envConfig";
-import { ExerciseSet, SetItem } from "../types/workouts/sets";
+import { ExerciseSet, SetItem } from "../../../../shared/src/lib/types/workouts/sets";
 
 @Injectable({
   providedIn: "root",

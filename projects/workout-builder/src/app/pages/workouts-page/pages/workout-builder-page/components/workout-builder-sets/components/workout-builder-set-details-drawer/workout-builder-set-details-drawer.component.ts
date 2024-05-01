@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output, inject, input
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ButtonComponent } from "../../../../../../../../../../../shared/src/lib/inputs/button/button.component";
 import { InputComponent } from "../../../../../../../../../../../shared/src/lib/inputs/input/input.component";
+import { ExerciseSet, SetEditForm } from "../../../../../../../../../../../shared/src/lib/types/workouts/sets";
 import { WorkoutBuilderService } from "../../../../../../../../services/workout-builder.service";
-import { ExerciseSet, SetEditForm } from "../../../../../../../../types/workouts/sets";
 
 @Component({
   selector: "app-workout-builder-set-details-drawer",

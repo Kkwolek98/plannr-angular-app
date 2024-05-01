@@ -4,8 +4,8 @@ import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { map } from "rxjs";
 import { ButtonComponent } from "../../../../../shared/src/lib/inputs/button/button.component";
 import { ModalsService } from "../../../../../shared/src/lib/modals/services/modals.service";
+import { Exercise } from "../../../../../shared/src/lib/types/exercises/exercises";
 import { ExercisesService } from "../../services/exercises.service";
-import { Exercise } from "../../types/exercises/exercises";
 import { ExercisesTableComponent } from "./components/exercises-table/exercises-table.component";
 import { NewExerciseModalComponent } from "./components/new-exercise-modal/new-exercise-modal.component";
 

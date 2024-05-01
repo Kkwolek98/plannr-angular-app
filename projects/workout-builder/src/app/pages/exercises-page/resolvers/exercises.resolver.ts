@@ -1,7 +1,7 @@
 import { inject } from "@angular/core";
 import type { ResolveFn } from "@angular/router";
+import { Exercise } from "../../../../../../shared/src/lib/types/exercises/exercises";
 import { ExercisesService } from "../../../services/exercises.service";
-import { Exercise } from "../../../types/exercises/exercises";
 
 export const exercisesResolver: ResolveFn<Exercise[]> = () => {
   const exercisesService = inject(ExercisesService);

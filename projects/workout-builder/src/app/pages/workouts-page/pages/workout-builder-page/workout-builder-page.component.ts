@@ -4,10 +4,11 @@ import { toSignal } from "@angular/core/rxjs-interop";
 import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs";
 import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/button/button.component";
+import { WorkoutTab } from "../../../../../../../shared/src/lib/types/workouts/workout-builder";
+import { Workout } from "../../../../../../../shared/src/lib/types/workouts/workouts";
 import { WorkoutBuilderService } from "../../../../services/workout-builder.service";
-import { WorkoutTab } from "../../../../types/workouts/workout-builder";
-import { Workout } from "../../../../types/workouts/workouts";
 import { WorkoutBuilderDetailsComponent } from "./components/workout-builder-details/workout-builder-details.component";
+import { WorkoutBuilderPreviewComponent } from "./components/workout-builder-preview/workout-builder-preview.component";
 import { WorkoutBuilderSetsComponent } from "./components/workout-builder-sets/workout-builder-sets.component";
 
 @Component({
@@ -16,7 +17,13 @@ import { WorkoutBuilderSetsComponent } from "./components/workout-builder-sets/w
   templateUrl: "./workout-builder-page.component.html",
   styleUrl: "./workout-builder-page.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule, ButtonComponent, WorkoutBuilderSetsComponent, WorkoutBuilderDetailsComponent],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    WorkoutBuilderSetsComponent,
+    WorkoutBuilderDetailsComponent,
+    WorkoutBuilderPreviewComponent,
+  ],
 })
 export class WorkoutBuilderPageComponent implements OnInit {
   private readonly activatedRoute = inject(ActivatedRoute);

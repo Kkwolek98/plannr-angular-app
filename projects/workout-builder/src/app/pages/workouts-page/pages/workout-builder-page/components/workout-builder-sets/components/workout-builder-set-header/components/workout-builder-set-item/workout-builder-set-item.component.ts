@@ -1,8 +1,8 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from "@angular/core";
 import { ButtonComponent } from "../../../../../../../../../../../../../shared/src/lib/inputs/button/button.component";
+import { SetItem } from "../../../../../../../../../../../../../shared/src/lib/types/workouts/sets";
 import { WorkoutBuilderService } from "../../../../../../../../../../services/workout-builder.service";
-import { SetItem } from "../../../../../../../../../../types/workouts/sets";
 
 @Component({
   selector: "app-workout-builder-set-item",
