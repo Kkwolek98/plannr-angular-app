@@ -1,3 +1,33 @@
-<div class="flex flex-col p-2">
-  <lib-button>Restart Workout</lib-button>
+<div class="flex flex-col gap-4 p-2">
+  <div class="flex gap-2">
+    <lib-button variant="outlined">Restart Workout</lib-button>
+    <div class="border-r border-slate-600 mx-2"></div>
+    <lib-button
+      [variant]="previewStyle() === 'phone' ? 'filled' : 'outlined'"
+      (click)="setPreviewStyle('phone')"
+      ><i class="fa-solid fa-mobile-screen-button"></i
+    ></lib-button>
+    <lib-button
+      [variant]="previewStyle() === 'tablet' ? 'filled' : 'outlined'"
+      (click)="setPreviewStyle('tablet')"
+      ><i class="fa-solid fa-tablet-screen-button"></i
+    ></lib-button>
+    <lib-button [variant]="previewStyle() === 'full' ? 'filled' : 'outlined'" (click)="setPreviewStyle('full')"
+      ><i class="fa-solid fa-expand"></i
+    ></lib-button>
+  </div>
+
+  @if (workoutData()) {
+    <div
+      [ngClass]="{
+        'w-[390px] h-[844px]': previewStyle() === 'phone',
+        'w-[1024px] h-[1366px]': previewStyle() === 'tablet',
+        'w-full': previewStyle() === 'full'
+      }"
+      class="bg-red-300">
+      <lib-workout-display [workoutId]="workoutData()!.id"></lib-workout-display>
+    </div>
+  } @else {
+    <lib-spinner></lib-spinner>
+  }
 </div>
