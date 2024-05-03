@@ -1,12 +1,13 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
+import { WorkoutDisplayCurrentSetComponent } from "./components/workout-display-current-set/workout-display-current-set.component";
 import { WorkoutDisplaySetPickerComponent } from "./components/workout-display-set-picker/workout-display-set-picker.component";
 import { WorkoutDisplayService } from "./services/workout-display.service";
 
 @Component({
   selector: "lib-workout-display",
   standalone: true,
-  imports: [CommonModule, WorkoutDisplaySetPickerComponent],
+  imports: [CommonModule, WorkoutDisplaySetPickerComponent, WorkoutDisplayCurrentSetComponent],
   templateUrl: "./workout-display.component.html",
   styleUrl: "./workout-display.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,

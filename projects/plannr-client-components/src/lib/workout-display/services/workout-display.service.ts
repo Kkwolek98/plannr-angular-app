@@ -22,6 +22,7 @@ export class WorkoutDisplayService {
     return this.workoutService.getWorkout$(workoutId).pipe(
       tap((workout) => {
         this.data.set(workout);
+        this.currentSetId.set(workout.sets[0].id);
       }),
       catchError((err: HttpErrorResponse) => {
         this.notificationsService.open({

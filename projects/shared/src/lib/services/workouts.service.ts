@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, map } from "rxjs";
 import { envConfig } from "../../../../../envConfig";
 import { NewWorkout, Workout } from "../types/workouts/workouts";
 
@@ -15,7 +15,12 @@ export class WorkoutsService {
   }
 
   public getWorkout$(id: string): Observable<Workout> {
-    return this.http.get<Workout>(envConfig.url + "/workouts/" + id);
+    return this.http.get<Workout>(envConfig.url + "/workouts/" + id).pipe(
+      map((workout) => {
+        workout.sets = workout.sets.sort((a, b) => a.sort - b.sort);
+        return workout;
+      })
+    );
   }
 
   public createWorkout$(data: NewWorkout): Observable<Workout> {
