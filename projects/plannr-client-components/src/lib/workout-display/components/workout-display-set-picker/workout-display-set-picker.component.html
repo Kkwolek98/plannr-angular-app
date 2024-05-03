@@ -1,0 +1,9 @@
+<div class="flex gap-2 p-0.5 overflow-scroll" [ngClass]="{ 'flex-col gap-4': isExpanded() }">
+  @for (set of data()!.sets; track $index) {
+    <lib-button
+      [variant]="set.id === currentSetId() ? 'filled' : 'outlined'"
+      (click)="setCurrentSetId(set.id)"
+      >{{ set.sort + 1 }}</lib-button
+    >
+  }
+</div>

@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from "@angular/common/http";
-import { Injectable, inject, signal } from "@angular/core";
+import { Injectable, computed, inject, signal } from "@angular/core";
 import { NotificationsService } from "@shared/notifications/services/notifications.service";
 import { WorkoutsService } from "@shared/services/workouts.service";
 import { Workout } from "@shared/types/workouts/workouts";
@@ -13,6 +13,8 @@ export class WorkoutDisplayService {
   private notificationsService = inject(NotificationsService);
 
   public data = signal<Workout | null>(null);
+  public currentSet = computed(() => this.data()?.sets.find((set) => set.id === this.currentSetId()));
+  public currentSetId = signal("");
 
   public getWorkoutData(workoutId: string): Observable<Workout> {
     this.data.set(null);
@@ -30,5 +32,9 @@ export class WorkoutDisplayService {
         throw err;
       })
     );
+  }
+
+  public setCurrentSetId(id: string): void {
+    this.currentSetId.set(id);
   }
 }
