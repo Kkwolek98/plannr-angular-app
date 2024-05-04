@@ -1,12 +1,17 @@
 <div class="flex flex-col gap-2">
   @if (currentSet()) {
-    <div class="flex justify-between items-center pb-2 px-2">
+    <div class="flex justify-between items-center pb-2">
       <div class="text-xl">
         {{ currentSet()!.name }}
       </div>
       <lib-button variant="outlined">
         <i class="fa-regular fa-clipboard"></i>
       </lib-button>
+    </div>
+    <div class="flex flex-col gap-2">
+      @for (setItem of currentSet()!.setItems; track setItem.id; let index = $index) {
+        <lib-workout-display-exercise [setItem]="setItem" [setItemIndex]="index"></lib-workout-display-exercise>
+      }
     </div>
   } @else {
     <lib-spinner></lib-spinner>

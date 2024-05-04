@@ -1,0 +1,35 @@
+<div class="flex flex-col">
+  <div class="flex text-lg items-center">
+    <div class="w-4">{{ setItemIndex() }}.</div>
+    <span class="flex-1">
+      {{ setItem().details.name }}
+    </span>
+    <lib-button color="clean">
+      <i class="fa-regular fa-circle-check text-black"></i>
+    </lib-button>
+  </div>
+  <div class="ml-4 flex gap-2 divide-x text-slate-400">
+    <div>
+      @if (setItem().repExact) {
+        {{ setItem().repExact }}
+      } @else {
+        {{ setItem().repMin }} - {{ setItem().repMax }}
+      }
+    </div>
+    @if (setItem().repWeight) {
+      <div class="pl-2">{{ setItem().repWeight }}{{ setItem().repType }}</div>
+    }
+    <div class="pl-2">
+      @if (setItem().rest) {
+        {{ setItem().rest! | libTime }}
+      } @else {
+        No rest
+      }
+    </div>
+  </div>
+  @if (setItem().details.description) {
+    <div class="ml-4 mt-2 text-slate-400">
+      {{ setItem().details.description }}
+    </div>
+  }
+</div>

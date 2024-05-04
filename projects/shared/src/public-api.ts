@@ -29,3 +29,5 @@ export * from "./lib/utils/short-id";
 export * from "./lib/youtube-video/youtube-video.component";
 
 export * from "./lib/services/workouts.service";
+
+export * from "./lib/pipes/time.pipe";
