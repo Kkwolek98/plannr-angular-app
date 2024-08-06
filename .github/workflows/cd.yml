@@ -17,7 +17,6 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           proxy_timeout: 480s
           protocol: ${{ secrets.PROTOCOL }}
-          port: ${{ secrets.PORT }}
           debug: true
           script: |
             export NG_CLI_ANALYTICS="false"
