@@ -16,7 +16,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           proxy_timeout: 480s
-          port: 22
+          port: ${{ secrets.PORT }}
           debug: true
           script: |
             export NG_CLI_ANALYTICS="false"
@@ -24,10 +24,14 @@ jobs:
             source ~/.nvm/nvm.sh
             eval "$(ssh-agent -s)"
             ssh-add ${{ secrets.KEY_PATH }}
-            cd ~/app
-            rm -rf ./*
-            git clone ${{ secrets.GIT_REPO_MASTER }}
-            cd plannr-angular-app
+            cd ~/Apps
+            if [ -d "plannr-angular-app" ]; then
+              cd plannr-angular-app
+              git pull
+            else
+              git clone ${{ secrets.GIT_REPO_MASTER }} plannr-angular-app
+              cd plannr-angular-app
+            fi
             npm install
             echo "${{ vars.ENV_CONFIG }}" > envConfig.ts
             kill -9 $(lsof -t -i:4200)
