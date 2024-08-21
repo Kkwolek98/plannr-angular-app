@@ -65,8 +65,9 @@ export class TableComponent<T extends unknown[]> implements AfterViewInit {
 
   @Output() rowClick = new EventEmitter<{ event: MouseEvent; row: T[number] }>();
 
-  @ContentChildren(TableColumnDirective) columns: QueryList<TableColumnDirective> =
-    new QueryList<TableColumnDirective>();
+  @ContentChildren(TableColumnDirective) columns: QueryList<TableColumnDirective<T[number]>> = new QueryList<
+    TableColumnDirective<T[number]>
+  >();
 
   constructor() {
     this.tableService.rowClick = this.rowClick;

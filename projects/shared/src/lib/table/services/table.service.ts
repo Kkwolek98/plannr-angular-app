@@ -6,6 +6,6 @@ import { CardBreakpoint } from "../types";
 export class TableService<T extends unknown[]> {
   public cardBreakpoint = signal<CardBreakpoint>(undefined);
   public data = signal<T>([] as unknown as T);
-  public columns = signal<QueryList<TableColumnDirective>>(new QueryList());
+  public columns = signal<QueryList<TableColumnDirective<T[number]>>>(new QueryList());
   public rowClick?: EventEmitter<{ event: MouseEvent; row: T[number] }>;
 }
