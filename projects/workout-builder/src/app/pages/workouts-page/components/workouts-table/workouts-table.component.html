@@ -1,4 +1,4 @@
-<lib-table [data]="data()" (rowClick)="goToWorkout($event.row.id)">
+<lib-table [data]="data()" (rowClick)="goToWorkout($event.row.id)" cardBreakpoint="sm">
   <ng-template libTableColumn headerDef="Name" let-row>
     {{ row.name }}
   </ng-template>

@@ -19,7 +19,7 @@
   </tr>
   <tr
     (click)="rowClick?.emit({ event: $event, row })"
-    class="hidden py-0.5 hover:bg-slate-200"
+    class="hidden pb-2 bt-1 hover:bg-slate-200"
     [ngClass]="{
       'bg-slate-100': $index % 2,
       'cursor-pointer': rowClick?.observed,
@@ -29,9 +29,9 @@
       'max-xl:flex': cardBreakpoint() === 'xl',
       'max-2xl:flex': cardBreakpoint() === '2xl'
     }">
-    <td class="grid grid-cols-2 gap-2">
+    <td class="grid grid-cols-[auto_1fr] gap-2">
       @for (column of columns(); track $index) {
-        <div class="inline-block font-bold" [class]="'table-col' + column.headerDef()">
+        <div class="me-2 inline-block font-bold" [class]="'table-col' + column.headerDef()">
           {{ column.headerDef() }}:
         </div>
         <div>
