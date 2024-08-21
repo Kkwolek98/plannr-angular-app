@@ -1,19 +1,27 @@
-<lib-table [data]="data()" (rowClick)="rowClicked($event.row)" [cardBreakpoint]="'sm'">
-  <ng-template libTableColumn headerDef="Name" let-row>
-    {{ row.name }}
-  </ng-template>
+<lib-drawer-container>
+  <lib-table [data]="data()!" (rowClick)="rowClicked($event.row)" [cardBreakpoint]="'sm'">
+    <ng-template libTableColumn headerDef="Name" let-row>
+      {{ row.name }}
+    </ng-template>
 
-  <ng-template libTableColumn headerDef="Description" let-row>
-    {{ row.description }}
-  </ng-template>
+    <ng-template libTableColumn headerDef="Description" let-row>
+      {{ row.description }}
+    </ng-template>
 
-  <ng-template libTableColumn headerDef="Tags" let-row>
-    @for (tag of row.tags; track $index) {
-      <span class="px-2 py-0.5 bg-slate-300 rounded-lg">{{ tag }}</span>
-    }
-  </ng-template>
+    <ng-template libTableColumn headerDef="Tags" let-row>
+      @for (tag of row.tags; track $index) {
+        <span class="px-2 py-0.5 bg-slate-300 rounded-lg">{{ tag }}</span>
+      }
+    </ng-template>
 
-  <ng-template libTableColumn headerDef="Videos" let-row>
-    {{ row.videos?.length }}
+    <ng-template libTableColumn headerDef="Videos" let-row>
+      {{ row.videos?.length }}
+    </ng-template>
+  </lib-table>
+
+  <ng-template libDrawer>
+    <app-exercise-details-drawer />
   </ng-template>
-</lib-table>
+</lib-drawer-container>
+
+<lib-table [data]="['one', 'two']"> </lib-table>

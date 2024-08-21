@@ -5,6 +5,7 @@ import {
   Component,
   ContentChildren,
   EventEmitter,
+  Input,
   Output,
   QueryList,
   inject,
@@ -25,17 +26,22 @@ import { CardBreakpoint } from "./types";
   providers: [TableService],
   imports: [CommonModule, TableHeadersComponent, TableRowsComponent],
 })
-export class TableComponent<T extends []> implements AfterViewInit {
+export class TableComponent<T extends unknown[]> implements AfterViewInit {
   public readonly tableService = inject(TableService<T>);
   /**
    * Table data
    */
-  public data = input.required<T, T>({
-    transform: (val) => {
-      this.tableService.data.set(val);
-      return val;
-    },
-  });
+  // public data: InputSignalWithTransform<T, T> = input.required<T, T>({
+  //   transform: (val) => {
+  //     this.tableService.data.set(val);
+  //     return val;
+  //   },
+  // });
+
+  @Input() set data(val: T) {
+    this.tableService.data.set(val);
+  }
+
   /**
    * Breakpoint at which table rows become cards
    *
@@ -57,7 +63,7 @@ export class TableComponent<T extends []> implements AfterViewInit {
     },
   });
 
-  @Output() rowClick = new EventEmitter<{ event: MouseEvent; row: T }>();
+  @Output() rowClick = new EventEmitter<{ event: MouseEvent; row: T[number] }>();
 
   @ContentChildren(TableColumnDirective) columns: QueryList<TableColumnDirective> =
     new QueryList<TableColumnDirective>();
