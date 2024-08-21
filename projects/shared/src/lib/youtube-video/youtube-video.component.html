@@ -7,7 +7,7 @@
   allowfullscreen></iframe>
 
 @if (loading()) {
-  <div [style.width.px]="width" [style.height.px]="height" class="flex justify-center items-center">
+  <div [style.width.px]="width()" [style.height.px]="height()" class="flex justify-center items-center">
     <lib-spinner size="lg"></lib-spinner>
   </div>
 }

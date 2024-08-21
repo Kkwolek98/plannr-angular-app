@@ -12,7 +12,9 @@ import { ValidationErrorComponent } from "../validation-error/validation-error.c
   styleUrl: "./select.component.scss",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelectComponent<SelectData extends []> implements ControlValueAccessor {
+export class SelectComponent<SelectData extends { [key: string | number | symbol]: unknown }[]>
+  implements ControlValueAccessor
+{
   private readonly cdref = inject(ChangeDetectorRef);
   readonly ngControl = inject(NgControl);
 
@@ -28,8 +30,8 @@ export class SelectComponent<SelectData extends []> implements ControlValueAcces
   });
 
   public data = input.required<SelectData>();
-  public valueKey = input.required<keyof SelectData[0]>();
-  public labelKey = input.required<keyof SelectData[0]>();
+  public valueKey = input.required<keyof SelectData[number]>();
+  public labelKey = input.required<keyof SelectData[number]>();
 
   inputId: string = shortId("select");
   onChange!: (value: string | number) => void;
