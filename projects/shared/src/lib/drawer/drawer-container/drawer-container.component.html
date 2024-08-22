@@ -2,7 +2,7 @@
   <ng-content></ng-content>
 
   <div
-    class="overflow-hidden transition-[width] ease-in-out duration-500 [&>*:first-child]:text-nowrap"
+    class="overflow-hidden transition-[width] ease-in-out duration-500 [&>*:first-child]:text-nowrap max-sm:fixed max-sm:top-0 max-sm:right-0 max-sm:shadow-lg max-sm:bg-white max-sm:h-screen max-sm:z-50"
     [style.width]="isOpen() ? width() : '0px'">
     <ng-container [ngTemplateOutlet]="drawer.templateRef"></ng-container>
   </div>
