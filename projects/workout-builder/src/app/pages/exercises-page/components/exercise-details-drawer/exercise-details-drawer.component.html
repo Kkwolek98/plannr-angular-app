@@ -1,1 +1,15 @@
-<p>exercise-details-drawer works!</p>,
+<div class="px-3 flex flex-col gap-4">
+  <div class="flex justify-between items-center gap-2">
+    <h2 [title]="drawerData()?.name" class="text-2xl font-bold truncate">{{ drawerData()?.name }}</h2>
+    <lib-button color="clean" (click)="closeDrawer.emit()">
+      <i class="fa-solid fa-xmark text-xl text-slate-400 hover:text-slate-600"></i>
+    </lib-button>
+  </div>
+  <div class="flex gap-2 max-h-[50vh]">
+    @for (video of drawerData()?.videos; track $index) {
+      <lib-youtube-video [url]="video" />
+    } @empty {
+      <span class="text-slate-400">No videos to show</span>
+    }
+  </div>
+</div>

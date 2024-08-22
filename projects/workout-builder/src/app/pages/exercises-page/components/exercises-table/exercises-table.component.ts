@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, input, signal, viewChild } from "@angular/core";
 import { DrawerDirective } from "@shared/drawer/drawer.directive";
 import { DrawerContainerComponent } from "../../../../../../../shared/src/lib/drawer/drawer-container/drawer-container.component";
 import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/button/button.component";
@@ -27,7 +27,24 @@ import { ExerciseDetailsDrawerComponent } from "../exercise-details-drawer/exerc
 export class ExercisesTableComponent {
   readonly data = input<Exercise[]>();
 
-  rowClicked(row: Exercise): void {
-    console.log({ row });
+  drawerContainer = viewChild<DrawerContainerComponent>("drawerContainer");
+
+  drawerData = signal<Exercise | null>(null);
+
+  toggleDrawer(row: Exercise): void {
+    if (this.drawerData()?.id === row.id) {
+      this.drawerData.set(null);
+      this.drawerContainer()?.close();
+    } else {
+      this.drawerData.set(row);
+      this.drawerContainer()?.open();
+    }
+  }
+
+  closeDrawer(): void {
+    this.drawerContainer()?.close();
+    setTimeout(() => {
+      this.drawerData.set(null);
+    }, 300);
   }
 }

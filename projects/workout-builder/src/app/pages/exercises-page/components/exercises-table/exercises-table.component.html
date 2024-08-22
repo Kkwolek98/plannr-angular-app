@@ -1,5 +1,5 @@
-<lib-drawer-container>
-  <lib-table [data]="data()!" (rowClick)="rowClicked($event.row)" [cardBreakpoint]="'sm'">
+<lib-drawer-container #drawerContainer>
+  <lib-table [data]="data()!" (rowClick)="toggleDrawer($event.row)" [cardBreakpoint]="'sm'">
     <ng-template libTableColumn headerDef="Name" let-row>
       {{ row.name }}
     </ng-template>
@@ -20,8 +20,6 @@
   </lib-table>
 
   <ng-template libDrawer>
-    <app-exercise-details-drawer />
+    <app-exercise-details-drawer [drawerData]="drawerData()" (closeDrawer)="closeDrawer()" />
   </ng-template>
 </lib-drawer-container>
-
-<lib-table [data]="['one', 'two']"> </lib-table>
