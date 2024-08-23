@@ -9,7 +9,7 @@ export class ClickedOutsideDirective {
 
   public libClickedOutside = output<MouseEvent>();
 
-  @HostListener("document:mousedown", ["$event"])
+  @HostListener("document:click", ["$event"])
   onClick(event: MouseEvent): void {
     if (!this.elementRef.nativeElement.contains(event.target)) {
       this.libClickedOutside.emit(event);
