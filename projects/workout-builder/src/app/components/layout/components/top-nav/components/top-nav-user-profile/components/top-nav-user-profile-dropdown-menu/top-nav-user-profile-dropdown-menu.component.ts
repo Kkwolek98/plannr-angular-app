@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { Router } from "@angular/router";
 import { AuthenticationService } from "../../../../../../../../services/authentication.service";
 import { DropdownItemComponent } from "../../../../../../../dropdown-item/dropdown-item.component";
 
@@ -13,8 +14,10 @@ import { DropdownItemComponent } from "../../../../../../../dropdown-item/dropdo
 })
 export class TopNavUserProfileDropdownMenuComponent {
   private readonly authService = inject(AuthenticationService);
+  private readonly router = inject(Router);
 
   protected items: { label: string; action: () => void }[] = [
+    { label: "User details", action: () => this.router.navigate(["/user"]) },
     { label: "Logout", action: () => this.authService.logout() },
   ];
 }
