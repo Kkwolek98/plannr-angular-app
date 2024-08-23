@@ -1,11 +1,9 @@
-<div class="relative">
+<div class="relative" (libClickedOutside)="isMenuVisible.set(false)">
   <button class="text-2xl p-2" (click)="isMenuVisible.set(!isMenuVisible())">
     <i class="fa-regular fa-user"></i>
   </button>
   @if (isMenuVisible()) {
-    <div
-      class="bg-white absolute right-0 shadow-lg rounded-md w-32 p-2"
-      (libClickedOutside)="isMenuVisible.set(false)">
+    <div class="bg-white absolute right-0 shadow-lg rounded-md w-32 p-2">
       <app-top-nav-user-profile-dropdown-menu></app-top-nav-user-profile-dropdown-menu>
     </div>
   }
