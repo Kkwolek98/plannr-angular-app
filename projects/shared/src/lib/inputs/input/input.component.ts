@@ -37,6 +37,7 @@ export class InputComponent implements ControlValueAccessor, OnInit {
       return val;
     },
   });
+  public renderDisabledAsPlaintext = input(false);
 
   inputId: string = shortId("input");
   onChange!: (value: string | number) => void;

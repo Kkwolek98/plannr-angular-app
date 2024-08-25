@@ -1,1 +1,44 @@
-<p>user-details-page works!</p>,
+<section class="flex flex-col gap-2">
+  <h2 class="text-xl">User Details</h2>
+  <form [formGroup]="form" (ngSubmit)="saveUserDetails()">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <lib-input
+        labelPosition="left"
+        label="First name:"
+        formControlName="firstName"
+        [renderDisabledAsPlaintext]="true" />
+      <lib-input
+        labelPosition="left"
+        label="Last name:"
+        formControlName="lastName"
+        [renderDisabledAsPlaintext]="true" />
+      <lib-input
+        labelPosition="left"
+        label="Birth date:"
+        formControlName="birthDate"
+        [renderDisabledAsPlaintext]="true" />
+      <lib-input
+        labelPosition="left"
+        label="Weight:"
+        formControlName="weight"
+        type="number"
+        inputMode="numeric"
+        [renderDisabledAsPlaintext]="true" />
+      <lib-input
+        labelPosition="left"
+        label="Height:"
+        formControlName="height"
+        type="number"
+        inputMode="numeric"
+        [renderDisabledAsPlaintext]="true" />
+    </div>
+    <div class="flex flex-row-reverse gap-4">
+      @if (form.disabled) {
+        <lib-button (click)="form.enable()">Edit</lib-button>
+      } @else {
+        <lib-button type="submit">Save</lib-button>
+        <lib-button color="secondary" (click)="form.reset(); form.disable()">Cancel</lib-button>
+      }
+    </div>
+  </form>
+</section>

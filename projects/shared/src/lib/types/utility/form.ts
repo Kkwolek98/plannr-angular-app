@@ -19,3 +19,9 @@ export type ExtractFormControl<T> = {
                   ? Partial<ExtractFormControl<U>> | undefined
                   : T[K];
 };
+
+export type MakeForm<T> = {
+  [K in keyof T]-?: undefined extends T[K]
+    ? FormControl<Exclude<T[K], undefined> | null | undefined>
+    : FormControl<T[K]>;
+};

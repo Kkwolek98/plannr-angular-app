@@ -29,7 +29,10 @@
       [autocomplete]="autocomplete() ? 'on' : 'off'"
       [disabled]="isDisabled"
       (blur)="onTouched()"
-      class="border border-slate-500 outline-emerald-700 rounded-sm p-1 h-8" />
+      [ngClass]="{
+        'border border-slate-500 outline-emerald-700 rounded-sm p-1 h-8': !isDisabled,
+        'bg-transparent border-none cursor-text': isDisabled && renderDisabledAsPlaintext()
+      }" />
   } @else {
     <textarea
       [id]="inputId"
@@ -40,7 +43,10 @@
       [autocomplete]="autocomplete() ? 'on' : 'off'"
       [disabled]="isDisabled"
       (blur)="onTouched()"
-      class="border border-slate-500 outline-emerald-700 rounded-sm p-1">
+      [ngClass]="{
+        'border border-slate-500 outline-emerald-700 rounded-sm p-1': !isDisabled,
+        'bg-transparent border-none cursor-text': isDisabled && renderDisabledAsPlaintext()
+      }">
     </textarea>
   }
   @if (ngControl.control) {

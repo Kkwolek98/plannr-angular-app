@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { envConfig } from "envConfig";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { UserDetails } from "../types/user/user-details";
 
 @Injectable({
@@ -15,6 +15,11 @@ export class UserService {
   }
 
   public updateCurrentUserDetails$(details: Partial<UserDetails>): Observable<UserDetails> {
-    return this.http.put<UserDetails>(envConfig.url + "/user/details", { body: details });
+    return this.http.put<UserDetails>(envConfig.url + "/user/details", details).pipe(
+      map((res: any) => {
+        delete res["id"];
+        return res as UserDetails;
+      })
+    );
   }
 }
