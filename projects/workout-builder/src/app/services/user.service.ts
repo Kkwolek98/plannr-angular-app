@@ -10,11 +10,11 @@ import { UserDetails } from "../types/user/user-details";
 export class UserService {
   private readonly http = inject(HttpClient);
 
-  public getCurrentUserDetails(): Observable<UserDetails> {
+  public getCurrentUserDetails$(): Observable<UserDetails> {
     return this.http.get<UserDetails>(envConfig.url + "/user/details");
   }
 
-  public updateCurrentUserDetails(details: Partial<UserDetails>): Observable<UserDetails> {
+  public updateCurrentUserDetails$(details: Partial<UserDetails>): Observable<UserDetails> {
     return this.http.put<UserDetails>(envConfig.url + "/user/details", { body: details });
   }
 }

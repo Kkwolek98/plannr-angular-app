@@ -5,5 +5,5 @@ import { UserDetails } from "@workout-builder/app/types/user/user-details";
 
 export const userDetailsResolver: ResolveFn<UserDetails> = (route, state) => {
   const userService = inject(UserService);
-  return userService.getCurrentUserDetails();
+  return userService.getCurrentUserDetails$();
 };
