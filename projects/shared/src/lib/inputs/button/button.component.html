@@ -2,8 +2,9 @@
   #button
   [type]="type()"
   [disabled]="disabled()"
-  class="py-2 px-3 rounded-md transition ease-in duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
+  class="transition ease-in duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none"
   [ngClass]="{
+    'rounded-md py-2 px-3': shape() !== 'circle',
     'rounded-full aspect-square px-4': shape() === 'circle',
     'text-white': variant() === 'filled',
     'text-black': color() === 'clean',
