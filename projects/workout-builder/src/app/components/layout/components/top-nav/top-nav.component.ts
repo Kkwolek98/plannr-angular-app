@@ -20,8 +20,8 @@ export class TopNavComponent {
       display: "Exercises",
     },
     {
-      url: "/workouts",
-      display: "Workouts",
+      url: "/workout-templates",
+      display: "Workout Templates",
     },
   ] as const;
 }

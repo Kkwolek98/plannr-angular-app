@@ -5,23 +5,25 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs";
 import { ButtonComponent } from "../../../../../shared/src/lib/inputs/button/button.component";
 import { ModalsService } from "../../../../../shared/src/lib/modals/services/modals.service";
-import { Workout } from "../../../../../shared/src/lib/types/workouts/workouts";
+import { WorkoutTemplate } from "../../../../../shared/src/lib/types/workouts/workout-template";
 import { NewWorkoutModalComponent } from "./components/new-workout-modal/new-workout-modal.component";
 import { WorkoutsTableComponent } from "./components/workouts-table/workouts-table.component";
 
 @Component({
-  selector: "app-workouts-page",
+  selector: "app-workout-templates-page",
   standalone: true,
-  templateUrl: "./workouts-page.component.html",
+  templateUrl: "./workout-templates-page.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, ButtonComponent, WorkoutsTableComponent],
 })
-export class WorkoutsPageComponent {
+export class WorkoutTemplatesPageComponent {
   readonly route = inject(ActivatedRoute);
   private readonly modalsService = inject(ModalsService);
   private readonly router = inject(Router);
 
-  readonly workouts = toSignal<Workout[]>(this.route.data.pipe(map((data) => data["workouts"] as Workout[])));
+  readonly workouts = toSignal<WorkoutTemplate[]>(
+    this.route.data.pipe(map((data) => data["workouts"] as WorkoutTemplate[]))
+  );
 
   openNewWorkoutModal(): void {
     const modal = this.modalsService.newModal(NewWorkoutModalComponent, {
@@ -33,7 +35,7 @@ export class WorkoutsPageComponent {
           return;
         }
 
-        this.router.navigate([`/workouts/${newWorkout.id}`]);
+        this.router.navigate([`/workout-templates/${newWorkout.id}`]);
       },
     });
   }

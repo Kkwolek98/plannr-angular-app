@@ -1,26 +1,26 @@
 import { Injectable, inject, signal } from "@angular/core";
 import { toObservable } from "@angular/core/rxjs-interop";
 import { Observable, tap } from "rxjs";
-import { WorkoutsService } from "../../../../shared/src/lib/services/workouts.service";
+import { WorkoutTemplatesService } from "../../../../shared/src/lib/services/workout-templates.service";
 import { ExerciseSet, SetItem } from "../../../../shared/src/lib/types/workouts/sets";
-import { Workout } from "../../../../shared/src/lib/types/workouts/workouts";
+import { WorkoutTemplate } from "../../../../shared/src/lib/types/workouts/workout-template";
 import { SetsService } from "./sets.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class WorkoutBuilderService {
-  private readonly workoutsService = inject(WorkoutsService);
+  private readonly workoutsService = inject(WorkoutTemplatesService);
   private readonly setsService = inject(SetsService);
 
-  private readonly _dataSignal = signal<Workout | undefined>(undefined);
+  private readonly _dataSignal = signal<WorkoutTemplate | undefined>(undefined);
   private readonly editedSetItemId = signal<string | null>(null);
 
   public readonly data = toObservable(this._dataSignal);
   public readonly openSetsIds = signal<Set<string>>(new Set());
   public readonly editedSetItemId$ = toObservable(this.editedSetItemId);
 
-  public setWorkout(workout: Workout): void {
+  public setWorkout(workout: WorkoutTemplate): void {
     this._dataSignal.set(workout);
   }
 
@@ -28,8 +28,11 @@ export class WorkoutBuilderService {
     this._dataSignal.set(undefined);
   }
 
-  public updateWorkoutDetails(workoutDetails: { name: string; description?: string }): Observable<Workout> {
-    return this.workoutsService.updateWorkout$(this._dataSignal()!.id, workoutDetails).pipe(
+  public updateWorkoutDetails(workoutDetails: {
+    name: string;
+    description?: string;
+  }): Observable<WorkoutTemplate> {
+    return this.workoutsService.updateWorkoutTemplate$(this._dataSignal()!.id, workoutDetails).pipe(
       tap((workout) => {
         this._dataSignal.set(workout);
       })
@@ -52,7 +55,7 @@ export class WorkoutBuilderService {
     this.editedSetItemId.set(setItemId);
   }
 
-  public addEmptySet(): Observable<Workout> {
+  public addEmptySet(): Observable<WorkoutTemplate> {
     const id = this._dataSignal()?.id;
 
     if (!id) {

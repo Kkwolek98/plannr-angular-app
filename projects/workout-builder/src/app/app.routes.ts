@@ -24,8 +24,9 @@ export const routes: Routes = [
         loadChildren: () => import("./pages/exercises-page/exercises.routes").then((c) => c.exerciseRoutes),
       },
       {
-        path: "workouts",
-        loadChildren: () => import("./pages/workouts-page/workouts.routes").then((c) => c.workoutsRoutes),
+        path: "workout-templates",
+        loadChildren: () =>
+          import("./pages/workout-templates-page/workout-templates.routes").then((c) => c.workoutsRoutes),
       },
       {
         path: "user",

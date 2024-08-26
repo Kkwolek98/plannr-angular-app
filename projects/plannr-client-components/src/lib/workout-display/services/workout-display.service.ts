@@ -1,25 +1,25 @@
 import { HttpErrorResponse } from "@angular/common/http";
 import { Injectable, computed, inject, signal } from "@angular/core";
 import { NotificationsService } from "@shared/notifications/services/notifications.service";
-import { WorkoutsService } from "@shared/services/workouts.service";
-import { Workout } from "@shared/types/workouts/workouts";
+import { WorkoutTemplatesService } from "@shared/services/workout-templates.service";
+import { WorkoutTemplate } from "@shared/types/workouts/workout-template";
 import { Observable, catchError, tap } from "rxjs";
 
 @Injectable({
   providedIn: "root",
 })
 export class WorkoutDisplayService {
-  private workoutService = inject(WorkoutsService);
+  private workoutTemplatesService = inject(WorkoutTemplatesService);
   private notificationsService = inject(NotificationsService);
 
-  public data = signal<Workout | null>(null);
+  public data = signal<WorkoutTemplate | null>(null);
   public currentSet = computed(() => this.data()?.sets.find((set) => set.id === this.currentSetId()));
   public currentSetId = signal("");
 
-  public getWorkoutData(workoutId: string): Observable<Workout> {
+  public getWorkoutData(workoutId: string): Observable<WorkoutTemplate> {
     this.data.set(null);
 
-    return this.workoutService.getWorkout$(workoutId).pipe(
+    return this.workoutTemplatesService.getWorkoutTemplate$(workoutId).pipe(
       tap((workout) => {
         this.data.set(workout);
         this.currentSetId.set(workout.sets[0].id);

@@ -1,13 +1,13 @@
 import { Route } from "@angular/router";
 import { workoutResolver } from "./resolvers/workout.resolver";
-import { workoutsResolver } from "./resolvers/workouts.resolver";
-import { WorkoutsPageComponent } from "./workouts-page.component";
+import { workoutTemplatesResolver } from "./resolvers/workouts.resolver";
+import { WorkoutTemplatesPageComponent } from "./workout-templates-page.component";
 
 export const workoutsRoutes: Route[] = [
   {
-    component: WorkoutsPageComponent,
+    component: WorkoutTemplatesPageComponent,
     path: "",
-    resolve: { workouts: workoutsResolver },
+    resolve: { workouts: workoutTemplatesResolver },
   },
   {
     loadComponent: () =>

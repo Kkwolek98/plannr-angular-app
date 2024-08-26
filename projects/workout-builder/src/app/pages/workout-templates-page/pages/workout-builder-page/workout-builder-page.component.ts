@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { map } from "rxjs";
 import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/button/button.component";
 import { WorkoutTab } from "../../../../../../../shared/src/lib/types/workouts/workout-builder";
-import { Workout } from "../../../../../../../shared/src/lib/types/workouts/workouts";
+import { WorkoutTemplate } from "../../../../../../../shared/src/lib/types/workouts/workout-template";
 import { WorkoutBuilderService } from "../../../../services/workout-builder.service";
 import { WorkoutBuilderDetailsComponent } from "./components/workout-builder-details/workout-builder-details.component";
 import { WorkoutBuilderPreviewComponent } from "./components/workout-builder-preview/workout-builder-preview.component";
@@ -30,8 +30,10 @@ export class WorkoutBuilderPageComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly workoutBuilderService = inject(WorkoutBuilderService);
 
-  readonly workoutData = toSignal(this.activatedRoute.data.pipe(map((data) => data["workout"] as Workout)));
-  data: Signal<Workout | undefined>;
+  readonly workoutData = toSignal(
+    this.activatedRoute.data.pipe(map((data) => data["workout"] as WorkoutTemplate))
+  );
+  data: Signal<WorkoutTemplate | undefined>;
   readonly activeTab = toSignal(
     this.activatedRoute.queryParams.pipe(map((queryParams) => queryParams["tab"] as string))
   );

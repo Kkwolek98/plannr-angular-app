@@ -5,12 +5,12 @@ import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/butt
 import { InputComponent } from "../../../../../../../shared/src/lib/inputs/input/input.component";
 import { TagInputComponent } from "../../../../../../../shared/src/lib/inputs/tag-input/tag-input.component";
 import { ModalComponent } from "../../../../../../../shared/src/lib/modals/components/modal/modal.component";
-import { WorkoutsService } from "../../../../../../../shared/src/lib/services/workouts.service";
+import { WorkoutTemplatesService } from "../../../../../../../shared/src/lib/services/workout-templates.service";
 import {
-  NewWorkout,
-  NewWorkoutForm,
-  Workout,
-} from "../../../../../../../shared/src/lib/types/workouts/workouts";
+  NewWorkoutTemplate,
+  NewWorkoutTemplateForm,
+  WorkoutTemplate,
+} from "../../../../../../../shared/src/lib/types/workouts/workout-template";
 
 @Component({
   selector: "app-new-workout-modal",
@@ -20,11 +20,11 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, InputComponent, ReactiveFormsModule, ButtonComponent, TagInputComponent],
 })
-export class NewWorkoutModalComponent extends ModalComponent<undefined, Workout | undefined> {
-  private readonly workoutsService = inject(WorkoutsService);
+export class NewWorkoutModalComponent extends ModalComponent<undefined, WorkoutTemplate | undefined> {
+  private readonly workoutsService = inject(WorkoutTemplatesService);
 
   protected loading = signal<boolean>(false);
-  protected form: FormGroup<NewWorkoutForm> = new FormGroup({
+  protected form: FormGroup<NewWorkoutTemplateForm> = new FormGroup({
     name: new FormControl("", { validators: [Validators.required], nonNullable: true }),
     description: new FormControl("", { nonNullable: false }),
     tags: new FormControl([] as string[], { nonNullable: true }),
@@ -38,7 +38,7 @@ export class NewWorkoutModalComponent extends ModalComponent<undefined, Workout 
     this.loading.set(true);
     const values = this.form.value;
 
-    this.workoutsService.createWorkout$(values as NewWorkout).subscribe({
+    this.workoutsService.createWorkoutTemplate$(values as NewWorkoutTemplate).subscribe({
       next: (newWorkout) => {
         this.form.reset();
         this.close(newWorkout);

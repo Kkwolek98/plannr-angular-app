@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { ButtonComponent } from "../../../../../../../shared/src/lib/inputs/button/button.component";
 import { TableColumnDirective } from "../../../../../../../shared/src/lib/table/directives/table-column.directive";
 import { TableComponent } from "../../../../../../../shared/src/lib/table/table.component";
-import { Workout } from "../../../../../../../shared/src/lib/types/workouts/workouts";
+import { WorkoutTemplate } from "../../../../../../../shared/src/lib/types/workouts/workout-template";
 
 @Component({
   selector: "app-workouts-table",
@@ -17,7 +17,7 @@ import { Workout } from "../../../../../../../shared/src/lib/types/workouts/work
 export class WorkoutsTableComponent {
   private readonly router = inject(Router);
 
-  readonly data = input<Workout[]>();
+  readonly data = input<WorkoutTemplate[]>();
 
   goToWorkout(id: string) {
     this.router.navigate(["workouts", id]);
