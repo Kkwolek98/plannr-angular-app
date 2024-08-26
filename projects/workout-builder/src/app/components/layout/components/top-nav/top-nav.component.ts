@@ -23,5 +23,9 @@ export class TopNavComponent {
       url: "/workout-templates",
       display: "Workout Templates",
     },
+    {
+      url: "/planning",
+      display: "Planning",
+    },
   ] as const;
 }
