@@ -20,6 +20,6 @@ export class WorkoutsTableComponent {
   readonly data = input<WorkoutTemplate[]>();
 
   goToWorkout(id: string) {
-    this.router.navigate(["workouts", id]);
+    this.router.navigate(["workout-templates", id]);
   }
 }
