@@ -27,7 +27,7 @@ export class WorkoutTemplatesPageComponent {
 
   openNewWorkoutModal(): void {
     const modal = this.modalsService.newModal(NewWorkoutModalComponent, {
-      title: "Create new workout",
+      title: "Create new template",
     });
     modal.closed$.subscribe({
       next: (newWorkout) => {
