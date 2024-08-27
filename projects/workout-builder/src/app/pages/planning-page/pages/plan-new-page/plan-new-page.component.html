@@ -1,34 +1,27 @@
 <main class="flex flex-col gap-2">
-  <nav class="flex gap-2">
-    <lib-button
-      [disabled]="!visitedTabs()?.includes(PlanningTab.Group)"
-      (click)="changeTab(PlanningTab.Group)"
-      [variant]="currentTab() === PlanningTab.Group ? 'filled' : 'outlined'"
-      >Group</lib-button
-    >
-    <lib-button
-      [disabled]="!visitedTabs()?.includes(PlanningTab.User)"
-      (click)="changeTab(PlanningTab.User)"
-      [variant]="currentTab() === PlanningTab.User ? 'filled' : 'outlined'"
-      >User</lib-button
-    >
-    <lib-button
-      [disabled]="!visitedTabs()?.includes(PlanningTab.WorkoutTemplate)"
-      (click)="changeTab(PlanningTab.WorkoutTemplate)"
-      [variant]="currentTab() === PlanningTab.WorkoutTemplate ? 'filled' : 'outlined'"
-      >Workout Template</lib-button
-    >
-    <lib-button
-      [disabled]="!visitedTabs()?.includes(PlanningTab.Adjustments)"
-      (click)="changeTab(PlanningTab.Adjustments)"
-      [variant]="currentTab() === PlanningTab.Adjustments ? 'filled' : 'outlined'"
-      >Adjustments</lib-button
-    >
-    <lib-button
-      [disabled]="!visitedTabs()?.includes(PlanningTab.Dates)"
-      (click)="changeTab(PlanningTab.Dates)"
-      [variant]="currentTab() === PlanningTab.Dates ? 'filled' : 'outlined'"
-      >Dates</lib-button
-    >
-  </nav>
+  <app-plan-new-navigation #navigation />
+  <hr />
+  <section class="py-2">
+    @switch (navigation.currentTab()) {
+      @case (PlanningTab.Group) {
+        <app-plan-new-group-step />
+      }
+      @case (PlanningTab.User) {
+        <app-plan-new-user-step />
+      }
+      @case (PlanningTab.WorkoutTemplate) {
+        <app-plan-new-workout-template-step />
+      }
+      @case (PlanningTab.Adjustments) {
+        <app-plan-new-adjustments-step />
+      }
+      @case (PlanningTab.Dates) {
+        <app-plan-new-dates-step />
+      }
+    }
+  </section>
+  <hr />
+  @if (!navigation.isLastTab()) {
+    <lib-button (click)="navigation.next()">Next</lib-button>
+  }
 </main>

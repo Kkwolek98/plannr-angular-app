@@ -1,47 +1,36 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject, OnInit } from "@angular/core";
-import { toObservable, toSignal } from "@angular/core/rxjs-interop";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ChangeDetectionStrategy, Component, OnInit, viewChild } from "@angular/core";
 import { ButtonComponent } from "@shared/inputs/button/button.component";
-import { map, scan } from "rxjs";
+import { PlanNewNavigationComponent } from "./components/plan-new-navigation/plan-new-navigation.component";
+import { PlanNewAdjustmentsStepComponent } from "./components/plan-new-steps/plan-new-adjustments-step/plan-new-adjustments-step.component";
+import { PlanNewDatesStepComponent } from "./components/plan-new-steps/plan-new-dates-step/plan-new-dates-step.component";
+import { PlanNewGroupStepComponent } from "./components/plan-new-steps/plan-new-group-step/plan-new-group-step.component";
+import { PlanNewUserStepComponent } from "./components/plan-new-steps/plan-new-user-step/plan-new-user-step.component";
+import { PlanNewWorkoutTemplateStepComponent } from "./components/plan-new-steps/plan-new-workout-template-step/plan-new-workout-template-step.component";
 import { PlanningTab } from "./enums/planning-tab.enum";
 
 @Component({
   selector: "app-plan-new-page",
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    PlanNewNavigationComponent,
+    PlanNewGroupStepComponent,
+    PlanNewUserStepComponent,
+    PlanNewWorkoutTemplateStepComponent,
+    PlanNewAdjustmentsStepComponent,
+    PlanNewDatesStepComponent,
+  ],
   templateUrl: "./plan-new-page.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlanNewPageComponent implements OnInit {
-  private activatedRoute = inject(ActivatedRoute);
-  private router = inject(Router);
-
   PlanningTab = PlanningTab;
 
-  currentTab = toSignal<PlanningTab>(this.activatedRoute.queryParams.pipe(map((params) => params["tab"])));
-  visitedTabs = toSignal<PlanningTab[]>(
-    toObservable(this.currentTab).pipe(
-      scan((acc: PlanningTab[], currentTab: PlanningTab | undefined) => {
-        if (!currentTab) {
-          return acc;
-        }
-        const planningTabValues = Object.values(PlanningTab);
-        const visitedTabs = [...acc, currentTab];
-        // match sorting of this to how tabs are presented
-        const sortedSetArray = [...new Set(visitedTabs)].sort(
-          (a, b) => planningTabValues.indexOf(a) - planningTabValues.indexOf(b)
-        );
-        return sortedSetArray;
-      }, [])
-    )
-  );
+  navigation = viewChild<PlanNewNavigationComponent>("navigation");
 
   ngOnInit(): void {
-    this.changeTab(PlanningTab.Group);
-  }
-
-  changeTab(tab: PlanningTab): void {
-    this.router.navigate([], { relativeTo: this.activatedRoute, queryParams: { tab } });
+    this.navigation()?.changeTab(PlanningTab.Group);
   }
 }
