@@ -18,15 +18,15 @@
     >Workout Template</lib-button
   >
   <lib-button
-    [disabled]="!visitedTabs()?.includes(PlanningTab.Adjustments)"
-    (click)="changeTab(PlanningTab.Adjustments)"
-    [variant]="currentTab() === PlanningTab.Adjustments ? 'filled' : 'outlined'"
-    >Adjustments</lib-button
-  >
-  <lib-button
     [disabled]="!visitedTabs()?.includes(PlanningTab.Dates)"
     (click)="changeTab(PlanningTab.Dates)"
     [variant]="currentTab() === PlanningTab.Dates ? 'filled' : 'outlined'"
     >Dates</lib-button
+  >
+  <lib-button
+    [disabled]="!visitedTabs()?.includes(PlanningTab.Adjustments)"
+    (click)="changeTab(PlanningTab.Adjustments)"
+    [variant]="currentTab() === PlanningTab.Adjustments ? 'filled' : 'outlined'"
+    >Adjustments</lib-button
   >
 </nav>
