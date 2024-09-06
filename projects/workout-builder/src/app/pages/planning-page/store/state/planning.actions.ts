@@ -2,7 +2,7 @@ import { WorkoutTemplate } from "@shared/types/workouts/workout-template";
 
 export class PlanningSetTemplateAction {
   static readonly type = "[Planning] SetTemplate";
-  constructor(public payload: WorkoutTemplate) {}
+  constructor(public payload: WorkoutTemplate | null) {}
 }
 
 export class PlanningSetDatesAction {

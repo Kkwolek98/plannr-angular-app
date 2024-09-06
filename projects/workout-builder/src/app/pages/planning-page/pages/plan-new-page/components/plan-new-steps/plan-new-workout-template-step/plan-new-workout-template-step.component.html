@@ -1,0 +1,54 @@
+<form [formGroup]="form" class="flex gap-4">
+  <lib-select
+    class="flex-1"
+    formControlName="workoutTemplateId"
+    [data]="workoutTemplates()!"
+    label="Select workout template"
+    valueKey="id"
+    labelKey="name" />
+  <aside class="flex-1">
+    <h2>Details:</h2>
+    @if (templatePreview()) {
+      <table class="table-auto border-separate border-spacing-x-2 -mx-2">
+        <tbody>
+          <tr>
+            <td class="font-bold">Name:</td>
+            <td>
+              {{ templatePreview()?.name }}
+            </td>
+          </tr>
+          <tr>
+            <td class="font-bold">Description:</td>
+            <td>
+              {{ templatePreview()?.description || "-" }}
+            </td>
+          </tr>
+          <tr>
+            <td class="font-bold">No. of sets:</td>
+            <td>
+              {{ templatePreview()?.sets?.length }}
+            </td>
+          </tr>
+          <tr>
+            <td class="font-bold">Tags:</td>
+            <td>
+              <div class="flex gap-1">
+                @for (tag of templatePreview()?.tags; track $index) {
+                  <lib-tag>{{ tag }}</lib-tag>
+                } @empty {
+                  -
+                }
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="font-bold">Owner:</td>
+            <td>
+              {{ templatePreview()?.owner?.email || "-" }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    }
+  </aside>
+</form>

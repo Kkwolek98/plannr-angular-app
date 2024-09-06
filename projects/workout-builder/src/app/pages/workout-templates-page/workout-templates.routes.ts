@@ -1,6 +1,6 @@
 import { Route } from "@angular/router";
+import { workoutTemplatesResolver } from "@workout-builder/app/resolvers/workouts.resolver";
 import { workoutResolver } from "./resolvers/workout.resolver";
-import { workoutTemplatesResolver } from "./resolvers/workouts.resolver";
 import { WorkoutTemplatesPageComponent } from "./workout-templates-page.component";
 
 export const workoutsRoutes: Route[] = [

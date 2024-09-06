@@ -42,7 +42,7 @@ export class PlanNewNavigationComponent {
   });
 
   ngOnInit(): void {
-    this.changeTab(PlanningTab.Group);
+    this.changeTab(PlanningTab.WorkoutTemplate);
   }
 
   public changeTab(tab: PlanningTab): void {

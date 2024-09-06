@@ -2,12 +2,16 @@ import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { ExerciseSet } from "@shared/types/workouts/sets";
 import { WorkoutTemplate } from "@shared/types/workouts/workout-template";
-import { PlanningSetDatesAction, PlanningSetTemplateAction } from "./planning.actions";
+import {
+  PlanningResetStateAction,
+  PlanningSetDatesAction,
+  PlanningSetTemplateAction,
+} from "./planning.actions";
 
 export type PlanningStateModel = {
   groupId: string;
   userId: string;
-  template: WorkoutTemplate;
+  template: WorkoutTemplate | null;
   plannedWorkouts: {
     differences: ExerciseSet[];
     date: Date;
@@ -17,7 +21,7 @@ export type PlanningStateModel = {
 const defaults = {
   groupId: "",
   userId: "",
-  template: {} as WorkoutTemplate,
+  template: null,
   plannedWorkouts: [],
 };
 
@@ -37,7 +41,7 @@ export class PlanningState {
     return state.plannedWorkouts;
   }
 
-  @Action(PlanningSetTemplateAction)
+  @Action(PlanningResetStateAction)
   resetState({ setState }: StateContext<PlanningStateModel>) {
     setState({ ...defaults });
   }

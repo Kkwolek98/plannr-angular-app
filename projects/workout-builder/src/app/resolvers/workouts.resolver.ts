@@ -1,9 +1,9 @@
 import { inject } from "@angular/core";
 import type { ResolveFn } from "@angular/router";
+import { NotificationsService } from "@shared/notifications/services/notifications.service";
+import { WorkoutTemplatesService } from "@shared/services/workout-templates.service";
+import { WorkoutTemplate } from "@shared/types/workouts/workout-template";
 import { catchError, of } from "rxjs";
-import { NotificationsService } from "../../../../../../shared/src/lib/notifications/services/notifications.service";
-import { WorkoutTemplatesService } from "../../../../../../shared/src/lib/services/workout-templates.service";
-import { WorkoutTemplate } from "../../../../../../shared/src/lib/types/workouts/workout-template";
 
 export const workoutTemplatesResolver: ResolveFn<WorkoutTemplate[]> = () => {
   const workoutsService = inject(WorkoutTemplatesService);
@@ -13,7 +13,7 @@ export const workoutTemplatesResolver: ResolveFn<WorkoutTemplate[]> = () => {
     catchError(() => {
       notificationsService.open({
         type: "error",
-        message: "Failed to load workouts",
+        message: "Failed to load workout templates",
       });
 
       return of([]);

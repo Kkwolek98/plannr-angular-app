@@ -24,6 +24,7 @@ export class ExercisesPageComponent {
   readonly exercises = signal<Exercise[]>([]);
 
   constructor() {
+    // TODO: toSignal
     this.route.data.pipe(map((data) => data["exercises"] as Exercise[])).subscribe({
       next: (val) => {
         this.exercises.set(val);
